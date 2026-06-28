@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "sync-screenshots": "node scripts/sync-product-screenshots.mjs",
+    "sync-brand-logos": "node scripts/sync-brand-logos.mjs",
     "test:geo": "tsx scripts/geo-routing.test.mts",
     "test:webhook": "tsx scripts/demo-webhook.test.mts",
     "test:consent": "tsx scripts/consent.test.mts",

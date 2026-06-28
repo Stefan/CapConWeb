@@ -32,7 +32,12 @@ export function AppScreenshotFrame({
           src={src}
           alt={alt}
           fill
-          sizes={variant === "hero" ? "(max-width: 768px) 100vw, 560px" : "(max-width: 1024px) 100vw, 400px"}
+          unoptimized
+          sizes={
+            variant === "hero"
+              ? "(max-width: 768px) 100vw, 576px"
+              : "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 560px"
+          }
           className="object-cover object-left-top"
           style={{
             objectPosition: crop?.objectPosition ?? "left top",

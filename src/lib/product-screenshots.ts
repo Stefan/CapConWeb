@@ -20,7 +20,7 @@ export const heroScreenshotByVariant: Record<SiteVariant, string> = {
 /** Pre-cropped marketing PNGs (CapCon top bar + loaded content). */
 export const heroScreenshotCrop: Record<SiteVariant, ScreenshotCrop> = {
   "large-projects": { objectPosition: "left top", scale: 1 },
-  "standard-capex": { objectPosition: "left top", scale: 1.02 },
+  "standard-capex": { objectPosition: "left top", scale: 1 },
   cdmo: { objectPosition: "left top", scale: 1 },
   apac: { objectPosition: "left top", scale: 1 },
   japan: { objectPosition: "left top", scale: 1 },
@@ -43,7 +43,7 @@ export const panelScreenshotById: Record<string, string> = {
 };
 
 export const panelScreenshotCrop: Record<string, ScreenshotCrop> = {
-  costbook: { objectPosition: "left 18%", scale: 1.08 },
+  costbook: { objectPosition: "left top", scale: 1 },
   sov: { objectPosition: "left top", scale: 1 },
   "master-plan": { objectPosition: "left top", scale: 1 },
   steering: { objectPosition: "left top", scale: 1 },

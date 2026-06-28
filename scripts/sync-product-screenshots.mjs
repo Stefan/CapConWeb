@@ -25,11 +25,14 @@ const targetDir = path.join(capconWebRoot, "public", "screenshots");
  * Prefer: cd orka-ppm && npm run marketing-screenshots
  */
 const FILES = [
+  "project-overview-evm.png",
+  "portfolio-command-center.png",
   "portfolio-master-plan.png",
   "financials-sov.png",
   "financials-reconciliation.png",
   "financials-costbook.png",
   "financials-change-impact.png",
+  "risks.png",
   "portfolio-risk-steering.png",
   "workflows.png",
   "dashboards.png",

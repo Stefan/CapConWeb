@@ -176,6 +176,11 @@ const dictionary: SiteDictionary = {
         title: "포트폴리오 거버넌스",
         caption: "프로그램 지표, 조기 편차 경고, 우선순위 조치.",
       },
+      {
+        id: "risks",
+        title: "리스크 관리",
+        caption: "점수, 카테고리 분석, 포트폴리오 연계 주요 리스크.",
+      },
     ],
   },
   socialProof: {

@@ -8,19 +8,19 @@ export type ScreenshotCrop = {
 };
 
 export const heroScreenshotByVariant: Record<SiteVariant, string> = {
-  "large-projects": "/screenshots/portfolio-master-plan.png",
-  "standard-capex": "/screenshots/financials-costbook.png",
-  cdmo: "/screenshots/portfolio-risk-steering.png",
-  apac: "/screenshots/portfolio-risk-steering.png",
-  japan: "/screenshots/financials-costbook.png",
-  korea: "/screenshots/financials-costbook.png",
-  poland: "/screenshots/financials-costbook.png",
+  "large-projects": "/screenshots/project-overview-evm.png",
+  "standard-capex": "/screenshots/project-overview-evm.png",
+  cdmo: "/screenshots/risks.png",
+  apac: "/screenshots/project-overview-evm.png",
+  japan: "/screenshots/project-overview-evm.png",
+  korea: "/screenshots/project-overview-evm.png",
+  poland: "/screenshots/project-overview-evm.png",
 };
 
 /** Pre-cropped marketing PNGs (CapCon top bar + loaded content). */
 export const heroScreenshotCrop: Record<SiteVariant, ScreenshotCrop> = {
   "large-projects": { objectPosition: "left top", scale: 1 },
-  "standard-capex": { objectPosition: "left top", scale: 1 },
+  "standard-capex": { objectPosition: "left top", scale: 1.02 },
   cdmo: { objectPosition: "left top", scale: 1 },
   apac: { objectPosition: "left top", scale: 1 },
   japan: { objectPosition: "left top", scale: 1 },
@@ -32,17 +32,18 @@ export const heroScreenshotCrop: Record<SiteVariant, ScreenshotCrop> = {
 export const panelScreenshotById: Record<string, string> = {
   costbook: "/screenshots/financials-costbook.png",
   sov: "/screenshots/financials-sov.png",
-  "master-plan": "/screenshots/portfolio-master-plan.png",
-  steering: "/screenshots/portfolio-master-plan.png",
+  "master-plan": "/screenshots/portfolio-command-center.png",
+  steering: "/screenshots/portfolio-command-center.png",
   recon: "/screenshots/financials-reconciliation.png",
-  "portfolio-mfg": "/screenshots/dashboards.png",
+  "portfolio-mfg": "/screenshots/portfolio-command-center.png",
   "co-cc": "/screenshots/financials-change-impact.png",
-  portfolio: "/screenshots/portfolio-risk-steering.png",
+  portfolio: "/screenshots/portfolio-command-center.png",
+  risks: "/screenshots/risks.png",
   audit: "/screenshots/workflows.png",
 };
 
 export const panelScreenshotCrop: Record<string, ScreenshotCrop> = {
-  costbook: { objectPosition: "left top", scale: 1 },
+  costbook: { objectPosition: "left 18%", scale: 1.08 },
   sov: { objectPosition: "left top", scale: 1 },
   "master-plan": { objectPosition: "left top", scale: 1 },
   steering: { objectPosition: "left top", scale: 1 },
@@ -50,6 +51,7 @@ export const panelScreenshotCrop: Record<string, ScreenshotCrop> = {
   "portfolio-mfg": { objectPosition: "left top", scale: 1 },
   "co-cc": { objectPosition: "left top", scale: 1 },
   portfolio: { objectPosition: "left top", scale: 1 },
+  risks: { objectPosition: "left top", scale: 1 },
   audit: { objectPosition: "left top", scale: 1 },
 };
 

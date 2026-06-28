@@ -175,6 +175,11 @@ const dictionary: SiteDictionary = {
         title: "Pilotage portefeuille",
         caption: "Indicateurs programme, alertes d'écart et actions priorisées.",
       },
+      {
+        id: "risks",
+        title: "Gestion des risques",
+        caption: "Scores, catégories et principaux risques liés au pilotage portefeuille.",
+      },
     ],
   },
   socialProof: {

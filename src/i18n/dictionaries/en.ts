@@ -175,6 +175,11 @@ const dictionary: SiteDictionary = {
         title: "Portfolio governance",
         caption: "Program metrics, early variance warnings, and prioritized actions.",
       },
+      {
+        id: "risks",
+        title: "Risk management",
+        caption: "Scoring, category breakdown, and top risks linked to portfolio steering.",
+      },
     ],
   },
   socialProof: {
@@ -349,7 +354,7 @@ const dictionary: SiteDictionary = {
     },
   },
   dashboard: {
-    title: "Capex portfolio – Q2 2026",
+    title: "Project overview – EVM & AI summary",
     stats: [
       { label: "Total capex", value: "€101.9M" },
       { label: "EAC delta", value: "+€2.4M" },

@@ -175,6 +175,11 @@ const dictionary: SiteDictionary = {
         title: "投资组合治理",
         caption: "项目指标、早期偏差预警与优先行动。",
       },
+      {
+        id: "risks",
+        title: "风险管理",
+        caption: "评分、类别分布及与组合治理关联的重点风险。",
+      },
     ],
   },
   socialProof: {

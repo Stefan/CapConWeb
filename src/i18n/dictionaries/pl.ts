@@ -175,6 +175,11 @@ const dictionary: SiteDictionary = {
         title: "Nadzór portfelowy",
         caption: "Wskaźniki programu, wczesne ostrzeżenia o odchyleniach i priorytetowe działania.",
       },
+      {
+        id: "risks",
+        title: "Zarządzanie ryzykiem",
+        caption: "Ocena, kategorie i kluczowe ryzyka powiązane z nadzorem portfelowym.",
+      },
     ],
   },
   socialProof: {

@@ -175,6 +175,11 @@ const dictionary: SiteDictionary = {
         title: "Portfolio-Steuerung",
         caption: "Programm-Kennzahlen, Frühwarnungen bei Abweichungen und priorisierte Steuerungsmaßnahmen.",
       },
+      {
+        id: "risks",
+        title: "Risikomanagement",
+        caption: "Bewertung, Kategorien und Top-Risiken — verknüpft mit Portfolio-Steuerung.",
+      },
     ],
   },
   socialProof: {
@@ -349,7 +354,7 @@ const dictionary: SiteDictionary = {
     },
   },
   dashboard: {
-    title: "Capex Portfolio – Q2 2026",
+    title: "Projektübersicht – EVM & KI-Zusammenfassung",
     stats: [
       { label: "Gesamt-Capex", value: "101,9 M€" },
       { label: "EAC Delta", value: "+2,4 M€" },

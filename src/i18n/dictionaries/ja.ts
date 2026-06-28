@@ -177,6 +177,11 @@ const dictionary: SiteDictionary = {
         title: "ポートフォリオガバナンス",
         caption: "プログラム指標、早期差異アラート、優先アクション。",
       },
+      {
+        id: "risks",
+        title: "リスク管理",
+        caption: "スコアリング、カテゴリ分析、ポートフォリオ連動の主要リスク。",
+      },
     ],
   },
   socialProof: {

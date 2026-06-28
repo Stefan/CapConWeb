@@ -30,7 +30,7 @@ export function ProductScreensSection() {
           />
         </FadeIn>
 
-        <ul className="mt-14 grid gap-8 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-8 sm:grid-cols-2">
           {productScreens.panels.map((panel, index) => {
             const src = getPanelScreenshot(panel.id);
             const crop = getPanelScreenshotCrop(panel.id);

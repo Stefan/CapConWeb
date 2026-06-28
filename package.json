@@ -13,7 +13,8 @@
     "test:consent": "tsx scripts/consent.test.mts",
     "test:legal": "tsx scripts/interpolate-legal.test.mts",
     "test:demo-api": "tsx scripts/demo-request.route.test.mts",
-    "test": "npm run test:geo && npm run test:webhook && npm run test:consent && npm run test:legal && npm run test:demo-api"
+    "test:rate-limit": "tsx scripts/demo-rate-limit.test.mts",
+    "test": "npm run test:geo && npm run test:webhook && npm run test:consent && npm run test:legal && npm run test:rate-limit && npm run test:demo-api"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

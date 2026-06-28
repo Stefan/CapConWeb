@@ -80,6 +80,14 @@ Optional zusätzlich `DEMO_FORM_WEBHOOK_URL` für CRM/Zapier — Slack-URLs werd
 
 Lokal testen: URL in `.env.local` setzen, `npm run dev`, `/de/demo` absenden. Payload-Tests: `npm run test:webhook`.
 
+**Rate-Limit (Missbrauchsschutz):** `/api/demo-request` erlaubt 5 Anfragen pro IP und Stunde. In Production über **Upstash Redis** (Vercel Marketplace Integration); lokal ohne Redis automatisch In-Memory-Fallback.
+
+1. Vercel → **Marketplace** → **Redis (Upstash)** → mit CapConWeb verbinden  
+2. Env-Variablen `UPSTASH_REDIS_REST_URL` und `UPSTASH_REDIS_REST_TOKEN` werden gesetzt (Legacy: `KV_REST_API_*`)  
+3. Redeploy — Rate-Limits gelten dann serverübergreifend
+
+Tests: `npm run test:rate-limit`, `npm run test:demo-api`
+
 ## Sprachen (Geo-Routing)
 
 | Sprache | Regionen (Auswahl) |

@@ -3,6 +3,7 @@ import { afterEach, describe, it } from "node:test";
 import { NextRequest } from "next/server";
 
 import { POST } from "../src/app/api/demo-request/route.ts";
+import { resetMemoryRateLimitStore } from "../src/lib/demo-rate-limit.ts";
 
 const originalFetch = globalThis.fetch;
 const envBackup = {
@@ -12,6 +13,7 @@ const envBackup = {
 
 afterEach(() => {
   globalThis.fetch = originalFetch;
+  resetMemoryRateLimitStore();
   if (envBackup.slack === undefined) {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
   } else {

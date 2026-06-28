@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CapCon">
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56">
+      <stop offset="0%" stop-color="#0f2744"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 54 16v32L32 60 10 48V16L32 4Z" fill="url(#g)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <text x="32" y="38" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif" letter-spacing="-0.06em">CC</text>
+</svg>

@@ -1,0 +1,185 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+import { LegalDocument } from "@/components/legal/legal-document";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { useSite } from "@/components/providers/site-provider";
+import { Button } from "@/components/ui/button";
+import { demoMailSubject, demoThankYouPrefix } from "@/i18n/demo-locale-copy";
+import { contactEmail } from "@/lib/brand";
+
+export function DemoPageContent() {
+  const { locale, dict } = useSite();
+  const { demo } = dict;
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const company = String(data.get("company") ?? "");
+    const email = String(data.get("email") ?? "");
+    const role = String(data.get("role") ?? "");
+    const message = String(data.get("message") ?? "");
+
+    const subject = demoMailSubject(locale, company);
+    const body = [
+      `Name: ${name}`,
+      `Company: ${company}`,
+      `Email: ${email}`,
+      `Role: ${role}`,
+      message ? `Message: ${message}` : "",
+      `Locale: ${locale}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const submitViaApi = async () => {
+      const response = await fetch("/api/demo-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, role, message, locale }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        return true;
+      }
+      return false;
+    };
+
+    const endpoint = process.env.NEXT_PUBLIC_DEMO_FORM_ENDPOINT;
+    if (endpoint) {
+      void fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, role, message, locale }),
+      }).finally(() => setSubmitted(true));
+      return;
+    }
+
+    void (async () => {
+      const ok = await submitViaApi().catch(() => false);
+      if (ok) return;
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setSubmitted(true);
+    })();
+  };
+
+  return (
+    <>
+      <Navbar />
+      <main id="main-content" className="min-h-[70vh] bg-white">
+        <div className="mx-auto max-w-xl px-4 py-28 sm:px-6 lg:px-8">
+          <Link
+            href={`/${locale}`}
+            className="text-sm font-medium text-indigo-600 hover:text-indigo-700"
+          >
+            ← {demo.backHome}
+          </Link>
+          <h1 className="mt-6 text-3xl font-semibold tracking-tight text-navy-950">
+            {demo.title}
+          </h1>
+          <p className="mt-3 text-slate-600">{demo.description}</p>
+
+          {submitted ? (
+            <p className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+              {demoThankYouPrefix(locale)}
+              <a
+                href={`mailto:${contactEmail}`}
+                className="font-medium underline underline-offset-2"
+              >
+                {contactEmail}
+              </a>
+              .
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-navy-950">
+                  {demo.nameLabel}
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-indigo-600 focus:ring-2"
+                  placeholder={demo.namePlaceholder}
+                />
+              </div>
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-navy-950">
+                  {demo.companyLabel}
+                </label>
+                <input
+                  id="company"
+                  name="company"
+                  required
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-indigo-600 focus:ring-2"
+                  placeholder={demo.companyPlaceholder}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-navy-950">
+                  {demo.emailLabel}
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-indigo-600 focus:ring-2"
+                  placeholder={demo.emailPlaceholder}
+                />
+              </div>
+              <div>
+                <label htmlFor="role" className="block text-sm font-medium text-navy-950">
+                  {demo.roleLabel}
+                </label>
+                <input
+                  id="role"
+                  name="role"
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-indigo-600 focus:ring-2"
+                  placeholder={demo.rolePlaceholder}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-navy-950">
+                  {demo.messageLabel}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="mt-1.5 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none ring-indigo-600 focus:ring-2"
+                  placeholder={demo.messagePlaceholder}
+                />
+              </div>
+              <p className="text-xs text-slate-500">
+                {demo.privacyNote}{" "}
+                <Link
+                  href={`/${locale}/privacy`}
+                  className="underline underline-offset-2 hover:text-slate-700"
+                >
+                  {dict.footer.privacy}
+                </Link>
+                .
+              </p>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-indigo-600 text-white hover:bg-indigo-700 sm:w-auto"
+              >
+                {demo.submit}
+              </Button>
+            </form>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}

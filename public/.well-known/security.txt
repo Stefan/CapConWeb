@@ -1,0 +1,8 @@
+Contact: mailto:kontakt@capcon.io
+Expires: 2027-06-30T00:00:00.000Z
+Preferred-Languages: en, de
+Policy: https://capcon.io/en/terms
+Acknowledgments: https://capcon.io/en/privacy
+
+# CapCon marketing site — report security issues responsibly.
+# We aim to respond within 5 business days.

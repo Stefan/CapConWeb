@@ -69,7 +69,7 @@ export function Navbar() {
 
         <div
           data-capcon-nav-actions
-          className="flex items-center justify-end gap-1.5 sm:gap-2"
+          className="flex items-center justify-end gap-2 sm:gap-2.5"
         >
           <LocaleSwitcher className="hidden shrink-0 lg:inline-flex" />
           <Button

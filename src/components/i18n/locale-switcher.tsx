@@ -1,8 +1,11 @@
 "use client";
 
+import { Menu } from "@base-ui/react/menu";
+import { Check, ChevronDown, Globe } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { Button } from "@/components/ui/button";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +16,16 @@ const localeLabels: Record<Locale, string> = {
   ja: "JA",
   ko: "KO",
   pl: "PL",
+  zh: "中文",
+};
+
+const localeNames: Record<Locale, string> = {
+  de: "Deutsch",
+  en: "English",
+  fr: "Français",
+  ja: "日本語",
+  ko: "한국어",
+  pl: "Polski",
   zh: "中文",
 };
 
@@ -36,33 +49,65 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
     segments.length > 0 && isLocale(segments[0]!) ? segments[0]! : "de";
 
   return (
-    <div
-      className={cn(
-        "inline-flex overflow-hidden rounded-lg border border-slate-200 bg-white text-xs font-semibold",
-        className,
-      )}
-      role="group"
-      aria-label="Language"
-    >
-      {locales.map((locale) => {
-        const active = locale === currentLocale;
-        return (
-          <Link
-            key={locale}
-            href={switchLocalePath(pathname, locale)}
+    <Menu.Root>
+      <Menu.Trigger
+        render={
+          <Button
+            variant="outline"
+            size="sm"
             className={cn(
-              "px-2.5 py-1.5 transition-colors",
-              active
-                ? "bg-indigo-600 text-white"
-                : "text-slate-600 hover:bg-slate-50 hover:text-navy-950",
+              "h-8 gap-1.5 border-slate-200 bg-white/80 px-2.5 text-xs font-semibold text-slate-700 shadow-none hover:bg-white",
+              className,
             )}
-            aria-current={active ? "true" : undefined}
-            lang={locale}
+            aria-label="Language"
+          />
+        }
+      >
+        <Globe className="size-3.5 text-slate-500" aria-hidden />
+        <span>{localeLabels[currentLocale]}</span>
+        <ChevronDown className="size-3.5 text-slate-400" aria-hidden />
+      </Menu.Trigger>
+      <Menu.Portal>
+        <Menu.Positioner align="end" sideOffset={8}>
+          <Menu.Popup
+            className={cn(
+              "z-50 min-w-44 origin-[var(--transform-origin)] overflow-hidden rounded-lg border border-slate-200 bg-white p-1 shadow-lg outline-none",
+              "transition duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
+            )}
           >
-            {localeLabels[locale]}
-          </Link>
-        );
-      })}
-    </div>
+            {locales.map((locale) => {
+              const active = locale === currentLocale;
+              return (
+                <Menu.LinkItem
+                  key={locale}
+                  closeOnClick
+                  render={
+                    <Link
+                      href={switchLocalePath(pathname, locale)}
+                      lang={locale}
+                      aria-current={active ? "true" : undefined}
+                    />
+                  }
+                  className={cn(
+                    "flex cursor-pointer items-center gap-2 rounded-md px-2.5 py-2 text-sm outline-none data-highlighted:bg-slate-50",
+                    active ? "font-medium text-indigo-600" : "text-slate-700",
+                  )}
+                >
+                  <span className="min-w-0 flex-1">{localeNames[locale]}</span>
+                  <span className="text-xs font-semibold text-slate-400">
+                    {localeLabels[locale]}
+                  </span>
+                  {active ? (
+                    <Check className="size-4 shrink-0 text-indigo-600" aria-hidden />
+                  ) : (
+                    <span className="size-4 shrink-0" aria-hidden />
+                  )}
+                </Menu.LinkItem>
+              );
+            })}
+          </Menu.Popup>
+        </Menu.Positioner>
+      </Menu.Portal>
+    </Menu.Root>
   );
 }

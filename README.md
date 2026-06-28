@@ -90,13 +90,13 @@ Tests: `npm run test:rate-limit`, `npm run test:demo-api`
 
 ## Google Analytics 4
 
-Set on Vercel (optional):
+Standard-Property: **`G-BYVNSRDQRC`** (in `src/lib/analytics.ts`). Optional auf Vercel überschreiben:
 
 ```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-BYVNSRDQRC
 ```
 
-GA4 lädt **nur nach Cookie-Einwilligung „Alle akzeptieren“** — nicht bei „Nur notwendige“. IP-Anonymisierung ist aktiv; keine Google-Signale/Ads-Personalisierung. CSP erlaubt Google-Endpunkte automatisch, sobald die ID gesetzt ist.
+GA4 lädt **nur nach Cookie-Einwilligung „Alle akzeptieren“** — nicht bei „Nur notwendige“. IP-Anonymisierung ist aktiv; keine Google-Signale/Ads-Personalisierung. CSP erlaubt Google-Endpunkte automatisch.
 
 ## Sprachen (Geo-Routing)
 

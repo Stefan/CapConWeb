@@ -105,7 +105,9 @@ export type SiteDictionary = {
     messageLabel: string;
     messagePlaceholder: string;
     submit: string;
-    privacyNote: string;
+    consentBefore: string;
+    consentAfter: string;
+    consentRequired: string;
     backHome: string;
   };
   footer: {

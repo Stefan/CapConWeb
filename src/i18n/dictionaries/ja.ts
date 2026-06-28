@@ -269,8 +269,9 @@ const dictionary: SiteDictionary = {
     messageLabel: "メッセージ（任意）",
     messagePlaceholder: "プロジェクト種別、拠点数、GMP要件など …",
     submit: "送信する",
-    privacyNote:
-      "送信いただくことで、プライバシーポリシーに基づく個人データの取り扱いに同意いただいたものとみなします。",
+    consentBefore: "私は",
+    consentAfter: "に基づく個人データの取り扱いに同意します。",
+    consentRequired: "同意にチェックを入れてください。",
     backHome: "ホームに戻る",
   },
   footer: {

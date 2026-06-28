@@ -15,11 +15,18 @@ export function DemoPageContent() {
   const { locale, dict } = useSite();
   const { demo } = dict;
   const [submitted, setSubmitted] = useState(false);
+  const [consentError, setConsentError] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+    const consent = data.get("privacyConsent") === "on";
+    if (!consent) {
+      setConsentError(true);
+      return;
+    }
+    setConsentError(false);
     const name = String(data.get("name") ?? "");
     const company = String(data.get("company") ?? "");
     const email = String(data.get("email") ?? "");
@@ -158,16 +165,33 @@ export function DemoPageContent() {
                   placeholder={demo.messagePlaceholder}
                 />
               </div>
-              <p className="text-xs text-slate-500">
-                {demo.privacyNote}{" "}
-                <Link
-                  href={`/${locale}/privacy`}
-                  className="underline underline-offset-2 hover:text-slate-700"
-                >
-                  {dict.footer.privacy}
-                </Link>
-                .
-              </p>
+              <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-3">
+                <label htmlFor="privacyConsent" className="flex items-start gap-3 text-sm text-slate-600">
+                  <input
+                    id="privacyConsent"
+                    name="privacyConsent"
+                    type="checkbox"
+                    required
+                    onChange={() => setConsentError(false)}
+                    className="mt-0.5 size-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <span>
+                    {demo.consentBefore}{" "}
+                    <Link
+                      href={`/${locale}/privacy`}
+                      className="font-medium text-indigo-600 underline underline-offset-2 hover:text-indigo-700"
+                    >
+                      {dict.footer.privacy}
+                    </Link>
+                    {demo.consentAfter}
+                  </span>
+                </label>
+                {consentError ? (
+                  <p className="mt-2 text-xs text-red-600" role="alert">
+                    {demo.consentRequired}
+                  </p>
+                ) : null}
+              </div>
               <Button
                 type="submit"
                 size="lg"

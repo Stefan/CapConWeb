@@ -268,8 +268,9 @@ const dictionary: SiteDictionary = {
     messageLabel: "메시지(선택)",
     messagePlaceholder: "프로젝트 유형, Fab·캠퍼스 규모, 특정 요건 …",
     submit: "요청 보내기",
-    privacyNote:
-      "제출 시 개인정보 처리방침에 따른 데이터 처리에 동의하는 것으로 간주됩니다.",
+    consentBefore: "본인은",
+    consentAfter: "에 따른 개인정보 처리에 동의합니다.",
+    consentRequired: "동의 항목에 체크해 주세요.",
     backHome: "홈으로 돌아가기",
   },
   footer: {

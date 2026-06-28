@@ -267,8 +267,9 @@ const dictionary: SiteDictionary = {
     messageLabel: "Wiadomość (opcjonalnie)",
     messagePlaceholder: "Typ projektu, skala obiektu, szczególne wymagania …",
     submit: "Wyślij zapytanie",
-    privacyNote:
-      "Wysyłając formularz, wyrażają Państwo zgodę na przetwarzanie danych zgodnie z naszą polityką prywatności.",
+    consentBefore: "Wyrażam zgodę na przetwarzanie moich danych zgodnie z",
+    consentAfter: ".",
+    consentRequired: "Prosimy o potwierdzenie zgody na przetwarzanie danych.",
     backHome: "Powrót do strony głównej",
   },
   footer: {

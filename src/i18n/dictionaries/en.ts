@@ -267,8 +267,9 @@ const dictionary: SiteDictionary = {
     messageLabel: "Message (optional)",
     messagePlaceholder: "Project type, campus size, specific requirements …",
     submit: "Send request",
-    privacyNote:
-      "By submitting, you agree to the processing of your data according to our privacy policy.",
+    consentBefore: "I agree to the processing of my data under our",
+    consentAfter: ".",
+    consentRequired: "Please confirm your consent to data processing.",
     backHome: "Back to home",
   },
   footer: {

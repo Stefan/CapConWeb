@@ -267,8 +267,9 @@ const dictionary: SiteDictionary = {
     messageLabel: "留言（选填）",
     messagePlaceholder: "项目类型、园区规模、特定需求 …",
     submit: "提交申请",
-    privacyNote:
-      "提交即表示您同意我们依照隐私政策处理您的数据。",
+    consentBefore: "我同意依照",
+    consentAfter: "处理我的数据。",
+    consentRequired: "请勾选同意项。",
     backHome: "返回首页",
   },
   footer: {

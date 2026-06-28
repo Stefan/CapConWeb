@@ -67,6 +67,13 @@ export function CookieConsentBanner() {
             >
               {copy.settingsLink}
             </Link>
+            {" · "}
+            <Link
+              href={`/${locale}/privacy`}
+              className="font-medium text-indigo-600 underline underline-offset-2 hover:text-indigo-700"
+            >
+              {copy.privacyLink}
+            </Link>
             .
           </p>
         </div>
@@ -96,9 +103,7 @@ export function CookieConsentBanner() {
       </div>
       {settingsOpen ? (
         <p className="mx-auto mt-3 max-w-6xl text-xs text-slate-500">
-          {locale === "de"
-            ? "„Nur notwendige“: Consent-Cookie + Sitzungs-Edition. „Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie."
-            : "Essential only: consent + session edition cookie. Accept all: also 90-day regional edition cookie."}
+          {copy.settingsDetailEssential} {copy.settingsDetailAll}
         </p>
       ) : null}
     </div>

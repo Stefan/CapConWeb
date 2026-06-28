@@ -1,19 +1,16 @@
 import type { Locale } from "@/i18n/config";
 import type { LegalSection } from "@/i18n/types";
+import { frPages } from "@/i18n/legal/locales/fr";
+import { jaPages } from "@/i18n/legal/locales/ja";
+import { koPages } from "@/i18n/legal/locales/ko";
+import { zhPages } from "@/i18n/legal/locales/zh";
+import type {
+  CookieBannerCopy,
+  ExtendedFooterLegal,
+  ExtendedLegalPages,
+} from "@/i18n/legal/types";
 
-export type ExtendedLegalPages = {
-  impressum: { title: string; sections: LegalSection[] };
-  privacy: { title: string; sections: LegalSection[] };
-  cookies: { title: string; sections: LegalSection[] };
-  terms: { title: string; sections: LegalSection[] };
-  accessibility: { title: string; sections: LegalSection[] };
-};
-
-export type ExtendedFooterLegal = {
-  cookies: string;
-  terms: string;
-  accessibility: string;
-};
+export type { CookieBannerCopy, ExtendedFooterLegal, ExtendedLegalPages } from "@/i18n/legal/types";
 
 const sharedPrivacyCore: LegalSection[] = [
   {
@@ -451,47 +448,9 @@ export const socialProofDisclaimerByLocale: Record<Locale, string> = {
 export const legalPagesByLocale: Record<Locale, ExtendedLegalPages> = {
   de: dePages,
   en: enPages,
-  fr: {
-    ...enPages,
-    impressum: { title: "Mentions légales", sections: impressumEn() },
-    privacy: {
-      title: "Politique de confidentialité",
-      sections: [
-        {
-          heading: "1. Responsable",
-          paragraphs: [
-            "{{companyName}}",
-            "{{addressLine1}}",
-            "{{addressLine2}}",
-            "E-mail : {{email}}",
-          ],
-        },
-        ...sharedPrivacyCore.map((s) => ({
-          ...s,
-          heading: s.heading.replace("Hosting", "Hébergement"),
-        })),
-      ],
-    },
-    cookies: { title: "Politique cookies", sections: cookieSectionsEn },
-    terms: { title: "Conditions d'utilisation", sections: termsSectionsEn },
-    accessibility: { title: "Accessibilité", sections: accessibilitySectionsEn },
-  },
-  ja: {
-    ...enPages,
-    impressum: { title: "法的情報", sections: impressumEn() },
-    privacy: { title: "プライバシーポリシー", sections: privacyEn() },
-    cookies: { title: "Cookieポリシー", sections: cookieSectionsEn },
-    terms: { title: "利用規約", sections: termsSectionsEn },
-    accessibility: { title: "アクセシビリティ", sections: accessibilitySectionsEn },
-  },
-  ko: {
-    ...enPages,
-    impressum: { title: "법적 고지", sections: impressumEn() },
-    privacy: { title: "개인정보 처리방침", sections: privacyEn() },
-    cookies: { title: "쿠키 정책", sections: cookieSectionsEn },
-    terms: { title: "이용약관", sections: termsSectionsEn },
-    accessibility: { title: "접근성", sections: accessibilitySectionsEn },
-  },
+  fr: frPages,
+  ja: jaPages,
+  ko: koPages,
   pl: {
     ...enPages,
     impressum: { title: "Informacje prawne", sections: impressumEn() },
@@ -513,14 +472,7 @@ export const legalPagesByLocale: Record<Locale, ExtendedLegalPages> = {
     terms: { title: "Regulamin", sections: termsSectionsEn },
     accessibility: { title: "Dostępność", sections: accessibilitySectionsEn },
   },
-  zh: {
-    ...enPages,
-    impressum: { title: "法律信息", sections: impressumEn() },
-    privacy: { title: "隐私政策", sections: privacyEn() },
-    cookies: { title: "Cookie 政策", sections: cookieSectionsEn },
-    terms: { title: "使用条款", sections: termsSectionsEn },
-    accessibility: { title: "无障碍声明", sections: accessibilitySectionsEn },
-  },
+  zh: zhPages,
 };
 
 export const footerLegalByLocale: Record<Locale, ExtendedFooterLegal> = {
@@ -533,39 +485,40 @@ export const footerLegalByLocale: Record<Locale, ExtendedFooterLegal> = {
   zh: { cookies: "Cookie", terms: "使用条款", accessibility: "无障碍" },
 };
 
-export const cookieBannerCopy: Record<
-  Locale,
-  {
-    title: string;
-    description: string;
-    acceptAll: string;
-    essentialOnly: string;
-    settingsLink: string;
-  }
-> = {
+export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
   de: {
     title: "Cookies & Datenschutz",
     description:
-      "Wir verwenden technisch notwendige Cookies und — mit Ihrer Einwilligung — ein Cookie für Ihre regionale Edition. Details in der Cookie-Richtlinie.",
+      "Wir verwenden technisch notwendige Cookies und — mit Ihrer Einwilligung — ein Cookie für Ihre regionale Edition.",
     acceptAll: "Alle akzeptieren",
     essentialOnly: "Nur notwendige",
     settingsLink: "Cookie-Richtlinie",
+    privacyLink: "Datenschutzerklärung",
+    settingsDetailEssential:
+      "„Nur notwendige“: Consent-Cookie + Sitzungs-Edition.",
+    settingsDetailAll: "„Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie.",
   },
   en: {
     title: "Cookies & privacy",
     description:
-      "We use essential cookies and — with your consent — a cookie to remember your regional edition. See our Cookie policy.",
+      "We use essential cookies and — with your consent — a cookie to remember your regional edition.",
     acceptAll: "Accept all",
     essentialOnly: "Essential only",
     settingsLink: "Cookie policy",
+    privacyLink: "Privacy policy",
+    settingsDetailEssential: "Essential only: consent + session edition cookie.",
+    settingsDetailAll: "Accept all: also 90-day regional edition cookie.",
   },
   fr: {
     title: "Cookies & confidentialité",
     description:
-      "Cookies essentiels et, avec votre consentement, un cookie d'édition régionale. Voir la politique cookies.",
+      "Cookies essentiels et, avec votre consentement, un cookie d'édition régionale.",
     acceptAll: "Tout accepter",
     essentialOnly: "Essentiels uniquement",
     settingsLink: "Politique cookies",
+    privacyLink: "Politique de confidentialité",
+    settingsDetailEssential: "Essentiels : cookie de consentement + édition session.",
+    settingsDetailAll: "Tout accepter : cookie d'édition 90 jours en plus.",
   },
   ja: {
     title: "Cookieとプライバシー",
@@ -574,6 +527,9 @@ export const cookieBannerCopy: Record<
     acceptAll: "すべて同意",
     essentialOnly: "必須のみ",
     settingsLink: "Cookieポリシー",
+    privacyLink: "プライバシーポリシー",
+    settingsDetailEssential: "必須のみ：同意Cookie＋セッション版。",
+    settingsDetailAll: "すべて同意：90日間の地域版Cookieも保存。",
   },
   ko: {
     title: "쿠키 및 개인정보",
@@ -581,6 +537,9 @@ export const cookieBannerCopy: Record<
     acceptAll: "모두 동의",
     essentialOnly: "필수만",
     settingsLink: "쿠키 정책",
+    privacyLink: "개인정보 처리방침",
+    settingsDetailEssential: "필수만: 동의 쿠키 + 세션 에디션.",
+    settingsDetailAll: "모두 동의: 90일 지역 에디션 쿠키 추가.",
   },
   pl: {
     title: "Cookies i prywatność",
@@ -589,6 +548,9 @@ export const cookieBannerCopy: Record<
     acceptAll: "Akceptuj wszystkie",
     essentialOnly: "Tylko niezbędne",
     settingsLink: "Polityka cookies",
+    privacyLink: "Polityka prywatności",
+    settingsDetailEssential: "Tylko niezbędne: cookie zgody + edycja sesyjna.",
+    settingsDetailAll: "Akceptuj wszystkie: dodatkowo cookie edycji na 90 dni.",
   },
   zh: {
     title: "Cookie 与隐私",
@@ -596,5 +558,8 @@ export const cookieBannerCopy: Record<
     acceptAll: "全部接受",
     essentialOnly: "仅必要",
     settingsLink: "Cookie 政策",
+    privacyLink: "隐私政策",
+    settingsDetailEssential: "仅必要：同意 Cookie + 会话版本。",
+    settingsDetailAll: "全部接受：另保存 90 天区域版本 Cookie。",
   },
 };

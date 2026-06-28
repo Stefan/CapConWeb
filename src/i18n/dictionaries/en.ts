@@ -39,7 +39,7 @@ const dictionary: SiteDictionary = {
     audience: "Who it's for",
     enterprise: "Enterprise",
     login: "Sign in",
-    bookDemo: "Book a demo",
+    bookDemo: "Request a demo",
     startTrial: "Start trial",
   },
   tagline: "CapEx & Portfolio Intelligence",
@@ -253,11 +253,11 @@ const dictionary: SiteDictionary = {
   cta: {
     headline: "Clarity in your capex portfolio starts with a conversation.",
     description: `Experience ${PRODUCT_NAME} in a personal demo — tailored to your project landscape and financial control requirements.`,
-    primaryCta: "Book a demo",
+    primaryCta: "Request a demo",
     contactPrefix: "Or contact our team at",
   },
   demo: {
-    metaTitle: "Book a demo",
+    metaTitle: "Request a demo",
     title: "Request a personal demo",
     description:
       "Tell us briefly about your project landscape – we'll follow up with a suitable demo slot.",

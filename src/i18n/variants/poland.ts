@@ -24,7 +24,7 @@ export const polandVariant: Partial<Record<"pl" | "en" | "de", Partial<SiteDicti
       eyebrow: "CapEx · Polska",
       headline: "Steruj programami CapEx liczbami, które można obronić przed zarządem.",
       subheadline: `${PRODUCT_NAME} łączy costbook, zatwierdzanie zmian i metryki portfela w jednej platformie — dla wieloletnich inwestycji produkcyjnych i infrastrukturalnych w Polsce, bez miesięcznej konsolidacji w Excelu.`,
-      primaryCta: "Umów demo",
+      primaryCta: "Poproś o demo",
     },
     solution: {
       eyebrow: "Dla właścicieli programów",
@@ -72,7 +72,7 @@ export const polandVariant: Partial<Record<"pl" | "en" | "de", Partial<SiteDicti
     cta: {
       headline: "Przejrzystość w portfelu CapEx zaczyna się od rozmowy.",
       description: `Zobacz ${PRODUCT_NAME} w demo dopasowanym do Państwa programu inwestycyjnego.`,
-      primaryCta: "Umów demo",
+      primaryCta: "Poproś o demo",
       contactPrefix: "Lub skontaktuj się z nami:",
     },
   },

@@ -40,7 +40,7 @@ const dictionary: SiteDictionary = {
     audience: "적용 대상",
     enterprise: "엔터프라이즈",
     login: "로그인",
-    bookDemo: "데모 예약",
+    bookDemo: "데모 요청",
     startTrial: "체험 시작",
   },
   tagline: "CapEx & Portfolio Intelligence",
@@ -254,11 +254,11 @@ const dictionary: SiteDictionary = {
   cta: {
     headline: "Capex 포트폴리오의 명확성은 대화에서 시작됩니다.",
     description: `${PRODUCT_NAME}을(를) 맞춤형 데모로 경험해 보십시오 — 귀사의 프로젝트 환경과 재무 통제 요건에 맞춰 안내합니다.`,
-    primaryCta: "데모 예약",
+    primaryCta: "데모 요청",
     contactPrefix: "또는 아래로 팀에 문의하십시오",
   },
   demo: {
-    metaTitle: "데모 예약",
+    metaTitle: "데모 요청",
     title: "맞춤형 데모 요청",
     description:
       "프로젝트 환경을 간략히 알려 주시면 적합한 데모 일정을 안내해 드립니다.",

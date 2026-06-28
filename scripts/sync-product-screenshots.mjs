@@ -33,6 +33,7 @@ const FILES = [
   "financials-costbook.png",
   "financials-change-impact.png",
   "risks.png",
+  "risks-hero.png",
   "portfolio-risk-steering.png",
   "workflows.png",
   "dashboards.png",

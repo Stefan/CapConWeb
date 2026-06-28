@@ -1,6 +1,10 @@
-import Image from "next/image";
+"use client";
 
 import type { ScreenshotCrop } from "@/lib/product-screenshots";
+import {
+  MARKETING_FRAME,
+  type MarketingFrameVariant,
+} from "@/lib/marketing-frame-spec";
 
 type AppScreenshotFrameProps = {
   title?: string;
@@ -8,7 +12,7 @@ type AppScreenshotFrameProps = {
   alt: string;
   crop?: ScreenshotCrop;
   /** Taller hero frame vs. product grid cards */
-  variant?: "hero" | "panel";
+  variant?: MarketingFrameVariant;
 };
 
 export function AppScreenshotFrame({
@@ -18,7 +22,8 @@ export function AppScreenshotFrame({
   crop,
   variant = "panel",
 }: AppScreenshotFrameProps) {
-  const heightClass = variant === "hero" ? "h-[360px] sm:h-[400px]" : "h-[280px] sm:h-[300px]";
+  const frame = MARKETING_FRAME[variant];
+  const isHero = variant === "hero";
 
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60">
@@ -27,24 +32,34 @@ export function AppScreenshotFrame({
           {title}
         </p>
       ) : null}
-      <div className={`relative w-full overflow-hidden bg-slate-50 ${heightClass}`}>
-        <Image
+      <div
+        className={
+          isHero
+            ? "relative w-full overflow-hidden bg-slate-50"
+            : "relative h-[280px] w-full overflow-hidden bg-slate-50 sm:h-[300px]"
+        }
+        style={
+          isHero
+            ? { aspectRatio: `${frame.width} / ${frame.height}` }
+            : undefined
+        }
+      >
+        <img
           src={src}
           alt={alt}
-          fill
-          unoptimized
-          sizes={
-            variant === "hero"
-              ? "(max-width: 768px) 100vw, 1152px"
-              : "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 1120px"
+          width={isHero ? frame.width : undefined}
+          height={isHero ? frame.height : undefined}
+          decoding="async"
+          fetchPriority={isHero ? "high" : "auto"}
+          className={
+            isHero
+              ? "block h-full w-full"
+              : "block h-full w-full object-cover object-left-top"
           }
-          className="object-cover object-left-top"
           style={{
             objectPosition: crop?.objectPosition ?? "left top",
-            transform: crop?.scale && crop.scale !== 1 ? `scale(${crop.scale})` : undefined,
-            transformOrigin: crop?.objectPosition ?? "left top",
+            imageRendering: "-webkit-optimize-contrast",
           }}
-          priority={variant === "hero"}
         />
       </div>
     </div>

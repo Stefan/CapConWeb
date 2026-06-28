@@ -39,7 +39,7 @@ const dictionary: SiteDictionary = {
     audience: "Pour qui",
     enterprise: "Enterprise",
     login: "Connexion",
-    bookDemo: "Réserver une démo",
+    bookDemo: "Demander une démo",
     startTrial: "Essai gratuit",
   },
   tagline: "CapEx & Portfolio Intelligence",
@@ -253,11 +253,11 @@ const dictionary: SiteDictionary = {
   cta: {
     headline: "La clarté dans votre portefeuille capex commence par une conversation.",
     description: `Découvrez ${PRODUCT_NAME} lors d'une démo personnalisée — adaptée à votre paysage projet et à vos exigences de contrôle financier.`,
-    primaryCta: "Réserver une démo",
+    primaryCta: "Demander une démo",
     contactPrefix: "Ou contactez notre équipe à",
   },
   demo: {
-    metaTitle: "Réserver une démo",
+    metaTitle: "Demander une démo",
     title: "Demander une démo personnalisée",
     description:
       "Décrivez brièvement votre paysage projet — nous vous proposerons un créneau adapté.",

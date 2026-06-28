@@ -24,7 +24,7 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
     eyebrow: "CapEx & GMP · Suisse",
     headline: "Le capex construction rencontre le change control GMP.",
     subheadline: `${PRODUCT_NAME} relie programmes construction, qualification équipement et change control GMP dans une couche audit-ready — en complément de votre QMS et MES, sans les remplacer.`,
-    primaryCta: "Réserver une démo",
+    primaryCta: "Demander une démo",
   },
   problem: {
     title: "Le capex CDMO doit être lié à la qualification — pas seulement aux lignes WBS.",
@@ -127,7 +127,7 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
     headline: "Voir la boucle capex CDMO → GMP en direct.",
     description:
       "Démo forecast lié équipement, pont CO construction et approbation GMP sur le pack référence CDMO.",
-    primaryCta: "Réserver une démo",
+    primaryCta: "Demander une démo",
     contactPrefix: "Ou contactez notre équipe à",
   },
 };

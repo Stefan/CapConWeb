@@ -10,7 +10,7 @@ export type ScreenshotCrop = {
 export const heroScreenshotByVariant: Record<SiteVariant, string> = {
   "large-projects": "/screenshots/project-overview-evm.png",
   "standard-capex": "/screenshots/project-overview-evm.png",
-  cdmo: "/screenshots/risks.png",
+  cdmo: "/screenshots/risks-hero.png",
   apac: "/screenshots/project-overview-evm.png",
   japan: "/screenshots/project-overview-evm.png",
   korea: "/screenshots/project-overview-evm.png",

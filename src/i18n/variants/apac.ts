@@ -26,7 +26,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       eyebrow: "CapEx · Australia & Singapore",
       headline: "Govern multi-site CapEx with numbers the board can trust.",
       subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation.`,
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
     },
     problem: {
       title: "Complex programs. Fragmented control.",
@@ -115,7 +115,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       headline: "See how APAC programmes run on one control layer.",
       description:
         "We'll tailor the walkthrough to your sector — infrastructure, resources, or life sciences.",
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
   },
@@ -131,7 +131,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       eyebrow: "CapEx · 澳大利亚与新加坡",
       headline: "以可辩护的数据，管控多站点资本支出。",
       subheadline: `${PRODUCT_NAME} 将成本账、变更审批与投资组合指标贯通——适用于亚太区基础设施、资源与生命科学项目，无需月末 Excel 汇总。`,
-      primaryCta: "预约演示",
+      primaryCta: "申请演示",
     },
     audience: {
       eyebrow: "亚太",
@@ -156,7 +156,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     cta: {
       headline: "了解亚太项目如何在一层管控中运行。",
       description: "我们将根据您的基础设施、资源或生命科学场景定制演示。",
-      primaryCta: "预约演示",
+      primaryCta: "申请演示",
       contactPrefix: "或联系我们的团队：",
     },
   },

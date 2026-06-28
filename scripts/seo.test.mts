@@ -11,7 +11,7 @@ import {
 describe("buildPageMetadata", () => {
   it("sets per-page canonical on demo subpages", () => {
     const meta = buildPageMetadata("de", "/demo", {
-      title: "Demo buchen",
+      title: "Demo anfragen",
       description: "Demo anfragen.",
       openGraphLocale: "de_DE",
     });

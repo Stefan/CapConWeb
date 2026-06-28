@@ -25,7 +25,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       eyebrow: "Campus programs · North America",
       headline: "Steer large campus programs with numbers you can defend.",
       subheadline: `${PRODUCT_NAME} unifies costbook, schedule of values, general contractor billing, retainage, and master plan compliance — built for large life-science and mega-capex campus programs in the US and Canada.`,
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
     },
     solution: {
       eyebrow: "For project owners",
@@ -141,7 +141,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       headline: "See the campus workflow in a live demo.",
       description:
         "We'll walk through master plan steering, SOV billing, and change implementation on a large-campus reference program.",
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
   },
@@ -165,7 +165,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       eyebrow: "Campus-Programme · Nordamerika",
       headline: "Große Campus-Programme mit belastbaren Zahlen steuern.",
       subheadline: `${PRODUCT_NAME} vereint Costbook, Schedule of Values, Generalunternehmer-Abrechnung, Retainage und Master-Plan-Compliance — für große Life-Science- und Mega-Capex-Campus-Programme in den USA und Kanada.`,
-      primaryCta: "Demo buchen",
+      primaryCta: "Demo anfragen",
     },
     solution: {
       eyebrow: "Für Bauherren",
@@ -281,7 +281,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       headline: "Den Campus-Workflow live erleben.",
       description:
         "Wir führen Master-Plan-Steering, SOV-Abrechnung und Nachtragsumsetzung an einem Referenz-Campus-Programm vor.",
-      primaryCta: "Demo buchen",
+      primaryCta: "Demo anfragen",
       contactPrefix: "Oder kontaktieren Sie uns unter",
     },
   },

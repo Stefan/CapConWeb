@@ -26,7 +26,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       eyebrow: "CapEx & GMP · Switzerland",
       headline: "Construction capex meets GMP change control.",
       subheadline: `${PRODUCT_NAME} links construction programs, equipment qualification, and GMP change control in one audit-ready layer — complementing your QMS and MES, not replacing them.`,
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
     },
     problem: {
       title: "CDMO capex must tie to qualification — not just WBS lines.",
@@ -214,7 +214,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       headline: "See the CDMO capex → GMP loop live.",
       description:
         "We'll demo equipment-linked forecast, construction CO bridge, and GMP approval on the CDMO reference pack.",
-      primaryCta: "Book a demo",
+      primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
     dashboard: {
@@ -253,7 +253,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       eyebrow: "CapEx & GMP · Schweiz",
       headline: "Bauprojekt-CapEx trifft GMP Change Control.",
       subheadline: `${PRODUCT_NAME} verbindet Bauprojekte, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — als Ergänzung zu QMS und MES, nicht als Ersatz.`,
-      primaryCta: "Demo buchen",
+      primaryCta: "Demo anfragen",
     },
     problem: {
       title: "CDMO-CapEx muss zur Qualifizierung führen — nicht nur zu WBS-Zeilen.",
@@ -441,7 +441,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       headline: "Den CDMO CapEx → GMP Loop live sehen.",
       description:
         "Wir demonstrieren equipment-verknüpften Forecast, Construction-CO-Brücke und GMP-Freigabe am CDMO-Referenzpack.",
-      primaryCta: "Demo buchen",
+      primaryCta: "Demo anfragen",
       contactPrefix: "Oder kontaktieren Sie uns unter",
     },
     dashboard: {

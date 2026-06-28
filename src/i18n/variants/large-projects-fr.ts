@@ -23,7 +23,7 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
     eyebrow: "Programmes campus · Amérique du Nord",
     headline: "Piloter de grands campus avec des chiffres défendables.",
     subheadline: `${PRODUCT_NAME} unifie costbook, schedule of values, facturation entreprise générale, retainage et conformité master plan — pour grands programmes campus life science et mega-capex aux États-Unis et au Canada.`,
-    primaryCta: "Réserver une démo",
+    primaryCta: "Demander une démo",
   },
   solution: {
     eyebrow: "Pour maîtres d'ouvrage",
@@ -96,7 +96,7 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
     headline: "Voir le workflow campus en direct.",
     description:
       "Nous parcourons pilotage master plan, facturation SOV et mise en œuvre des change orders sur un programme campus de référence.",
-    primaryCta: "Réserver une démo",
+    primaryCta: "Demander une démo",
     contactPrefix: "Ou contactez notre équipe à",
   },
 };

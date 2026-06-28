@@ -39,7 +39,7 @@ const dictionary: SiteDictionary = {
     audience: "适用对象",
     enterprise: "企业版",
     login: "登录",
-    bookDemo: "预约演示",
+    bookDemo: "申请演示",
     startTrial: "开始试用",
   },
   tagline: "CapEx & Portfolio Intelligence",
@@ -253,11 +253,11 @@ const dictionary: SiteDictionary = {
   cta: {
     headline: "您的 CAPEX 投资组合清晰化，从一次对话开始。",
     description: `在个性化演示中体验 ${PRODUCT_NAME} — 根据您的项目格局与财务管控需求量身定制。`,
-    primaryCta: "预约演示",
+    primaryCta: "申请演示",
     contactPrefix: "或联系我们的团队：",
   },
   demo: {
-    metaTitle: "预约演示",
+    metaTitle: "申请演示",
     title: "申请个性化演示",
     description:
       "请简要介绍您的项目格局 — 我们将跟进并提供合适的演示时段。",

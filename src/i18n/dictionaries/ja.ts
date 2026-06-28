@@ -41,7 +41,7 @@ const dictionary: SiteDictionary = {
     audience: "対象ユーザー",
     enterprise: "エンタープライズ",
     login: "ログイン",
-    bookDemo: "デモを予約",
+    bookDemo: "デモを申し込む",
     startTrial: "トライアルを開始",
   },
   tagline: "CapEx & Portfolio Intelligence",
@@ -255,11 +255,11 @@ const dictionary: SiteDictionary = {
   cta: {
     headline: "設備投資ポートフォリオの可視化は、まず対話から始まります。",
     description: `${PRODUCT_NAME}を、貴社のプロジェクト環境と財務コントロール要件に合わせた個別デモでご体験ください。`,
-    primaryCta: "デモを予約",
+    primaryCta: "デモを申し込む",
     contactPrefix: "または、下記までお問い合わせください",
   },
   demo: {
-    metaTitle: "デモを予約",
+    metaTitle: "デモを申し込む",
     title: "個別デモのお申し込み",
     description:
       "貴社のプロジェクト環境について簡単にお聞かせください — 適切なデモ日程をご連絡いたします。",

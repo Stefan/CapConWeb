@@ -7,6 +7,7 @@ import {
   allowsPersistentVariantCookie,
   parseConsentLevel,
 } from "@/lib/consent";
+import { buildContentSecurityPolicy, createCspNonce } from "@/lib/csp";
 import { VARIANT_COOKIE, detectVariant } from "@/lib/variant";
 
 const VARIANT_SESSION_MAX_AGE = 60 * 60 * 24; // 24h without full consent
@@ -45,6 +46,35 @@ function applyVariantCookie(request: NextRequest, response: NextResponse): NextR
   return response;
 }
 
+function withCspAndVariantCookie(
+  request: NextRequest,
+  response: NextResponse,
+): NextResponse {
+  const nonce = createCspNonce();
+  const csp = buildContentSecurityPolicy(nonce);
+  response.headers.set("Content-Security-Policy", csp);
+  return applyVariantCookie(request, response);
+}
+
+function nextWithCsp(request: NextRequest): NextResponse {
+  const nonce = createCspNonce();
+  const csp = buildContentSecurityPolicy(nonce);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("Content-Security-Policy", csp);
+
+  return withCspAndVariantCookie(
+    request,
+    NextResponse.next({
+      request: { headers: requestHeaders },
+    }),
+  );
+}
+
+function redirectWithVariant(request: NextRequest, url: URL): NextResponse {
+  return applyVariantCookie(request, NextResponse.redirect(url));
+}
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -53,7 +83,7 @@ export function proxy(request: NextRequest) {
   );
 
   if (pathnameLocale) {
-    return applyVariantCookie(request, NextResponse.next());
+    return nextWithCsp(request);
   }
 
   const locale = detectLocale({
@@ -62,12 +92,12 @@ export function proxy(request: NextRequest) {
   });
 
   if (!isLocale(locale)) {
-    return applyVariantCookie(request, NextResponse.next());
+    return nextWithCsp(request);
   }
 
   const redirectUrl = request.nextUrl.clone();
   redirectUrl.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
-  return applyVariantCookie(request, NextResponse.redirect(redirectUrl));
+  return redirectWithVariant(request, redirectUrl);
 }
 
 export const config = {

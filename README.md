@@ -58,7 +58,7 @@ NEXT_PUBLIC_LEGAL_REGISTER_NUMBER=…
 
 | Phase | Inhalt |
 | ----- | ------ |
-| **1 — Must-have** | Impressum/Datenschutz mit echten Env-Feldern (`src/lib/legal.ts`), Cookie-Banner + Consent (`src/lib/consent.ts`, `cookie-consent-banner.tsx`), Security-Headers/CSP (`next.config.ts`), Footer-Links |
+| **1 — Must-have** | Impressum/Datenschutz mit echten Env-Feldern (`src/lib/legal.ts`), Cookie-Banner + Consent (`src/lib/consent.ts`, `cookie-consent-banner.tsx`), Security-Headers/CSP (`src/lib/csp.ts` + `src/proxy.ts`), Footer-Links |
 | **2 — Markt-Fit** | Regionale Datenschutz-Hinweise (APPI, PIPA, APP, PDPA, PUODO) in `src/i18n/legal/pages.ts`, `/cookies`, Demo-API `POST /api/demo-request` (Rate-Limit, optional Webhook) |
 | **3 — Polish** | `public/.well-known/security.txt`, `/terms`, `/accessibility`, Social-Proof-Disclaimer, Sitemap-Einträge |
 

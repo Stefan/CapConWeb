@@ -1,0 +1,34 @@
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+
+import { buildContentSecurityPolicy } from "../src/lib/csp.ts";
+
+describe("buildContentSecurityPolicy", () => {
+  it("uses nonce and strict-dynamic in production without unsafe-inline scripts", () => {
+    const csp = buildContentSecurityPolicy("abc123", { isDev: false });
+
+    assert.match(csp, /script-src 'self' 'nonce-abc123' 'strict-dynamic'/);
+    assert.doesNotMatch(csp, /script-src[^;]*'unsafe-inline'/);
+    assert.doesNotMatch(csp, /script-src[^;]*'unsafe-eval'/);
+    assert.match(csp, /upgrade-insecure-requests/);
+  });
+
+  it("allows unsafe-eval only in development for Next.js tooling", () => {
+    const csp = buildContentSecurityPolicy("devnonce", { isDev: true });
+
+    assert.match(csp, /'unsafe-eval'/);
+    assert.doesNotMatch(csp, /upgrade-insecure-requests/);
+  });
+
+  it("keeps style unsafe-inline for React inline style attributes", () => {
+    const csp = buildContentSecurityPolicy("style-nonce", { isDev: false });
+    assert.match(csp, /style-src 'self' 'nonce-style-nonce' 'unsafe-inline'/);
+  });
+
+  it("preserves demo form and asset directives", () => {
+    const csp = buildContentSecurityPolicy("x", { isDev: false });
+    assert.match(csp, /form-action 'self' mailto:/);
+    assert.match(csp, /connect-src 'self'/);
+    assert.match(csp, /object-src 'none'/);
+  });
+});

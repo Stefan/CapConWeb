@@ -35,8 +35,8 @@ export function AppScreenshotFrame({
           unoptimized
           sizes={
             variant === "hero"
-              ? "(max-width: 768px) 100vw, 576px"
-              : "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 560px"
+              ? "(max-width: 768px) 100vw, 1152px"
+              : "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 1120px"
           }
           className="object-cover object-left-top"
           style={{

@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { LegalDocument } from "@/components/legal/legal-document";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { isLocale } from "@/i18n/config";
+import { isLocale, openGraphLocaleBySiteLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { PRODUCT_NAME } from "@/lib/brand";
+import { buildPageMetadata } from "@/lib/seo";
 
 type LegalPageProps = {
   params: Promise<{ locale: string }>;
@@ -17,7 +18,12 @@ export async function generateMetadata({
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return { title: PRODUCT_NAME };
   const dict = getDictionary(rawLocale);
-  return { title: dict.legalPages.impressum.title };
+  const page = dict.legalPages.impressum;
+  return buildPageMetadata(rawLocale, "/impressum", {
+    title: page.title,
+    description: `${page.title} — ${PRODUCT_NAME}`,
+    openGraphLocale: openGraphLocaleBySiteLocale[rawLocale as Locale],
+  });
 }
 
 export default async function ImpressumPage({ params }: LegalPageProps) {

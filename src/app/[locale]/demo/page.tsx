@@ -4,6 +4,7 @@ import { DemoPageContent } from "@/components/demo/demo-page-content";
 import { isLocale } from "@/i18n/config";
 import { getRequestDictionary } from "@/i18n/get-dictionary";
 import { PRODUCT_NAME } from "@/lib/brand";
+import { buildPageMetadata } from "@/lib/seo";
 
 type DemoPageProps = {
   params: Promise<{ locale: string }>;
@@ -15,10 +16,11 @@ export async function generateMetadata({
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) return { title: PRODUCT_NAME };
   const dict = await getRequestDictionary(rawLocale);
-  return {
+  return buildPageMetadata(rawLocale, "/demo", {
     title: dict.demo.metaTitle,
     description: dict.demo.description,
-  };
+    openGraphLocale: dict.meta.openGraphLocale,
+  });
 }
 
 export default async function DemoPage({ params }: DemoPageProps) {

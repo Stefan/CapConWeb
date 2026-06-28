@@ -51,7 +51,7 @@ const sharedPrivacyCore: LegalSection[] = [
   {
     heading: "7. Links to the CapCon application",
     paragraphs: [
-      "Links to app.capcon.io (login/signup) are subject to the privacy policy of the application operator. The marketing site does not authenticate you into the product.",
+      "Links to app.capconhq.com (login/signup) are subject to the privacy policy of the application operator. The marketing site does not authenticate you into the product.",
     ],
   },
   {
@@ -96,7 +96,7 @@ const termsSectionsEn: LegalSection[] = [
   {
     heading: "1. Scope",
     paragraphs: [
-      "These terms govern use of the CapCon marketing website (capcon.io). They do not govern the CapCon software product or trial — separate terms apply in the application.",
+      "These terms govern use of the CapCon marketing website (capconhq.com). They do not govern the CapCon software product or trial — separate terms apply in the application.",
     ],
   },
   {
@@ -135,7 +135,7 @@ const accessibilitySectionsEn: LegalSection[] = [
   {
     heading: "1. Commitment",
     paragraphs: [
-      "We aim to make capcon.io accessible per WCAG 2.1 Level AA where reasonably practicable for a marketing site.",
+      "We aim to make capconhq.com accessible per WCAG 2.1 Level AA where reasonably practicable for a marketing site.",
     ],
   },
   {
@@ -302,7 +302,7 @@ function privacyDe(): LegalSection[] {
     {
       heading: "7. Links zur CapCon-Anwendung",
       paragraphs: [
-        "Links zu app.capcon.io unterliegen der Datenschutzerklärung des Produktbetreibers.",
+        "Links zu app.capconhq.com unterliegen der Datenschutzerklärung des Produktbetreibers.",
       ],
     },
     {
@@ -383,7 +383,7 @@ const accessibilitySectionsDe: LegalSection[] = [
   {
     heading: "1. Ziel",
     paragraphs: [
-      "Wir streben WCAG 2.1 Level AA für capcon.io an, soweit zumutbar.",
+      "Wir streben WCAG 2.1 Level AA für capconhq.com an, soweit zumutbar.",
     ],
   },
   {

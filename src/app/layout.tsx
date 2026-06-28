@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Inter } from "next/font/google";
 
 import { PRODUCT_NAME } from "@/lib/brand";
@@ -13,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://capcon.io",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://capconhq.com",
   ),
   title: PRODUCT_NAME,
   icons: {
@@ -25,11 +26,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await connection();
+
   return (
     <html
       suppressHydrationWarning

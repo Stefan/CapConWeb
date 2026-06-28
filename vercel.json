@@ -1,4 +1,12 @@
 {
   "framework": "nextjs",
-  "regions": ["fra1", "iad1", "sin1"]
+  "regions": ["fra1", "iad1", "sin1"],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.capconhq.com" }],
+      "destination": "https://capconhq.com/:path*",
+      "permanent": true
+    }
+  ]
 }

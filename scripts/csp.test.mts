@@ -20,9 +20,10 @@ describe("buildContentSecurityPolicy", () => {
     assert.doesNotMatch(csp, /upgrade-insecure-requests/);
   });
 
-  it("keeps style unsafe-inline for React inline style attributes", () => {
+  it("keeps style-src on self and unsafe-inline without style nonces", () => {
     const csp = buildContentSecurityPolicy("style-nonce", { isDev: false });
-    assert.match(csp, /style-src 'self' 'nonce-style-nonce' 'unsafe-inline'/);
+    assert.match(csp, /style-src 'self' 'unsafe-inline'/);
+    assert.doesNotMatch(csp, /style-src[^;]*'nonce-/);
   });
 
   it("preserves demo form and asset directives", () => {

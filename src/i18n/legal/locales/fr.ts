@@ -76,7 +76,7 @@ const privacy: LegalSection[] = [
   {
     heading: "6. Liens vers l'application CapCon",
     paragraphs: [
-      "Les liens vers app.capcon.io relèvent de la politique de confidentialité du produit.",
+      "Les liens vers app.capconhq.com relèvent de la politique de confidentialité du produit.",
     ],
   },
   {
@@ -120,7 +120,7 @@ const terms: LegalSection[] = [
   {
     heading: "1. Champ d'application",
     paragraphs: [
-      "Ces conditions régissent capcon.io (site marketing). Le produit CapCon est soumis à des conditions séparées.",
+      "Ces conditions régissent capconhq.com (site marketing). Le produit CapCon est soumis à des conditions séparées.",
     ],
   },
   {
@@ -150,7 +150,7 @@ const terms: LegalSection[] = [
 const accessibility: LegalSection[] = [
   {
     heading: "1. Engagement",
-    paragraphs: ["Objectif WCAG 2.1 niveau AA pour capcon.io, dans la mesure du raisonnable."],
+    paragraphs: ["Objectif WCAG 2.1 niveau AA pour capconhq.com, dans la mesure du raisonnable."],
   },
   {
     heading: "2. Mesures",

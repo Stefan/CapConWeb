@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { LegalDocument } from "@/components/legal/legal-document";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
-import { isLocale } from "@/i18n/config";
+import { isLocale, openGraphLocaleBySiteLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { PRODUCT_NAME } from "@/lib/brand";
+import { buildPageMetadata, type MarketingSubpath } from "@/lib/seo";
 
 import type { LegalSection } from "@/i18n/types";
 
@@ -15,6 +16,7 @@ type LegalSubpageProps = {
 
 type LegalSubpageConfig = {
   titleKey: "cookies" | "terms" | "accessibility";
+  path: Extract<MarketingSubpath, "/cookies" | "/terms" | "/accessibility">;
 };
 
 export function createLegalSubpage(config: LegalSubpageConfig) {
@@ -23,7 +25,11 @@ export function createLegalSubpage(config: LegalSubpageConfig) {
     if (!isLocale(rawLocale)) return { title: PRODUCT_NAME };
     const dict = getDictionary(rawLocale);
     const page = dict.legalPages[config.titleKey]!;
-    return { title: page.title };
+    return buildPageMetadata(rawLocale, config.path, {
+      title: page.title,
+      description: `${page.title} — ${PRODUCT_NAME}`,
+      openGraphLocale: openGraphLocaleBySiteLocale[rawLocale as Locale],
+    });
   }
 
   async function Page({ params }: LegalSubpageProps) {

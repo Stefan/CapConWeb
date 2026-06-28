@@ -73,7 +73,7 @@ const privacy: LegalSection[] = [
   },
   {
     heading: "6. CapCon 应用链接",
-    paragraphs: ["指向 app.capcon.io 的链接适用产品隐私政策。"],
+    paragraphs: ["指向 app.capconhq.com 的链接适用产品隐私政策。"],
   },
   {
     heading: "7. 跨境传输",
@@ -113,7 +113,7 @@ const cookies: LegalSection[] = [
 const terms: LegalSection[] = [
   {
     heading: "1. 适用范围",
-    paragraphs: ["本条款适用于 capcon.io 营销网站。CapCon 软件产品适用单独条款。"],
+    paragraphs: ["本条款适用于 capconhq.com 营销网站。CapCon 软件产品适用单独条款。"],
   },
   {
     heading: "2. 内容",
@@ -140,7 +140,7 @@ const terms: LegalSection[] = [
 const accessibility: LegalSection[] = [
   {
     heading: "1. 承诺",
-    paragraphs: ["我们力求 capcon.io 在合理范围内符合 WCAG 2.1 AA。"],
+    paragraphs: ["我们力求 capconhq.com 在合理范围内符合 WCAG 2.1 AA。"],
   },
   {
     heading: "2. 措施",

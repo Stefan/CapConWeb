@@ -47,18 +47,6 @@ function applyVariantCookie(request: NextRequest, response: NextResponse): NextR
   return response;
 }
 
-function withCspAndVariantCookie(
-  request: NextRequest,
-  response: NextResponse,
-): NextResponse {
-  const nonce = createCspNonce();
-  const csp = buildContentSecurityPolicy(nonce, {
-    enableAnalytics: isGoogleAnalyticsEnabled(),
-  });
-  response.headers.set("Content-Security-Policy", csp);
-  return applyVariantCookie(request, response);
-}
-
 function nextWithCsp(request: NextRequest): NextResponse {
   const nonce = createCspNonce();
   const csp = buildContentSecurityPolicy(nonce, {
@@ -68,12 +56,11 @@ function nextWithCsp(request: NextRequest): NextResponse {
   requestHeaders.set("x-nonce", nonce);
   requestHeaders.set("Content-Security-Policy", csp);
 
-  return withCspAndVariantCookie(
-    request,
-    NextResponse.next({
-      request: { headers: requestHeaders },
-    }),
-  );
+  const response = NextResponse.next({
+    request: { headers: requestHeaders },
+  });
+  response.headers.set("Content-Security-Policy", csp);
+  return applyVariantCookie(request, response);
 }
 
 function redirectWithVariant(request: NextRequest, url: URL): NextResponse {

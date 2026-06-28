@@ -37,8 +37,9 @@ export function buildContentSecurityPolicy(
   return [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
-    // Nonce covers Next/Tailwind style tags; unsafe-inline keeps React style={{}} valid.
-    `style-src 'self' 'nonce-${nonce}' 'unsafe-inline'`,
+    // Nonce on styles breaks Next-generated <link rel="stylesheet"> when request/response
+    // nonces drift; unsafe-inline keeps React inline style={{}} valid.
+    `style-src 'self' 'unsafe-inline'`,
     `img-src ${imgSrc}`,
     "font-src 'self' data:",
     `connect-src ${connectSrc}`,

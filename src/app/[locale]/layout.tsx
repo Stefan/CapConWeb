@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
@@ -35,20 +36,6 @@ export async function generateMetadata({
       default: dict.meta.title,
       template: `%s | ${PRODUCT_NAME}`,
     },
-    description: dict.meta.description,
-    keywords: [...dict.meta.keywords],
-    alternates: {
-      canonical: `/${rawLocale}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
-    },
-    openGraph: {
-      title: dict.meta.title,
-      description: dict.meta.description,
-      locale: dict.meta.openGraphLocale,
-      type: "website",
-      siteName: PRODUCT_NAME,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-    },
   };
 }
 
@@ -56,6 +43,7 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
+  await connection();
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) {
     notFound();

@@ -73,7 +73,7 @@ const privacy: LegalSection[] = [
   },
   {
     heading: "6. CapCon 애플리케이션 링크",
-    paragraphs: ["app.capcon.io 링크는 제품 개인정보 처리방침이 적용됩니다."],
+    paragraphs: ["app.capconhq.com 링크는 제품 개인정보 처리방침이 적용됩니다."],
   },
   {
     heading: "7. 국외 이전",
@@ -113,7 +113,7 @@ const cookies: LegalSection[] = [
 const terms: LegalSection[] = [
   {
     heading: "1. 적용 범위",
-    paragraphs: ["본 약관은 capcon.io 마케팅 사이트에 적용됩니다. 제품·체험판은 별도 약관입니다."],
+    paragraphs: ["본 약관은 capconhq.com 마케팅 사이트에 적용됩니다. 제품·체험판은 별도 약관입니다."],
   },
   {
     heading: "2. 콘텐츠",
@@ -140,7 +140,7 @@ const terms: LegalSection[] = [
 const accessibility: LegalSection[] = [
   {
     heading: "1. 목표",
-    paragraphs: ["capcon.io에 대해 WCAG 2.1 AA 수준을 합리적 범위에서 추구합니다."],
+    paragraphs: ["capconhq.com에 대해 WCAG 2.1 AA 수준을 합리적 범위에서 추구합니다."],
   },
   {
     heading: "2. 조치",

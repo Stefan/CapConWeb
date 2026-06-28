@@ -1,23 +1,24 @@
 import type { MetadataRoute } from "next";
 
-import { locales } from "@/i18n/config";
 import { marketingSiteUrl } from "@/lib/brand";
-
-const subpaths = ["", "/demo", "/impressum", "/privacy", "/cookies", "/terms", "/accessibility"] as const;
+import {
+  buildSitemapHreflangLanguages,
+  localizedPath,
+  marketingSubpaths,
+} from "@/lib/seo";
+import { locales } from "@/i18n/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = marketingSiteUrl;
 
   return locales.flatMap((locale) =>
-    subpaths.map((path) => ({
-      url: `${base}/${locale}${path}`,
+    marketingSubpaths.map((subpath) => ({
+      url: `${base}${localizedPath(locale, subpath)}`,
       lastModified: new Date(),
-      changeFrequency: path === "" ? ("weekly" as const) : ("monthly" as const),
-      priority: path === "" ? 1 : 0.6,
+      changeFrequency: subpath === "" ? ("weekly" as const) : ("monthly" as const),
+      priority: subpath === "" ? 1 : 0.6,
       alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${base}/${l}${path}`]),
-        ),
+        languages: buildSitemapHreflangLanguages(subpath),
       },
     })),
   );

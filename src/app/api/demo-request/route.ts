@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { contactEmail } from "@/lib/brand";
+import { deliverDemoRequest, type DemoRequestPayload } from "@/lib/demo-webhook";
 
 type DemoPayload = {
   name?: string;
@@ -66,26 +67,27 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Payload too large" }, { status: 400 });
   }
 
-  const webhook = process.env.DEMO_FORM_WEBHOOK_URL?.trim();
-  const payload = { name, company, email, role, message, locale, submittedAt: new Date().toISOString() };
+  const payload: DemoRequestPayload = {
+    name,
+    company,
+    email,
+    role,
+    message,
+    locale,
+    submittedAt: new Date().toISOString(),
+  };
 
-  if (webhook) {
-    try {
-      const res = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        return NextResponse.json({ error: "Upstream failed" }, { status: 502 });
+  try {
+    const { delivered } = await deliverDemoRequest(payload);
+    if (!delivered) {
+      if (process.env.NODE_ENV === "production") {
+        console.info("[demo-request]", JSON.stringify({ ...payload, email: "[redacted]" }));
+      } else {
+        console.info("[demo-request]", payload);
       }
-    } catch {
-      return NextResponse.json({ error: "Upstream unavailable" }, { status: 502 });
     }
-  } else if (process.env.NODE_ENV === "production") {
-    console.info("[demo-request]", JSON.stringify({ ...payload, email: "[redacted]" }));
-  } else {
-    console.info("[demo-request]", payload);
+  } catch {
+    return NextResponse.json({ error: "Upstream failed" }, { status: 502 });
   }
 
   return NextResponse.json({

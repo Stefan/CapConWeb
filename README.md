@@ -62,7 +62,21 @@ NEXT_PUBLIC_LEGAL_REGISTER_NUMBER=…
 
 Rechtstexte werden zentral in `src/i18n/legal/pages.ts` gepflegt und zur Laufzeit via `enrichLaunchCompliance()` in alle Locales gemerged.
 
-**Vor Production:** alle `NEXT_PUBLIC_LEGAL_*` auf Vercel setzen, `DEMO_FORM_WEBHOOK_URL` anbinden, Cookie-Banner + Footer manuell prüfen.
+**Vor Production:** alle `NEXT_PUBLIC_LEGAL_*` auf Vercel setzen, Demo-Webhook anbinden (siehe unten), Cookie-Banner + Footer manuell prüfen.
+
+## Demo-Formular → Slack
+
+1. Slack: **Apps** → **Incoming Webhooks** → Workspace + Channel (z. B. `#demo-leads`)
+2. Webhook-URL kopieren
+3. Auf Vercel (Production, **nicht** `NEXT_PUBLIC_*`):
+
+```bash
+SLACK_DEMO_WEBHOOK_URL=https://hooks.slack.com/services/T…/B…/…
+```
+
+Optional zusätzlich `DEMO_FORM_WEBHOOK_URL` für CRM/Zapier — Slack-URLs werden automatisch als Block-Kit formatiert.
+
+Lokal testen: URL in `.env.local` setzen, `npm run dev`, `/de/demo` absenden. Payload-Tests: `npm run test:webhook`.
 
 ## Sprachen (Geo-Routing)
 

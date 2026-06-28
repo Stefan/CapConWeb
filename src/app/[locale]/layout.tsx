@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 
 import { SetHtmlLang } from "@/components/i18n/set-html-lang";
 import { CookieConsentBanner } from "@/components/legal/cookie-consent-banner";
@@ -59,10 +62,12 @@ export default async function LocaleLayout({
   }
 
   const locale = rawLocale as Locale;
-  const [dict, variant] = await Promise.all([
+  const [dict, variant, headerList] = await Promise.all([
     getRequestDictionary(locale),
     getRequestVariant(),
+    headers(),
   ]);
+  const nonce = headerList.get("x-nonce") ?? undefined;
 
   return (
     <>
@@ -76,6 +81,7 @@ export default async function LocaleLayout({
       <SiteProvider locale={locale} variant={variant} dict={dict}>
         {children}
         <CookieConsentBanner />
+        <GoogleAnalytics nonce={nonce} />
       </SiteProvider>
     </>
   );

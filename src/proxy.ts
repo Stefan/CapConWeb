@@ -8,6 +8,7 @@ import {
   parseConsentLevel,
 } from "@/lib/consent";
 import { buildContentSecurityPolicy, createCspNonce } from "@/lib/csp";
+import { isGoogleAnalyticsEnabled } from "@/lib/analytics";
 import { VARIANT_COOKIE, detectVariant } from "@/lib/variant";
 
 const VARIANT_SESSION_MAX_AGE = 60 * 60 * 24; // 24h without full consent
@@ -51,14 +52,18 @@ function withCspAndVariantCookie(
   response: NextResponse,
 ): NextResponse {
   const nonce = createCspNonce();
-  const csp = buildContentSecurityPolicy(nonce);
+  const csp = buildContentSecurityPolicy(nonce, {
+    enableAnalytics: isGoogleAnalyticsEnabled(),
+  });
   response.headers.set("Content-Security-Policy", csp);
   return applyVariantCookie(request, response);
 }
 
 function nextWithCsp(request: NextRequest): NextResponse {
   const nonce = createCspNonce();
-  const csp = buildContentSecurityPolicy(nonce);
+  const csp = buildContentSecurityPolicy(nonce, {
+    enableAnalytics: isGoogleAnalyticsEnabled(),
+  });
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
   requestHeaders.set("Content-Security-Policy", csp);

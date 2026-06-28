@@ -15,3 +15,18 @@ export function parseConsentLevel(value: string | null | undefined): ConsentLeve
 export function allowsPersistentVariantCookie(consent: ConsentLevel | null): boolean {
   return consent === "all";
 }
+
+/** Google Analytics loads only after full cookie consent. */
+export function allowsAnalytics(consent: ConsentLevel | null): boolean {
+  return consent === "all";
+}
+
+export function readConsentFromDocument(): ConsentLevel | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${CONSENT_COOKIE}=`));
+  if (!match) return null;
+  const value = match.split("=")[1];
+  return parseConsentLevel(value);
+}

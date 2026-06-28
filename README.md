@@ -88,6 +88,16 @@ Lokal testen: URL in `.env.local` setzen, `npm run dev`, `/de/demo` absenden. Pa
 
 Tests: `npm run test:rate-limit`, `npm run test:demo-api`
 
+## Google Analytics 4
+
+Set on Vercel (optional):
+
+```bash
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+GA4 lädt **nur nach Cookie-Einwilligung „Alle akzeptieren“** — nicht bei „Nur notwendige“. IP-Anonymisierung ist aktiv; keine Google-Signale/Ads-Personalisierung. CSP erlaubt Google-Endpunkte automatisch, sobald die ID gesetzt ist.
+
 ## Sprachen (Geo-Routing)
 
 | Sprache | Regionen (Auswahl) |

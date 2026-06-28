@@ -31,4 +31,13 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /connect-src 'self'/);
     assert.match(csp, /object-src 'none'/);
   });
+
+  it("allows Google endpoints when analytics is enabled", () => {
+    const csp = buildContentSecurityPolicy("x", {
+      isDev: false,
+      enableAnalytics: true,
+    });
+    assert.match(csp, /googletagmanager\.com/);
+    assert.match(csp, /google-analytics\.com/);
+  });
 });

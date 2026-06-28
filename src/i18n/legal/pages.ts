@@ -30,11 +30,17 @@ const sharedPrivacyCore: LegalSection[] = [
   {
     heading: "4. Cookies",
     paragraphs: [
-      "We use a consent cookie and, with your consent, a regional edition cookie. Details are listed in our Cookie Policy at /[locale]/cookies.",
+      "We use a consent cookie and, with your consent, a regional edition cookie and Google Analytics 4 for aggregate traffic measurement. Details are listed in our Cookie Policy at /[locale]/cookies.",
     ],
   },
   {
-    heading: "5. Demo request form",
+    heading: "5. Web analytics (Google Analytics 4)",
+    paragraphs: [
+      "If you accept all cookies, we use Google Analytics 4 (Google Ireland Ltd.) to understand aggregate page views and referral sources. IP addresses are anonymized. Legal basis (EU/EEA): Art. 6(1)(a) GDPR — consent. You can withdraw consent via cookie settings.",
+    ],
+  },
+  {
+    heading: "6. Demo request form",
     paragraphs: [
       "If you submit the demo form, we process name, company, email, role, message, and locale to respond to your inquiry.",
       "Data is transmitted via HTTPS to our server endpoint or, if unavailable, opened in your local email client (mailto). We do not sell demo data to third parties.",
@@ -43,19 +49,19 @@ const sharedPrivacyCore: LegalSection[] = [
     ],
   },
   {
-    heading: "6. Links to the CapCon application",
+    heading: "7. Links to the CapCon application",
     paragraphs: [
       "Links to app.capcon.io (login/signup) are subject to the privacy policy of the application operator. The marketing site does not authenticate you into the product.",
     ],
   },
   {
-    heading: "7. International transfers",
+    heading: "8. International transfers",
     paragraphs: [
       "Where hosting or support tools involve processors outside the EU/EEA, we rely on appropriate safeguards (e.g. EU Standard Contractual Clauses) where required.",
     ],
   },
   {
-    heading: "8. Your rights",
+    heading: "9. Your rights",
     paragraphs: [
       "You may request access, rectification, erasure, restriction, objection, and data portability. Contact: {{dpoEmail}}.",
       "EU/EEA: you may lodge a complaint with your supervisory authority. Poland: PUODO. Germany: competent Landesdatenschutzbehörde.",
@@ -75,6 +81,7 @@ const cookieSectionsEn: LegalSection[] = [
     paragraphs: [
       "capcon-cookie-consent — stores your consent choice (essential / all). Duration: 12 months. Purpose: legal compliance.",
       "capcon-site-variant — stores your regional marketing edition (e.g. APAC, Japan). Duration: 90 days only if you accept all cookies; otherwise session-only. Purpose: consistent regional content.",
+      "Google Analytics (only if you accept all cookies): _ga, _ga_* — aggregate visit statistics via Google Analytics 4. Duration: up to 24 months. Provider: Google Ireland Ltd. Privacy: https://policies.google.com/privacy",
     ],
   },
   {
@@ -200,7 +207,7 @@ function privacyEn(): LegalSection[] {
     },
     ...sharedPrivacyCore,
     {
-      heading: "9. Region-specific notes",
+      heading: "10. Region-specific notes",
       paragraphs: [
         "Australia (Privacy Act): we collect contact and technical data for business inquiries; overseas disclosure may occur via hosting in the US — contact us for details.",
         "Singapore (PDPA): we process personal data for reasonable business purposes; contact {{dpoEmail}} for access/correction.",
@@ -275,11 +282,17 @@ function privacyDe(): LegalSection[] {
     {
       heading: "4. Cookies",
       paragraphs: [
-        "Wir setzen ein Consent-Cookie und optional ein Editions-Cookie. Details unter /de/cookies.",
+        "Wir setzen ein Consent-Cookie und — mit Einwilligung — Editions-Cookie sowie Google Analytics 4. Details unter /de/cookies.",
       ],
     },
     {
-      heading: "5. Demo-Anfrage",
+      heading: "5. Webanalyse (Google Analytics 4)",
+      paragraphs: [
+        "Bei „Alle akzeptieren“ nutzen wir Google Analytics 4 (Google Ireland Ltd.) für aggregierte Seitenaufrufe und Referrer. IP-Anonymisierung ist aktiv. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Widerruf über Cookie-Einstellungen.",
+      ],
+    },
+    {
+      heading: "6. Demo-Anfrage",
       paragraphs: [
         "Bei Nutzung des Demo-Formulars verarbeiten wir Name, Unternehmen, E-Mail, Rolle, Nachricht und Locale zur Bearbeitung.",
         "Übermittlung per HTTPS an unseren Server-Endpunkt oder per mailto in Ihrem E-Mail-Programm.",
@@ -287,26 +300,26 @@ function privacyDe(): LegalSection[] {
       ],
     },
     {
-      heading: "6. Links zur CapCon-Anwendung",
+      heading: "7. Links zur CapCon-Anwendung",
       paragraphs: [
         "Links zu app.capcon.io unterliegen der Datenschutzerklärung des Produktbetreibers.",
       ],
     },
     {
-      heading: "7. Drittlandübermittlung",
+      heading: "8. Drittlandübermittlung",
       paragraphs: [
         "Bei Hosting außerhalb der EU/EWR setzen wir geeignete Garantien ein (z. B. EU-Standardvertragsklauseln), soweit erforderlich.",
       ],
     },
     {
-      heading: "8. Ihre Rechte",
+      heading: "9. Ihre Rechte",
       paragraphs: [
         "Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit: {{dpoEmail}}.",
         "Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.",
       ],
     },
     {
-      heading: "9. Barrierefreiheit",
+      heading: "10. Barrierefreiheit",
       paragraphs: ["Siehe /de/accessibility."],
     },
   ];
@@ -324,6 +337,7 @@ const cookieSectionsDe: LegalSection[] = [
     paragraphs: [
       "capcon-cookie-consent — speichert Ihre Einwilligung (essential / all). Dauer: 12 Monate.",
       "capcon-site-variant — regionale Marketing-Edition. Dauer: 90 Tage nur bei „Alle akzeptieren“, sonst Sitzung.",
+      "Google Analytics (nur bei „Alle akzeptieren“): _ga, _ga_* — aggregierte Besuchsstatistik via Google Analytics 4. Dauer: bis zu 24 Monate. Anbieter: Google Ireland Ltd. Datenschutz: https://policies.google.com/privacy",
     ],
   },
   {
@@ -457,7 +471,7 @@ export const legalPagesByLocale: Record<Locale, ExtendedLegalPages> = {
     privacy: {
       title: "Polityka prywatności",
       sections: privacyEn().map((s) =>
-        s.heading === "8. Your rights"
+        s.heading === "9. Your rights"
           ? {
               ...s,
               paragraphs: [
@@ -496,7 +510,7 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     privacyLink: "Datenschutzerklärung",
     settingsDetailEssential:
       "„Nur notwendige“: Consent-Cookie + Sitzungs-Edition.",
-    settingsDetailAll: "„Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie.",
+    settingsDetailAll: "„Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie und Google Analytics (aggregierte Statistik).",
   },
   en: {
     title: "Cookies & privacy",
@@ -507,7 +521,7 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     settingsLink: "Cookie policy",
     privacyLink: "Privacy policy",
     settingsDetailEssential: "Essential only: consent + session edition cookie.",
-    settingsDetailAll: "Accept all: also 90-day regional edition cookie.",
+    settingsDetailAll: "Accept all: also 90-day regional edition cookie and Google Analytics (aggregate statistics).",
   },
   fr: {
     title: "Cookies & confidentialité",

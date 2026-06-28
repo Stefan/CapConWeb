@@ -5,17 +5,11 @@ import { useEffect, useState } from "react";
 
 import { useSite } from "@/components/providers/site-provider";
 import { cookieBannerCopy } from "@/i18n/legal/pages";
-import { CONSENT_COOKIE, type ConsentLevel } from "@/lib/consent";
+import { CONSENT_COOKIE, readConsentFromDocument, type ConsentLevel } from "@/lib/consent";
 import { cn } from "@/lib/utils";
 
 function readConsent(): ConsentLevel | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith(`${CONSENT_COOKIE}=`));
-  if (!match) return null;
-  const value = match.split("=")[1];
-  return value === "all" || value === "essential" ? value : null;
+  return readConsentFromDocument();
 }
 
 function writeConsent(level: ConsentLevel): void {

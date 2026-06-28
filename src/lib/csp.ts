@@ -1,27 +1,47 @@
 export type CspOptions = {
   isDev?: boolean;
+  enableAnalytics?: boolean;
 };
+
+const GA_CONNECT_SRC = [
+  "https://www.google-analytics.com",
+  "https://analytics.google.com",
+  "https://www.googletagmanager.com",
+  "https://region1.google-analytics.com",
+];
+
+const GA_IMG_SRC = [
+  "https://www.google-analytics.com",
+  "https://www.googletagmanager.com",
+];
 
 export function buildContentSecurityPolicy(
   nonce: string,
   options: CspOptions = {},
 ): string {
   const isDev = options.isDev ?? process.env.NODE_ENV === "development";
+  const enableAnalytics = options.enableAnalytics ?? false;
   const scriptSrc = [
     "'self'",
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
+    ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
+
+  const connectSrc = ["'self'", ...(enableAnalytics ? GA_CONNECT_SRC : [])].join(" ");
+  const imgSrc = ["'self'", "data:", "blob:", ...(enableAnalytics ? GA_IMG_SRC : [])].join(
+    " ",
+  );
 
   return [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
     // Nonce covers Next/Tailwind style tags; unsafe-inline keeps React style={{}} valid.
     `style-src 'self' 'nonce-${nonce}' 'unsafe-inline'`,
-    "img-src 'self' data: blob:",
+    `img-src ${imgSrc}`,
     "font-src 'self' data:",
-    "connect-src 'self'",
+    `connect-src ${connectSrc}`,
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self' mailto:",

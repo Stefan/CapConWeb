@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 
 import {
   CONSENT_COOKIE,
+  allowsAnalytics,
   allowsPersistentVariantCookie,
   isConsentLevel,
   parseConsentLevel,
@@ -32,5 +33,11 @@ describe("consent", () => {
     assert.equal(allowsPersistentVariantCookie(null), false);
     assert.equal(allowsPersistentVariantCookie("essential"), false);
     assert.equal(allowsPersistentVariantCookie("all"), true);
+  });
+
+  it("allowsAnalytics only after full consent", () => {
+    assert.equal(allowsAnalytics(null), false);
+    assert.equal(allowsAnalytics("essential"), false);
+    assert.equal(allowsAnalytics("all"), true);
   });
 });

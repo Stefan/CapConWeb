@@ -33,6 +33,8 @@ npm run dev
 - Sprache testen: `http://localhost:3000/pl?variant=poland`, `http://localhost:3000/zh?variant=apac`
 - Demo-Formular: `/ja/demo`, `/ko/demo`, `/pl/demo`, `/zh/demo`
 - Geo-Routing-Tests: `npm run test:geo`
+- Compliance-Tests: `npm run test:consent`, `npm run test:legal`, `npm run test:demo-api`, `npm run test:webhook`
+- Alles: `npm test`
 
 ## Umgebungsvariablen
 

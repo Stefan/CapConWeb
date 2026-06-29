@@ -24,9 +24,21 @@ export function CookieConsentBanner() {
   const copy = cookieBannerCopy[locale];
   const [visible, setVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     setVisible(readConsent() === null);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncNavOpen = () => {
+      setNavOpen(root.hasAttribute("data-capcon-nav-open"));
+    };
+    syncNavOpen();
+    const observer = new MutationObserver(syncNavOpen);
+    observer.observe(root, { attributes: true, attributeFilter: ["data-capcon-nav-open"] });
+    return () => observer.disconnect();
   }, []);
 
   const accept = (level: ConsentLevel) => {
@@ -35,7 +47,7 @@ export function CookieConsentBanner() {
     setSettingsOpen(false);
   };
 
-  if (!visible) {
+  if (!visible || navOpen) {
     return null;
   }
 
@@ -45,10 +57,10 @@ export function CookieConsentBanner() {
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-desc"
       className={cn(
-        "fixed inset-x-0 bottom-0 z-[200] border-t border-slate-200 bg-white/95 p-4 shadow-lg backdrop-blur sm:p-6",
+        "fixed inset-x-0 bottom-0 z-[200] border-t border-slate-200 bg-white/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur sm:p-6",
       )}
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4">
         <div className="max-w-2xl">
           <h2 id="cookie-consent-title" className="text-sm font-semibold text-navy-950">
             {copy.title}
@@ -71,25 +83,25 @@ export function CookieConsentBanner() {
             .
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
           <button
             type="button"
             onClick={() => accept("essential")}
-            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 sm:w-auto"
           >
             {copy.essentialOnly}
           </button>
           <button
             type="button"
             onClick={() => accept("all")}
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 sm:w-auto"
           >
             {copy.acceptAll}
           </button>
           <button
             type="button"
             onClick={() => setSettingsOpen((v) => !v)}
-            className="rounded-lg px-3 py-2 text-sm text-slate-500 underline underline-offset-2 hover:text-slate-700"
+            className="rounded-lg px-1 py-2 text-left text-sm text-slate-500 underline underline-offset-2 hover:text-slate-700 sm:px-3 sm:text-center"
           >
             {dict.footer.cookieSettings}
           </button>

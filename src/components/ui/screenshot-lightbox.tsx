@@ -66,7 +66,7 @@ export function ScreenshotLightbox({
     <AnimatePresence>
       {open ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-[250] flex items-center justify-center p-4 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={title ?? alt}

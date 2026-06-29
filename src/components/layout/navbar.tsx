@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
+  SheetFooter,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -28,6 +28,11 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-capcon-nav-open", open);
+    return () => document.documentElement.removeAttribute("data-capcon-nav-open");
+  }, [open]);
 
   return (
     <header
@@ -71,7 +76,7 @@ export function Navbar() {
           data-capcon-nav-actions
           className="flex items-center justify-end gap-2 sm:gap-2.5"
         >
-          <LocaleSwitcher className="hidden shrink-0 lg:inline-flex" />
+          <LocaleSwitcher className="shrink-0" />
           <Button
             render={<Link href={demoUrl} />}
             size="sm"
@@ -93,50 +98,48 @@ export function Navbar() {
             >
               <Menu className="size-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs">
-              <SheetHeader>
+            <SheetContent side="right" className="w-full max-w-xs p-0">
+              <div className="flex h-full min-h-0 flex-col">
                 <SheetTitle className="sr-only">{brandLine}</SheetTitle>
-                <BrandLockup logoSize={72} />
-              </SheetHeader>
-              <ul className="mt-8 flex flex-col gap-4">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="text-base font-medium text-slate-700"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3">
-                <LocaleSwitcher className="w-fit" />
-                <Button
-                  render={
-                    <Link
-                      href={appSignupUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setOpen(false)}
-                    />
-                  }
-                  variant="ghost"
-                  className="w-full"
-                  size="lg"
-                >
-                  {dict.nav.startTrial}
-                </Button>
-                <Button
-                  render={
-                    <Link href={demoUrl} onClick={() => setOpen(false)} />
-                  }
-                  className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
-                  size="lg"
-                >
-                  {dict.nav.bookDemo}
-                </Button>
+                <ul className="flex-1 overflow-y-auto px-4 pb-2 pt-6">
+                  {navLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="block py-2 text-base font-medium text-slate-700"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <SheetFooter className="shrink-0 gap-3 border-t border-slate-100 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+                  <Button
+                    render={
+                      <Link
+                        href={appSignupUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setOpen(false)}
+                      />
+                    }
+                    variant="ghost"
+                    className="w-full"
+                    size="lg"
+                  >
+                    {dict.nav.startTrial}
+                  </Button>
+                  <Button
+                    render={
+                      <Link href={demoUrl} onClick={() => setOpen(false)} />
+                    }
+                    className="w-full bg-indigo-600 text-white hover:bg-indigo-700"
+                    size="lg"
+                  >
+                    {dict.nav.bookDemo}
+                  </Button>
+                </SheetFooter>
               </div>
             </SheetContent>
           </Sheet>

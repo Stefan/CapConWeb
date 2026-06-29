@@ -43,7 +43,7 @@ Kopie nach `.env.local` (siehe `.env.example`):
 ```bash
 NEXT_PUBLIC_SITE_URL=https://capconhq.com
 NEXT_PUBLIC_APP_URL=https://app.capconhq.com
-NEXT_PUBLIC_CONTACT_EMAIL=kontakt@capconhq.com
+NEXT_PUBLIC_CONTACT_EMAIL=contact@capconhq.com
 
 # Legal (Pflicht vor Go-Live — Platzhalter in .env.example ersetzen)
 NEXT_PUBLIC_LEGAL_COMPANY=…

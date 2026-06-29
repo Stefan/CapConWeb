@@ -62,7 +62,7 @@ describe("localized legal pages use interpolatable placeholders", () => {
     const controller = jaPages.privacy.sections[0]!;
     assert.match(controller.heading, /管理者/);
     assert.match(controller.paragraphs[0]!, /\{\{companyName\}\}/);
-    assert.match(interpolateLegalText(controller.paragraphs[0]!), /CapCon/);
+    assert.match(interpolateLegalText(controller.paragraphs[0]!), /Orkivo Technologies/);
   });
 
   it("ko privacy includes PIPA section", async () => {

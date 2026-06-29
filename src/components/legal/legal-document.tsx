@@ -29,20 +29,25 @@ export function LegalDocument({
         {title}
       </h1>
       <div className="mt-10 space-y-8">
-        {sections.map((section) => (
-          <section key={section.heading}>
-            <h2 className="text-lg font-semibold text-navy-950">
-              {section.heading}
-            </h2>
-            <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600">
-              {section.paragraphs.map((paragraph) => {
-                const text = interpolateLegalText(paragraph);
-                if (!text) return null;
-                return <p key={paragraph}>{text}</p>;
-              })}
-            </div>
-          </section>
-        ))}
+        {sections.map((section) => {
+          const paragraphs = section.paragraphs
+            .map((paragraph) => interpolateLegalText(paragraph))
+            .filter(Boolean);
+          if (paragraphs.length === 0) return null;
+
+          return (
+            <section key={section.heading}>
+              <h2 className="text-lg font-semibold text-navy-950">
+                {section.heading}
+              </h2>
+              <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600">
+                {paragraphs.map((text) => (
+                  <p key={text}>{text}</p>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </article>
   );

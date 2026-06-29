@@ -16,7 +16,8 @@ export const appUrl = trimSlash(
 export const appLoginUrl = `${appUrl}/login`;
 export const appSignupUrl = `${appUrl}/signup`;
 export const demoRequestUrl =
-  process.env.NEXT_PUBLIC_DEMO_URL ?? `mailto:kontakt@capconhq.com?subject=Demo%20anfragen`;
+  process.env.NEXT_PUBLIC_DEMO_URL ??
+  `mailto:contact@capconhq.com?subject=Demo%20anfragen`;
 
 export const contactEmail =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "kontakt@capconhq.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@capconhq.com";

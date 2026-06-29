@@ -232,16 +232,8 @@ function impressumDe(): LegalSection[] {
       ],
     },
     {
-      heading: "Vertreten durch",
-      paragraphs: ["{{responsiblePerson}}"],
-    },
-    {
       heading: "Kontakt",
       paragraphs: ["E-Mail: {{email}}", "{{phoneLine}}"],
-    },
-    {
-      heading: "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)",
-      paragraphs: ["{{responsiblePerson}}"],
     },
     {
       heading: "Haftungsausschluss",

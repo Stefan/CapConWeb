@@ -1,4 +1,4 @@
-Contact: mailto:kontakt@capconhq.com
+Contact: mailto:contact@capconhq.com
 Expires: 2027-06-30T00:00:00.000Z
 Preferred-Languages: en, de
 Policy: https://capconhq.com/en/terms

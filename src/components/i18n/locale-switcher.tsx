@@ -16,7 +16,7 @@ const localeLabels: Record<Locale, string> = {
   ja: "JA",
   ko: "KO",
   pl: "PL",
-  zh: "中文",
+  zh: "ZH",
 };
 
 const localeNames: Record<Locale, string> = {
@@ -68,10 +68,16 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
         <ChevronDown className="size-3.5 text-slate-400" aria-hidden />
       </Menu.Trigger>
       <Menu.Portal>
-        <Menu.Positioner align="end" sideOffset={8}>
+        <Menu.Positioner
+          side="bottom"
+          align="end"
+          sideOffset={8}
+          positionMethod="fixed"
+          className="z-50 origin-[var(--transform-origin)]"
+        >
           <Menu.Popup
             className={cn(
-              "z-50 min-w-44 origin-[var(--transform-origin)] overflow-hidden rounded-lg border border-slate-200 bg-white p-1 shadow-lg outline-none",
+              "min-w-44 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 shadow-lg outline-none",
               "transition duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             )}
           >

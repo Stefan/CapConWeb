@@ -90,7 +90,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "솔루션",
-    title: `${PRODUCT_NAME}은(는) 다른 솔루션이 데이터만 보여주는 곳에서 명확성을 제공합니다.`,
+    title: `${PRODUCT_NAME} — 자본 프로그램을 위한 통합 통제층.`,
     description:
       "흩어진 스프레드시트와 개별 프로젝트 보고서 대신, CapCon은 비용, 약정, 변경 영향, 포트폴리오 지표를 하나의 신뢰할 수 있는 시스템으로 통합합니다 — 프로젝트 코스트북부터 기업 차원의 통합까지.",
     steps: [
@@ -115,7 +115,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "기능",
     title: "신뢰할 수 있는 Capex 통제를 위한 도구",
     description:
-      "재무 컨트롤러와 PMO 리더가 매일 필요로 하는 것: 신뢰할 수 있는 수치, 명확한 편차, 지속적인 포트폴리오 시야.",
+      "일상적인 프로젝트 컨트롤에 더해, 배포 환경에 따라 ERP 조정 및 협력사 청구를 지원합니다.",
     items: [
       {
         id: "costbook",
@@ -152,6 +152,18 @@ const dictionary: SiteDictionary = {
         title: "워크플로 및 감사",
         description:
           "구성 가능한 승인, 컴플라이언스 맥락, 규제 환경을 위한 완전한 감사 추적.",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "SAP / ERP 조정",
+        description:
+          "실적 및 약정 가져오기, ERP 대 코스트북 비교 — 스티어링에서 병행 워크북 축소.",
+      },
+      {
+        id: "vendor-portal",
+        title: "협력사 / GC 포털",
+        description:
+          "활성화 시 SOV 진행 및 청구 제출 — 현장 도구를 보완하며 CLM을 대체하지 않습니다.",
       },
     ],
   },

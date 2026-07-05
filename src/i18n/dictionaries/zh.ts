@@ -89,7 +89,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "解决方案",
-    title: `${PRODUCT_NAME} 在他人只见数据之处，创造清晰洞察。`,
+    title: `${PRODUCT_NAME} — 资本项目的一层统一管控。`,
     description:
       "CapCon 将分散的电子表格与孤立的项目报告，整合为可靠的一体化系统 — 涵盖成本、承诺、变更影响与组合指标，从项目成本账簿到企业级汇总。",
     steps: [
@@ -114,7 +114,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "能力",
     title: "可靠 CAPEX 管控的工具集",
     description:
-      "财务控制人员与 PMO 负责人每日所需：可靠数字、清晰偏差与持续的投资组合视图。",
+      "日常项目管控核心能力 — 并在部署需要时支持 ERP 对账与供应商账单。",
     items: [
       {
         id: "costbook",
@@ -151,6 +151,18 @@ const dictionary: SiteDictionary = {
         title: "工作流与审计",
         description:
           "可配置审批、合规上下文与完整审计轨迹，适用于受监管环境。",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "SAP / ERP 对账",
+        description:
+          "导入实际值与承诺，比对 ERP 与成本账 — 减少指导会议中的并行工作簿。",
+      },
+      {
+        id: "vendor-portal",
+        title: "供应商 / 总包门户",
+        description:
+          "在启用时支持 SOV 进度与账单提交 — 补充现场工具，不替代 CLM。",
       },
     ],
   },

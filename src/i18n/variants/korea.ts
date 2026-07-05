@@ -74,6 +74,67 @@ export const koreaVariant: Partial<Record<"ko" | "en", Partial<SiteDictionary>>>
         },
       ],
     },
+    features: {
+      eyebrow: "국내 프로그램 기능",
+      title: "CapEx 팀이 매월 필요로 하는 통제",
+      description:
+        "반도체·제조·인프라 대형 투자에 필요한 신뢰할 수 있는 수치와 감사 가능한 승인 흐름.",
+      items: [
+        {
+          id: "costbook",
+          title: "코스트북과 예측",
+          description: "예산·실적·약정을 중앙 관리하고 방어 가능한 EAC를 유지합니다.",
+        },
+        {
+          id: "change-orders",
+          title: "변경 관리",
+          description: "변경 지시부터 승인, 예측 영향까지 전 과정을 기록합니다.",
+        },
+        {
+          id: "workflows",
+          title: "워크플로 및 감사",
+          description: "규제 환경을 고려한 승인 흐름과 전자 기록.",
+        },
+        {
+          id: "portfolio-intelligence",
+          title: "포트폴리오 통제",
+          description: "다수 사업장 투자의 통합 뷰와 조기 편차 경고.",
+        },
+        {
+          id: "sap-reconciliation",
+          title: "SAP / ERP 조정",
+          description: "ERP와 코스트북 비교 — 스티어링에서 병행 워크북을 줄입니다.",
+        },
+      ],
+    },
+    productScreens: {
+      eyebrow: "제품",
+      title: "코스트북에서 변경 관리, 포트폴리오 개요까지",
+      description:
+        "CapCon은 운영 프로젝트 컨트롤과 포트폴리오 거버넌스를 연결합니다 — 월말 Excel 통합 없이.",
+      panels: [
+        {
+          id: "costbook",
+          title: "코스트북 및 총비용",
+          caption: "비용 구조, 약정, 방어 가능한 완료 시점 추정(EAC).",
+        },
+        {
+          id: "co-cc",
+          title: "변경 영향",
+          caption: "예측 및 포트폴리오 신호와 연결된 변경 지시.",
+        },
+        {
+          id: "portfolio",
+          title: "포트폴리오 거버넌스",
+          caption: "프로그램 지표, 조기 편차 경고, 우선순위 조치.",
+        },
+        {
+          id: "risks",
+          title: "리스크 관리",
+          caption: "점수, 카테고리 분석, 포트폴리오 연계 주요 리스크.",
+        },
+      ],
+    },
     audience: {
       eyebrow: "대한민국",
       title: "자본집약형 CapEx 프로그램 팀을 위해",

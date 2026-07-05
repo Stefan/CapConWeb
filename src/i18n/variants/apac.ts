@@ -139,6 +139,89 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       subheadline: `${PRODUCT_NAME} 将成本账、变更审批与投资组合指标贯通——适用于亚太区基础设施、资源与生命科学项目，无需月末 Excel 汇总。`,
       primaryCta: "申请演示",
     },
+    problem: {
+      title: "复杂项目。分散管控。",
+      description:
+        "亚太区重大投资跨越承包商、币种与监管要求 — 许多团队仍在 Excel 中汇总对账。",
+      items: [
+        {
+          id: "budget-overruns",
+          title: "滞后的偏差信号",
+          description: "成本压力往往在指导委员会之后才显现 — 此时补救选项已有限。",
+        },
+        {
+          id: "excel-processes",
+          title: "电子表格汇总",
+          description: "PMO 团队每月耗费数日合并承包商数据、变更日志与组合视图。",
+        },
+        {
+          id: "sap-shadow-ledger",
+          title: "ERP 对账缺口",
+          description: "ERP 导入与各站点成本账不一致 — 并行 Excel 工作簿仍在使用。",
+        },
+        {
+          id: "change-audit-trail",
+          title: "变更证据缺口",
+          description: "变更与范围调整难以追溯至已批准预算与预测基线。",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "面向项目负责人",
+      title: "从现场交付到组合的一层统一管控。",
+      description:
+        "CapCon 为财务、PMO 与项目团队提供共享依据 — 与 ERP 财务数据对齐。",
+      steps: [
+        {
+          step: "01",
+          title: "财务",
+          text: "跨承包商与站点的成本账、承诺与预测，附清晰依据。",
+        },
+        {
+          step: "02",
+          title: "变更",
+          text: "变更单与审批，对总成本与项目指标的影响透明可见。",
+        },
+        {
+          step: "03",
+          title: "投资组合",
+          text: "组合级视图、汇率感知信号与高管报告。",
+        },
+      ],
+    },
+    features: {
+      eyebrow: "亚太项目能力",
+      title: "资本密集型项目团队所需的管控工具",
+      description:
+        "日常项目管控 — 并在部署需要时支持 ERP 对账与承包商账单。",
+      items: [
+        {
+          id: "costbook",
+          title: "集中式成本账与可辩护预测",
+          description: "预算、承诺与实际值统一管理 — 取代并行电子表格。",
+        },
+        {
+          id: "change-orders",
+          title: "变更管理",
+          description: "变更单、审批与预测影响 — 从申请到组合视图全程记录。",
+        },
+        {
+          id: "portfolio-intelligence",
+          title: "投资组合智能",
+          description: "跨项目指标、风险驱动因素与汇率影响，服务 PMO 与指导委员会。",
+        },
+        {
+          id: "sap-reconciliation",
+          title: "SAP / ERP 对账",
+          description: "导入实际值与承诺，比对 ERP 与成本账 — 减少指导会议中的并行工作簿。",
+        },
+        {
+          id: "workflows",
+          title: "工作流与审计",
+          description: "可配置审批与完整审计轨迹，适用于受监管行业。",
+        },
+      ],
+    },
     audience: {
       eyebrow: "亚太",
       title: "面向资本密集型项目团队",

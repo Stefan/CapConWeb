@@ -89,7 +89,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "Rozwiązanie",
-    title: `${PRODUCT_NAME} wprowadza przejrzystość tam, gdzie inni widzą tylko dane.`,
+    title: `${PRODUCT_NAME} — jedna warstwa kontroli dla programów inwestycyjnych.`,
     description:
       "Zamiast rozproszonych arkuszy i odizolowanych raportów projektowych CapCon łączy koszty, zobowiązania, skutki zmian i wskaźniki portfelowe w jednym wiarygodnym systemie — od costbooku projektu po konsolidację na poziomie grupy.",
     steps: [
@@ -114,7 +114,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "Możliwości",
     title: "Narzędzia do wiarygodnej kontroli CAPEX",
     description:
-      "To, czego kontrolerzy finansowi i liderzy PMO potrzebują na co dzień: wiarygodne liczby, jasne odchylenia i ciągły widok portfelowy.",
+      "Codzienna kontrola projektów — plus uzgodnienie ERP i rozliczenia wykonawców tam, gdzie wdrożenie tego wymaga.",
     items: [
       {
         id: "costbook",
@@ -151,6 +151,18 @@ const dictionary: SiteDictionary = {
         title: "Workflow i audyt",
         description:
           "Konfigurowalne zatwierdzenia, kontekst zgodności i pełny ślad audytowy dla środowisk regulowanych.",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "Uzgodnienie SAP / ERP",
+        description:
+          "Import wartości rzeczywistych i zobowiązań, porównanie ERP z costbookiem — mniej równoległych skoroszytów na spotkaniach sterujących.",
+      },
+      {
+        id: "vendor-portal",
+        title: "Portal wykonawcy / GC",
+        description:
+          "Zgłoszenia postępu SOV i rozliczeń tam, gdzie włączone — uzupełnienie narzędzi terenowych, bez zastępowania CLM.",
       },
     ],
   },

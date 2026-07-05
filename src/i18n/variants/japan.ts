@@ -100,6 +100,39 @@ export const japanVariant: Partial<Record<"ja" | "en", Partial<SiteDictionary>>>
           title: "ポートフォリオ統制",
           description: "複数拠点投資の統合ビューと早期の乖離警告。",
         },
+        {
+          id: "sap-reconciliation",
+          title: "SAP / ERP 照合",
+          description: "ERP とコストブックの突合 — ステアリングでの並行 Excel を削減。",
+        },
+      ],
+    },
+    productScreens: {
+      eyebrow: "国内プログラム",
+      title: "コストブックから変更管理、ポートフォリオ概要まで",
+      description:
+        "CapCon は、現場のプロジェクトコントロールと経営ポートフォリオガバナンスを連携 — 月末の Excel 集計は不要です。",
+      panels: [
+        {
+          id: "costbook",
+          title: "コストブックと総コスト",
+          caption: "コスト構造、コミットメント、根拠のある完了時総コスト見込み（EAC）。",
+        },
+        {
+          id: "co-cc",
+          title: "変更影響",
+          caption: "変更指示とフォーキャスト・ポートフォリオシグナルの連携。",
+        },
+        {
+          id: "portfolio",
+          title: "ポートフォリオガバナンス",
+          caption: "複数拠点プログラム指標、早期差異アラート、優先アクション。",
+        },
+        {
+          id: "risks",
+          title: "リスク管理",
+          caption: "スコアリング、カテゴリ分析、ポートフォリオ連動の主要リスク。",
+        },
       ],
     },
     audience: {

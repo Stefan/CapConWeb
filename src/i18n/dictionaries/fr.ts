@@ -89,7 +89,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "La solution",
-    title: `${PRODUCT_NAME} apporte de la clarté là où d'autres ne voient que des données.`,
+    title: `${PRODUCT_NAME} — une couche de contrôle pour les programmes d'investissement.`,
     description:
       "Au lieu de feuilles dispersées et de rapports projet isolés, CapCon réunit coûts, engagements, impacts de change et indicateurs portefeuille dans un système fiable — du costbook projet à la consolidation groupe.",
     steps: [
@@ -114,7 +114,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "Capacités",
     title: "La boîte à outils pour un pilotage capex fiable",
     description:
-      "Centré sur ce dont les contrôleurs capex et les PMO ont besoin au quotidien : chiffres fiables, écarts clairs et vue portefeuille continue.",
+      "Pilotage projet au quotidien — plus rapprochement ERP et facturation fournisseur lorsque votre déploiement l'exige.",
     items: [
       {
         id: "costbook",
@@ -151,6 +151,18 @@ const dictionary: SiteDictionary = {
         title: "Workflows & audit",
         description:
           "Approbations configurables, contexte conformité et piste d'audit complète pour environnements régulés.",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "Rapprochement SAP / ERP",
+        description:
+          "Import des actuals et engagements, comparaison ERP vs. costbook — moins de classeurs parallèles en comité de pilotage.",
+      },
+      {
+        id: "vendor-portal",
+        title: "Portail fournisseur / GC",
+        description:
+          "Soumissions SOV et facturation si activées — complément aux outils terrain, sans remplacer le CLM.",
       },
     ],
   },

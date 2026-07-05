@@ -91,7 +91,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "ソリューション",
-    title: `${PRODUCT_NAME}は、データだけではなく、明確な意思決定の根拠を提供します。`,
+    title: `${PRODUCT_NAME} — 資本プログラムの統合コントロールレイヤー。`,
     description:
       "散在するスプレッドシートや個別のプロジェクト報告書に代わり、CapConはコスト、コミットメント、変更影響、ポートフォリオ指標を一つの信頼できるシステムに統合します — プロジェクトコストブックから全社コンソリデーションまで。",
     steps: [
@@ -116,7 +116,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "機能",
     title: "信頼できる設備投資コントロールのためのツールキット",
     description:
-      "財務コントローラーやPMOリーダーが日々必要とするもの — 信頼できる数値、明確な差異分析、継続的なポートフォリオ視点。",
+      "日々のプロジェクトコントロールに加え、導入環境に応じた ERP 照合とベンダー請求をサポートします。",
     items: [
       {
         id: "costbook",
@@ -153,6 +153,18 @@ const dictionary: SiteDictionary = {
         title: "ワークフローと監査",
         description:
           "設定可能な承認フロー、コンプライアンスコンテキスト、規制環境向けの完全な監査証跡。",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "SAP / ERP 照合",
+        description:
+          "実績・コミットメントのインポート、ERP とコストブックの突合 — ステアリングでの並行ブックを削減。",
+      },
+      {
+        id: "vendor-portal",
+        title: "ベンダー / GC ポータル",
+        description:
+          "有効化時は SOV 進捗・請求提出 — 現場ツールを補完し、CLM に置き換えません。",
       },
     ],
   },

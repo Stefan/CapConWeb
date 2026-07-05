@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-
 import { useSite } from "@/components/providers/site-provider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -11,28 +9,6 @@ import { featureIcons } from "@/lib/content-icons";
 export function FeaturesSection() {
   const { dict } = useSite();
   const { features } = dict;
-
-  useEffect(() => {
-    const missing = features.items
-      .filter((feature) => !featureIcons[feature.id])
-      .map((feature) => feature.id);
-    if (missing.length === 0) return;
-    // #region agent log
-    fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
-      body: JSON.stringify({
-        sessionId: "3440af",
-        location: "features.tsx:useEffect",
-        message: "Missing feature icons",
-        data: { missing, count: features.items.length },
-        timestamp: Date.now(),
-        hypothesisId: "A",
-        runId: "post-fix",
-      }),
-    }).catch(() => {});
-    // #endregion
-  }, [features.items]);
 
   return (
     <section

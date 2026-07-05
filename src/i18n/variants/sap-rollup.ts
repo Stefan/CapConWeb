@@ -258,6 +258,23 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       title: "Für CapEx-Steuerung auf Divisionsebene",
       description:
         "Projektsteuerung, Finance und PMO bei Diagnostics-, Pharma-Standort- und Divisions-CapEx — wenn das ERP die Finanzdaten führt.",
+      personas: [
+        {
+          title: "Projektsteuerung",
+          description:
+            "Einheitliches Costbook, Nachtragswirkung und Abgleich ohne parallele Excel-Listen.",
+        },
+        {
+          title: "Finance / Controlling",
+          description:
+            "Belastbare Divisions-Konsolidierung, Verpflichtungssteuerung und ERP-abgestimmte Forecasts.",
+        },
+        {
+          title: "PMO / Programmmanagement",
+          description:
+            "Einheitliches Reporting und Portfolio-Steuerung über Multi-Projekt-Divisionen.",
+        },
+      ],
     },
     cta: {
       headline: "Portfolio-Konsolidierung und Costbook-Steuerung live erleben.",

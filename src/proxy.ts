@@ -9,8 +9,14 @@ import {
 } from "@/lib/consent";
 import { buildContentSecurityPolicy, createCspNonce } from "@/lib/csp";
 import { isGoogleAnalyticsEnabled } from "@/lib/analytics";
-import { queryVariantToEditionPath } from "@/lib/seo";
-import { VARIANT_COOKIE, detectVariant } from "@/lib/variant";
+import { queryVariantToEditionPath, parseEditionVariantFromPathname } from "@/lib/seo";
+import {
+  VARIANT_COOKIE,
+  defaultVariant,
+  detectVariant,
+  isSiteVariant,
+  type SiteVariant,
+} from "@/lib/variant";
 
 const VARIANT_SESSION_MAX_AGE = 60 * 60 * 24; // 24h without full consent
 const VARIANT_PERSISTENT_MAX_AGE = 60 * 60 * 24 * 90;
@@ -28,11 +34,22 @@ function isProduction(): boolean {
   return process.env.NODE_ENV === "production";
 }
 
+function resolveVariantForRequest(request: NextRequest): SiteVariant {
+  const edition = parseEditionVariantFromPathname(request.nextUrl.pathname);
+  if (edition && isSiteVariant(edition)) {
+    return edition;
+  }
+
+  const queryOverride = request.nextUrl.searchParams.get("variant");
+  if (queryOverride) {
+    return detectVariant({ queryOverride });
+  }
+
+  return defaultVariant;
+}
+
 function applyVariantCookie(request: NextRequest, response: NextResponse): NextResponse {
-  const variant = detectVariant({
-    countryCode: getCountryCode(request),
-    queryOverride: request.nextUrl.searchParams.get("variant"),
-  });
+  const variant = resolveVariantForRequest(request);
   const consent = parseConsentLevel(request.cookies.get(CONSENT_COOKIE)?.value);
   const maxAge = allowsPersistentVariantCookie(consent)
     ? VARIANT_PERSISTENT_MAX_AGE

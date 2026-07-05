@@ -14,6 +14,8 @@ import {
 type SiteContextValue = {
   locale: Locale;
   variant: SiteVariant;
+  /** Segment badge — only on `/editions/*`, not on the broad locale home. */
+  showEditionBadge: boolean;
   editionLabel: string;
   editionRegion: string;
   dict: SiteDictionary;
@@ -33,6 +35,7 @@ type SiteProviderProps = {
   dict: SiteDictionary;
   /** Marketing base path for in-page anchors (edition landings vs locale home). */
   basePath?: string;
+  showEditionBadge?: boolean;
   children: ReactNode;
 };
 
@@ -41,6 +44,7 @@ export function SiteProvider({
   variant,
   dict,
   basePath,
+  showEditionBadge = false,
   children,
 }: SiteProviderProps) {
   const meta = variantEditionMeta[variant];
@@ -50,6 +54,7 @@ export function SiteProvider({
   const value: SiteContextValue = {
     locale,
     variant,
+    showEditionBadge,
     editionLabel: localizedEditionText(meta.label, locale),
     editionRegion: localizedEditionText(meta.region, locale),
     dict,

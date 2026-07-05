@@ -37,6 +37,10 @@ export function isSiteVariant(value: string | null | undefined): value is SiteVa
   return siteVariants.includes(value as SiteVariant);
 }
 
+/**
+ * Resolve marketing edition from query override or geo (legacy / tests).
+ * **Homepage routing:** locale homes always use `defaultVariant`; segment copy lives on `/editions/*`.
+ */
 export function detectVariant(input: {
   countryCode?: string | null;
   queryOverride?: string | null;

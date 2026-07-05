@@ -9,10 +9,10 @@ import { SetHtmlLang } from "@/components/i18n/set-html-lang";
 import { CookieConsentBanner } from "@/components/legal/cookie-consent-banner";
 import { SiteProvider } from "@/components/providers/site-provider";
 import { isLocale, locales, type Locale } from "@/i18n/config";
-import { getDictionary, getRequestDictionary, getRequestVariant } from "@/i18n/get-dictionary";
+import { getDictionary } from "@/i18n/get-dictionary";
 import { PRODUCT_NAME } from "@/lib/brand";
 import { parseEditionVariantFromPathname } from "@/lib/seo";
-import { isSiteVariant, type SiteVariant } from "@/lib/variant";
+import { defaultVariant, isSiteVariant, type SiteVariant } from "@/lib/variant";
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -37,7 +37,7 @@ export async function generateMetadata({
   const dict =
     editionFromPath && isSiteVariant(editionFromPath)
       ? getDictionary(rawLocale, editionFromPath)
-      : await getRequestDictionary(rawLocale);
+      : getDictionary(rawLocale, defaultVariant);
 
   return {
     title: {
@@ -61,13 +61,10 @@ export default async function LocaleLayout({
   const headerList = await headers();
   const pathname = headerList.get("x-pathname") ?? "";
   const editionFromPath = parseEditionVariantFromPathname(pathname);
-  const cookieVariant = await getRequestVariant();
-  const variant: SiteVariant =
-    editionFromPath && isSiteVariant(editionFromPath)
-      ? editionFromPath
-      : cookieVariant;
+  const isEditionPage = Boolean(editionFromPath && isSiteVariant(editionFromPath));
+  const variant: SiteVariant = isEditionPage ? (editionFromPath as SiteVariant) : defaultVariant;
   const dict = getDictionary(locale, variant);
-  const basePath = editionFromPath
+  const basePath = isEditionPage
     ? `/${locale}/editions/${editionFromPath}`
     : `/${locale}`;
   const nonce = headerList.get("x-nonce") ?? undefined;
@@ -81,7 +78,13 @@ export default async function LocaleLayout({
       >
         {dict.a11y.skipToContent}
       </a>
-      <SiteProvider locale={locale} variant={variant} dict={dict} basePath={basePath}>
+      <SiteProvider
+        locale={locale}
+        variant={variant}
+        dict={dict}
+        basePath={basePath}
+        showEditionBadge={isEditionPage}
+      >
         {children}
         <CookieConsentBanner />
         <GoogleAnalytics nonce={nonce} />

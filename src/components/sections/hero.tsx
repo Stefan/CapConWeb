@@ -8,9 +8,8 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 
 export function HeroSection() {
-  const { dict, demoUrl, variant, editionLabel, editionRegion } = useSite();
+  const { dict, demoUrl, showEditionBadge, editionLabel, editionRegion } = useSite();
   const { hero } = dict;
-  const showEditionBadge = variant !== "standard-capex";
 
   return (
     <section

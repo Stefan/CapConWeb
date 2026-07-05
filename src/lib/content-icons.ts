@@ -1,18 +1,23 @@
 import {
   AlertTriangle,
+  ArrowLeftRight,
   BarChart3,
   Building2,
   ClipboardCheck,
   ClipboardList,
+  Eye,
   FileSpreadsheet,
   GitPullRequest,
+  HardHat,
   Layers,
   LineChart,
+  Link2,
   Lock,
   Map,
   Shield,
   Sparkles,
   TrendingUp,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 
@@ -22,6 +27,14 @@ export const painPointIcons: Record<string, LucideIcon> = {
   "excel-processes": FileSpreadsheet,
   "portfolio-blind-spots": Layers,
   "change-audit-trail": GitPullRequest,
+  "sap-shadow-ledger": FileSpreadsheet,
+  "rollup-gaps": Layers,
+  "multi-site-blind-spots": Eye,
+  "gc-collaboration": Users,
+  "equipment-gap": AlertTriangle,
+  "co-cc-split": Link2,
+  "validation-pack": ClipboardCheck,
+  "audit-export": Shield,
 };
 
 export const featureIcons: Record<string, LucideIcon> = {
@@ -44,6 +57,14 @@ export const featureIcons: Record<string, LucideIcon> = {
   equipment: Layers,
   deviation: AlertTriangle,
   "gmp-reports": FileSpreadsheet,
+  "sap-reconciliation": ArrowLeftRight,
+  reconciliation: ArrowLeftRight,
+  "vendor-portal": Users,
+  "sap-rollup": Building2,
+  "sov-vendor": GitPullRequest,
+  "costbook-capex": ClipboardList,
+  "construction-co": HardHat,
+  "portfolio-mfg": BarChart3,
 };
 
 export const trustSignalIcons: Record<string, LucideIcon> = {

@@ -5,61 +5,58 @@ import type { SiteDictionary } from "@/i18n/types";
 /** French overlay for Large Projects edition (ex. Québec). */
 export const largeProjectsFrPatch: Partial<SiteDictionary> = {
   meta: {
-    title: `${PRODUCT_NAME} – Pilotage projet pour grands programmes campus en Amérique du Nord`,
+    title: `${PRODUCT_NAME} – Pilotage financier maître d'ouvrage pour programmes capex intensifs (Amérique du Nord)`,
     description:
-      "Gouvernance financière pour maîtres d'ouvrage : costbook, SOV, retainage, conformité master plan et change management pour programmes campus aux États-Unis et au Canada.",
+      "Costbook, SOV, retainage, change et portefeuille sur une plateforme. Pour life science, industriel et campus aux États-Unis et au Canada — avec conformité master plan pour mega-programmes.",
     keywords: [
-      "Campus",
-      "Master Plan",
+      "Pilotage projet",
       "SOV",
       "Retainage",
+      "Change Management",
+      "Costbook",
       "Life Sciences",
       "General Contractor",
       "Capex",
+      "Campus",
+      "Master Plan",
     ],
     openGraphLocale: "fr_CA",
   },
   hero: {
-    eyebrow: "Programmes campus · Amérique du Nord",
-    headline: "Piloter de grands campus avec des chiffres défendables.",
-    subheadline: `${PRODUCT_NAME} unifie costbook, schedule of values, facturation entreprise générale, retainage et conformité master plan — pour grands programmes campus life science et mega-capex aux États-Unis et au Canada.`,
+    eyebrow: "CapEx & Portfolio Intelligence · Amérique du Nord",
+    headline: "Pilotage financier maître d'ouvrage pour programmes de construction capex intensifs.",
+    subheadline: `${PRODUCT_NAME} unifie costbook, schedule of values, facturation entreprise générale et change management dans une couche audit-ready — avec prévisions explicables, gouvernance retainage et KPI portefeuille. Particulièrement adapté aux programmes life science et campus réglementés nécessitant conformité master plan.`,
     primaryCta: "Demander une démo",
   },
   solution: {
     eyebrow: "Pour maîtres d'ouvrage",
-    title: "De la ligne de facturation au master plan campus — un processus continu.",
+    title: "Du costbook à la facturation GC — une couche de pilotage maître d'ouvrage.",
     description:
-      "Quand l'entreprise générale facture sur des dizaines de lignes SOV et chaque approbation de change doit refléter plafonds d'investissement et stage gates, les feuilles Excel échouent. CapCon est la couche de pilotage du maître d'ouvrage entre ERP, facturation GC et chantier.",
+      "Extension pharma, capex industriel ou campus multi-bâtiments : quand l'entreprise générale facture sur des lignes SOV et que les change orders impactent la prévision de coût total, les feuilles Excel échouent. CapCon est la couche maître d'ouvrage entre ERP, contrat et chantier.",
     steps: [
       {
         step: "01",
-        title: "Financials & facturation GC",
-        text: "Costbook central, engagements, SOV, demandes de paiement et retainage avec prévisions de coût total défendables.",
+        title: "Financials & contrat",
+        text: "Costbook comme SSOT, engagements, SOV et facturation GC avec EAC/ETC explicables — pas des slides de statut.",
       },
       {
         step: "02",
-        title: "Change & master plan",
-        text: "Change orders, registres de risques, utilisation des plafonds et vues plan approuvé vs. situation actuelle.",
+        title: "Change & pilotage",
+        text: "Change orders et approbations avec impact transparent sur prévision et portefeuille ; impact master plan / stage gates optionnel pour campus.",
       },
       {
         step: "03",
-        title: "Gouvernance portefeuille",
-        text: "Consolidation programme, alertes d'écart et briefs direction pour comités de pilotage campus.",
+        title: "Portefeuille & conformité",
+        text: "KPI programme, alertes d'écart et approbations audit-ready — surtout pour programmes maître d'ouvrage réglementés.",
       },
     ],
   },
   features: {
-    eyebrow: "Capacités campus",
-    title: "Ce dont les équipes maîtrise d'ouvrage ont besoin chaque mois",
+    eyebrow: "Capacités maître d'ouvrage",
+    title: "Ce dont les équipes capex intensives ont besoin chaque mois",
     description:
-      "Master plan, SOV et gouvernance de portefeuille dans une seule plateforme — pour les campus nord-américains.",
+      "Costbook, SOV, change et gouvernance portefeuille sur une plateforme — avec master plan campus et conformité stage gates là où les programmes l'exigent.",
     items: [
-      {
-        id: "master-plan",
-        title: "Master plan campus",
-        description:
-          "Utilisation des plafonds d'investissement, zones et écarts entre plan approuvé et portefeuille actuel.",
-      },
       {
         id: "sov-retainage",
         title: "SOV & retainage",
@@ -76,26 +73,75 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
         id: "explainability",
         title: "Prévisions défendables",
         description:
-          "Chaque chiffre, des indicateurs portefeuille au détail costbook — prévisions présentables en comité de pilotage.",
-      },
-      {
-        id: "stage-gates",
-        title: "Conformité stage gates",
-        description:
-          "Contrôles obligatoires à l'approbation — conformité dans le processus, pas dans un deck trimestriel.",
+          "Chaque chiffre, des indicateurs portefeuille au détail costbook — SSOT maître d'ouvrage sans classeurs Excel parallèles.",
       },
       {
         id: "portfolio",
         title: "Pilotage portefeuille",
         description:
-          "Indicateurs campus, actions prioritaires et santé financière du programme.",
+          "Indicateurs programme, alertes d'écart et briefs direction pour portefeuilles capex multi-sites.",
+      },
+      {
+        id: "master-plan",
+        title: "Master plan campus",
+        description:
+          "Utilisation des plafonds d'investissement, zones et écarts entre plan approuvé et portefeuille actuel — pour programmes campus.",
+      },
+      {
+        id: "stage-gates",
+        title: "Conformité stage gates",
+        description:
+          "Contrôles obligatoires à l'approbation — conformité master plan dans le processus, pas dans un deck trimestriel.",
+      },
+    ],
+  },
+  productScreens: {
+    eyebrow: "Workflow maître d'ouvrage",
+    title: "Costbook → SOV → trace financière",
+    description:
+      "Le parcours mensuel maître d'ouvrage : base de facturation, mise en œuvre des change orders et suivi financier — avec pilotage master plan pour campus.",
+    panels: [
+      {
+        id: "steering",
+        title: "Pilotage portefeuille & programme",
+        caption: "KPI programme, alertes d'écart et santé financière en un coup d'œil.",
+      },
+      {
+        id: "sov",
+        title: "SOV & demandes de paiement",
+        caption: "PO contrat, facturation par ligne et historique des paiements approuvés.",
+      },
+      {
+        id: "recon",
+        title: "Trace financière",
+        caption: "Lignes rapprochées et en écart avec détail costbook.",
+      },
+    ],
+  },
+  audience: {
+    eyebrow: "Amérique du Nord",
+    title: "Pour maîtres d'ouvrage de programmes capex intensifs",
+    description:
+      "Programme management, finance et PMO sur capex à forte composante GC — life science, industriel, commercial et campus multi-sites.",
+    personas: [
+      {
+        title: "Life science & pharma",
+        description: "Capex réglementé avec facturation SOV, change control et approbations audit-ready.",
+      },
+      {
+        title: "Industriel & manufacturing",
+        description: "Programmes multi-sites avec costbook SSOT, engagements et prévisions défendables.",
+      },
+      {
+        title: "Campus & mega-programmes",
+        description: "Conformité master plan, gouvernance retainage et pilotage portefeuille à l'échelle programme.",
       },
     ],
   },
   cta: {
-    headline: "Voir le workflow campus en direct.",
+    headline: "Voir le pilotage financier maître d'ouvrage en démo.",
     description:
-      "Nous parcourons pilotage master plan, facturation SOV et mise en œuvre des change orders sur un programme campus de référence.",
+      "Nous parcourons costbook, facturation SOV et mise en œuvre des change orders — et pilotage master plan pour campus.",
     primaryCta: "Demander une démo",
     contactPrefix: "Ou contactez notre équipe à",
   },

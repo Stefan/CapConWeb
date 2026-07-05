@@ -7,61 +7,58 @@ import { largeProjectsFrPatch } from "@/i18n/variants/large-projects-fr";
 export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
   en: {
     meta: {
-      title: `${PRODUCT_NAME} – Project controls for large North American campus programs`,
+      title: `${PRODUCT_NAME} – Owner project controls for capital-intensive programs (North America)`,
       description:
-        "Financial control for project owners: costbook, schedule of values, retainage, master plan compliance, and change management for capital-intensive US and Canadian campus programs.",
+        "Costbook, SOV, retainage, change, and portfolio in one platform. For life-science, industrial, and campus capex in the US and Canada — with master plan compliance for mega-programs.",
       keywords: [
-        "Campus",
-        "Master Plan",
+        "Project Controls",
         "SOV",
         "Retainage",
+        "Change Management",
+        "Costbook",
         "Life Sciences",
         "General Contractor",
         "Capex",
+        "Campus",
+        "Master Plan",
       ],
       openGraphLocale: "en_US",
     },
     hero: {
-      eyebrow: "Campus programs · North America",
-      headline: "Steer large campus programs with numbers you can defend.",
-      subheadline: `${PRODUCT_NAME} unifies costbook, schedule of values, general contractor billing, retainage, and master plan compliance — built for large life-science and mega-capex campus programs in the US and Canada.`,
+      eyebrow: "CapEx & Portfolio Intelligence · North America",
+      headline: "Owner financial control for capital-intensive construction programs.",
+      subheadline: `${PRODUCT_NAME} unifies costbook, schedule of values, general-contractor billing, and change management in one audit-ready layer — with explainable forecasts, retainage control, and portfolio KPIs. Especially strong for regulated life-science and campus programs that require master plan compliance.`,
       primaryCta: "Request a demo",
     },
     solution: {
       eyebrow: "For project owners",
-      title: "From billing line to campus master plan — one continuous process.",
+      title: "From costbook to GC billing — one owner control layer.",
       description:
-        "When a general contractor bills across dozens of schedule-of-values lines and every change approval must reflect investment caps and stage-gate rules, spreadsheets break. CapCon is the owner's control layer between ERP, GC billing, and the job site.",
+        "Whether you are expanding a pharma facility, delivering industrial capex, or running a multi-building campus, when a general contractor bills across SOV lines and change orders drive total cost forecast, spreadsheets break. CapCon is the owner layer between ERP, contract, and the job site.",
       steps: [
         {
           step: "01",
-          title: "Financials & GC billing",
-          text: "Central costbook, commitments, SOV, payment applications, and retainage with defensible total cost forecasts.",
+          title: "Financials & contract",
+          text: "Costbook as SSOT, commitments, SOV, and GC billing with explainable EAC/ETC — not status slides.",
         },
         {
           step: "02",
-          title: "Change & master plan",
-          text: "Change orders, risk registers, cap utilization, and planned vs. current master plan views.",
+          title: "Change & control",
+          text: "Change orders and approvals with transparent impact on forecast and portfolio; optional master plan / stage-gate impact for campus programs.",
         },
         {
           step: "03",
-          title: "Portfolio governance",
-          text: "Program consolidation, variance alerts, and executive briefs for campus steering committees.",
+          title: "Portfolio & compliance",
+          text: "Program KPIs, drift alerts, and audit-ready approvals — especially for regulated owner programs.",
         },
       ],
     },
     features: {
-      eyebrow: "Campus capabilities",
-      title: "What large-program owners need every month",
+      eyebrow: "Owner capabilities",
+      title: "What capital-intensive owner teams need every month",
       description:
-        "Master plan, SOV, and portfolio governance in one platform — built for North American campus and mega-programs.",
+        "Costbook, SOV, change, and portfolio governance in one platform — with campus master plan and stage-gate compliance where programs require it.",
       items: [
-        {
-          id: "master-plan",
-          title: "Campus master plan",
-          description:
-            "Investment cap utilization, zones, and variance between approved plan and current portfolio.",
-        },
         {
           id: "sov-retainage",
           title: "SOV & retainage",
@@ -78,32 +75,38 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
           id: "explainability",
           title: "Defensible forecasts",
           description:
-            "Trace any number from portfolio metrics to costbook detail — forecasts you can present in steering forums.",
-        },
-        {
-          id: "stage-gates",
-          title: "Stage-gate compliance",
-          description:
-            "Mandatory checks at approval time — compliance in the workflow, not in a quarterly slide deck.",
+            "Trace any number from portfolio metrics to costbook detail — owner SSOT without parallel Excel workbooks.",
         },
         {
           id: "portfolio",
           title: "Portfolio governance",
           description:
-            "Campus metrics, prioritized actions, and program financial health across the portfolio.",
+            "Program metrics, variance alerts, and executive briefs across multi-site capex portfolios.",
+        },
+        {
+          id: "master-plan",
+          title: "Campus master plan",
+          description:
+            "Investment cap utilization, zones, and variance between approved plan and current portfolio — for campus programs.",
+        },
+        {
+          id: "stage-gates",
+          title: "Stage-gate compliance",
+          description:
+            "Mandatory checks at approval time — master plan compliance in the workflow, not in a quarterly slide deck.",
         },
       ],
     },
     productScreens: {
-      eyebrow: "Campus workflow",
-      title: "Master plan → SOV → financial trace",
+      eyebrow: "Owner workflow",
+      title: "Costbook → SOV → financial trace",
       description:
-        "The end-to-end workflow owners review each month: steering, billing baseline, change implementation, and financial follow-through.",
+        "The end-to-end workflow owners review each month: billing baseline, change implementation, and financial follow-through — with master plan steering for campus programs.",
       panels: [
         {
           id: "steering",
-          title: "Master plan steering",
-          caption: "Cap utilization, stage gates, and program health at a glance.",
+          title: "Portfolio & program steering",
+          caption: "Program KPIs, variance alerts, and financial health at a glance.",
         },
         {
           id: "sov",
@@ -119,89 +122,86 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
     },
     audience: {
       eyebrow: "North America",
-      title: "Built for owner program management teams",
+      title: "For owners of capital-intensive construction programs",
       description:
-        "Program management, finance, and PMO leaders running general-contractor-heavy campus capital programs with master-plan obligations.",
+        "Program management, finance, and PMO leaders running GC-heavy capex — life science, industrial, commercial owner, and multi-site campus programs.",
       personas: [
         {
-          title: "Program management / PMO",
-          description: "Campus steering, master plan compliance, and portfolio governance.",
+          title: "Life science & pharma",
+          description: "Regulated capex with SOV billing, change control, and audit-ready approvals.",
         },
         {
-          title: "Project controllers",
-          description: "Reliable costbook data, SOV alignment, and defensible forecasts for leadership.",
+          title: "Industrial & manufacturing",
+          description: "Multi-site programs with costbook SSOT, commitments, and defensible forecasts.",
         },
         {
-          title: "Finance & compliance",
-          description: "Retainage control, audit-ready approvals, and electronic signature workflows.",
+          title: "Campus & mega-programs",
+          description: "Master plan compliance, retainage control, and portfolio steering at program scale.",
         },
       ],
     },
     cta: {
-      headline: "See the campus workflow in a live demo.",
+      headline: "See owner financial control in a live demo.",
       description:
-        "We'll walk through master plan steering, SOV billing, and change implementation on a large-campus reference program.",
+        "We'll walk through costbook, SOV billing, and change implementation — and master plan steering for campus programs.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
   },
   de: {
     meta: {
-      title: `${PRODUCT_NAME} – Projektsteuerung für große US-Campus-Programme`,
+      title: `${PRODUCT_NAME} – Owner Project Controls für kapitalintensive Bauprogramme (NA)`,
       description:
-        "Finanzsteuerung für Bauherren: Costbook, Schedule of Values, Retainage, Master-Plan-Compliance und Change Management für kapitalintensive Campus-Programme in den USA und Kanada.",
+        "Costbook, SOV, Retainage, Change und Portfolio in einer Plattform. Für Life-Science-, Industrial- und Campus-CapEx in den USA und Kanada — mit Master-Plan-Compliance für Mega-Programme.",
       keywords: [
-        "Campus",
-        "Master Plan",
+        "Projektsteuerung",
         "SOV",
         "Retainage",
+        "Change Management",
+        "Costbook",
         "Life Sciences",
         "General Contractor",
         "Capex",
+        "Campus",
+        "Master Plan",
       ],
       openGraphLocale: "de_DE",
     },
     hero: {
-      eyebrow: "Campus-Programme · Nordamerika",
-      headline: "Große Campus-Programme mit belastbaren Zahlen steuern.",
-      subheadline: `${PRODUCT_NAME} vereint Costbook, Schedule of Values, Generalunternehmer-Abrechnung, Retainage und Master-Plan-Compliance — für große Life-Science- und Mega-Capex-Campus-Programme in den USA und Kanada.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Nordamerika",
+      headline: "Owner Financial Control für kapitalintensive Bauprogramme.",
+      subheadline: `${PRODUCT_NAME} verbindet Costbook, Schedule of Values, General-Contractor-Abrechnung und Change Management in einer auditierbaren Schicht — mit nachvollziehbaren Forecasts, Retainage-Steuerung und Portfolio-KPIs. Besonders stark für regulierte Life-Science- und Campus-Programme mit Master-Plan-Compliance.`,
       primaryCta: "Demo anfragen",
     },
     solution: {
       eyebrow: "Für Bauherren",
-      title: "Von der Abrechnungszeile bis zum Campus-Master-Plan — ein durchgängiger Prozess.",
+      title: "Vom Costbook bis zur GU-Abrechnung — eine Owner-Schicht.",
       description:
-        "Wenn der Generalunternehmer über Dutzende SOV-Positionen abrechnet und jede Nachtragsfreigabe Investitionsobergrenzen und Stage Gates berücksichtigen muss, scheitern Tabellen. CapCon ist die Steuerungsebene des Bauherrn zwischen ERP, GU-Abrechnung und Baustelle.",
+        "Ob Pharma-Erweiterung, Industrial CapEx oder Multi-Building-Campus: Wenn der General Contractor über SOV-Positionen abrechnet und Nachträge die Gesamtkostenprognose treiben, scheitern Tabellen. CapCon ist die Steuerungsebene des Bauherrn zwischen ERP, Vertrag und Baustelle.",
       steps: [
         {
           step: "01",
-          title: "Finanzen & GU-Abrechnung",
-          text: "Zentrales Costbook, Verpflichtungen, SOV, Zahlungsanträge und Retainage mit belastbarer Gesamtkostenprognose.",
+          title: "Finanzen & Vertrag",
+          text: "Costbook als SSOT, Verpflichtungen, SOV und GU-Abrechnung mit nachvollziehbaren EAC/ETC — nicht nur Statusfolien.",
         },
         {
           step: "02",
-          title: "Change & Master Plan",
-          text: "Nachträge, Risikoregister, Auslastung der Investitionsobergrenzen sowie Plan- vs. Ist-Master-Plan.",
+          title: "Change & Steuerung",
+          text: "Nachträge und Freigaben mit transparenter Wirkung auf Forecast und Portfolio; optional Master-Plan-/Stage-Gate-Auswirkungen für Campus-Programme.",
         },
         {
           step: "03",
-          title: "Portfolio-Steuerung",
-          text: "Programm-Konsolidierung, Abweichungswarnungen und Management-Briefings für Campus-Gremien.",
+          title: "Portfolio & Compliance",
+          text: "Programm-KPIs, Drift-Alerts und auditierbare Freigaben — besonders für regulierte Owner-Programme.",
         },
       ],
     },
     features: {
-      eyebrow: "Campus-Funktionen",
-      title: "Was Bauherren-Teams jeden Monat brauchen",
+      eyebrow: "Owner-Funktionen",
+      title: "Was Owner-Teams bei kapitalintensiven Programmen jeden Monat brauchen",
       description:
-        "Master Plan, SOV und Portfolio-Steuerung in einer Plattform — für nordamerikanische Campus- und Mega-Programme.",
+        "Costbook, SOV, Change und Portfolio-Steuerung in einer Plattform — mit Campus-Master-Plan und Stage-Gate-Compliance dort, wo Programme das verlangen.",
       items: [
-        {
-          id: "master-plan",
-          title: "Campus Master Plan",
-          description:
-            "Auslastung der Investitionsobergrenzen, Zonen und Abweichungen zwischen genehmigtem Plan und aktuellem Portfolio.",
-        },
         {
           id: "sov-retainage",
           title: "SOV & Retainage",
@@ -218,32 +218,38 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
           id: "explainability",
           title: "Belastbare Forecasts",
           description:
-            "Jede Kennzahl vom Portfolio bis zur Costbook-Zeile nachvollziehbar — Prognosen, die Sie im Lenkungsausschuss vertreten können.",
-        },
-        {
-          id: "stage-gates",
-          title: "Stage-Gate-Compliance",
-          description:
-            "Verbindliche Prüfungen bei Freigaben — Compliance im Prozess, nicht im Quartalsdeck.",
+            "Jede Kennzahl vom Portfolio bis zur Costbook-Zeile nachvollziehbar — Owner-SSOT ohne parallele Excel-Listen.",
         },
         {
           id: "portfolio",
           title: "Portfolio-Steuerung",
           description:
-            "Campus-Kennzahlen, priorisierte Maßnahmen und finanzielle Programmgesundheit über das gesamte Portfolio.",
+            "Programm-Kennzahlen, Abweichungswarnungen und Management-Briefings über Multi-Site-CapEx-Portfolios.",
+        },
+        {
+          id: "master-plan",
+          title: "Campus Master Plan",
+          description:
+            "Auslastung der Investitionsobergrenzen, Zonen und Abweichungen zwischen genehmigtem Plan und aktuellem Portfolio — für Campus-Programme.",
+        },
+        {
+          id: "stage-gates",
+          title: "Stage-Gate-Compliance",
+          description:
+            "Verbindliche Prüfungen bei Freigaben — Master-Plan-Compliance im Prozess, nicht im Quartalsdeck.",
         },
       ],
     },
     productScreens: {
-      eyebrow: "Campus-Workflow",
-      title: "Master Plan → SOV → Finanzielle Nachverfolgung",
+      eyebrow: "Owner-Workflow",
+      title: "Costbook → SOV → Finanzielle Nachverfolgung",
       description:
-        "Der monatliche Durchlauf für Bauherren: Steering, Abrechnungsbasis, Nachtragsumsetzung und finanzielle Nachverfolgung.",
+        "Der monatliche Durchlauf für Bauherren: Abrechnungsbasis, Nachtragsumsetzung und finanzielle Nachverfolgung — mit Master-Plan-Steering für Campus-Programme.",
       panels: [
         {
           id: "steering",
-          title: "Master-Plan-Steering",
-          caption: "Auslastung der Obergrenzen, Stage Gates und Programmgesundheit auf einen Blick.",
+          title: "Portfolio- & Programm-Steering",
+          caption: "Programm-KPIs, Abweichungswarnungen und finanzielle Gesundheit auf einen Blick.",
         },
         {
           id: "sov",
@@ -259,28 +265,28 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
     },
     audience: {
       eyebrow: "Nordamerika",
-      title: "Für Programmmanagement-Teams von Bauherren",
+      title: "Für Owner kapitalintensiver Bauprogramme",
       description:
-        "Programmmanagement, Finance und PMO bei GU-lastigen Campus-Capex-Programmen mit Master-Plan-Vorgaben.",
+        "Programmmanagement, Finance und PMO bei GU-lastigen CapEx-Programmen — Life Science, Industrial, Commercial Owner und Multi-Site-Campus.",
       personas: [
         {
-          title: "Programmmanagement / PMO",
-          description: "Campus-Steering, Master-Plan-Compliance und Portfolio-Steuerung.",
+          title: "Life Science & Pharma",
+          description: "Reguliertes CapEx mit SOV-Abrechnung, Change Control und auditierbaren Freigaben.",
         },
         {
-          title: "Projektcontroller",
-          description: "Verlässliche Costbook-Daten, SOV-Abstimmung und belastbare Forecasts für die Führung.",
+          title: "Industrial & Manufacturing",
+          description: "Multi-Site-Programme mit Costbook-SSOT, Verpflichtungen und belastbaren Forecasts.",
         },
         {
-          title: "Finance & Compliance",
-          description: "Retainage-Steuerung, prüfungssichere Freigaben und elektronische Signatur-Workflows.",
+          title: "Campus & Mega-Programme",
+          description: "Master-Plan-Compliance, Retainage-Steuerung und Portfolio-Steering in Programmgröße.",
         },
       ],
     },
     cta: {
-      headline: "Den Campus-Workflow live erleben.",
+      headline: "Owner Financial Control live erleben.",
       description:
-        "Wir führen Master-Plan-Steering, SOV-Abrechnung und Nachtragsumsetzung an einem Referenz-Campus-Programm vor.",
+        "Wir führen Costbook, SOV-Abrechnung und Nachtragsumsetzung vor — und Master-Plan-Steering für Campus-Programme.",
       primaryCta: "Demo anfragen",
       contactPrefix: "Oder kontaktieren Sie uns unter",
     },

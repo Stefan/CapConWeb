@@ -32,12 +32,12 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
     eyebrow: "Pour maîtres d'ouvrage",
     title: "Du costbook à la facturation GC — une couche de pilotage maître d'ouvrage.",
     description:
-      "Extension pharma, capex industriel ou campus multi-bâtiments : quand l'entreprise générale facture sur des lignes SOV et que les change orders impactent la prévision de coût total, les feuilles Excel échouent. CapCon est la couche maître d'ouvrage entre ERP, contrat et chantier.",
+      "Extension pharma, capex industriel ou campus multi-bâtiments : quand l'entreprise générale facture sur des lignes SOV et que les change orders impactent la prévision de coût total, la consolidation de fin de mois ne suit plus le rythme du programme. CapCon est la couche de pilotage maître d'ouvrage entre ERP, contrat et chantier.",
     steps: [
       {
         step: "01",
         title: "Financials & contrat",
-        text: "Costbook comme SSOT, engagements, SOV et facturation GC avec EAC/ETC explicables — pas des slides de statut.",
+        text: "Costbook de référence, engagements, SOV et facturation GC avec EAC/ETC explicables — pas des slides de statut.",
       },
       {
         step: "02",
@@ -73,7 +73,7 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
         id: "explainability",
         title: "Prévisions défendables",
         description:
-          "Chaque chiffre, des indicateurs portefeuille au détail costbook — SSOT maître d'ouvrage sans classeurs Excel parallèles.",
+          "Chaque chiffre, des indicateurs portefeuille au détail costbook — costbook de référence maître d'ouvrage sans classeurs Excel parallèles.",
       },
       {
         id: "portfolio",
@@ -130,7 +130,7 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
       },
       {
         title: "Industriel & manufacturing",
-        description: "Programmes multi-sites avec costbook SSOT, engagements et prévisions défendables.",
+        description: "Programmes multi-sites avec costbook de référence, engagements et prévisions défendables.",
       },
       {
         title: "Campus & mega-programmes",

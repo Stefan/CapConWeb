@@ -21,10 +21,35 @@ export const japanVariant: Partial<Record<"ja" | "en", Partial<SiteDictionary>>>
       openGraphLocale: "ja_JP",
     },
     hero: {
-      eyebrow: "CapEx · 日本",
+      eyebrow: "CapEx & Portfolio Intelligence · 日本",
       headline: "複数拠点の設備投資を、説明可能な数字で統制する。",
       subheadline: `${PRODUCT_NAME}は、コストブック、変更承認、ポートフォリオ指標を一つのプラットフォームに統合。製造・ライフサイエンスの大規模設備投資に、月末の Excel 集計なしで対応します。ERP が財務データを保持する多拠点プログラムで特に強力です。`,
       primaryCta: "デモを申し込む",
+    },
+    problem: {
+      title: "複雑なプログラム。分断された統制。",
+      description:
+        "国内の設備投資は拠点、委託先、規制要件をまたぐ一方、多くのチームは依然として Excel で調整しています。",
+      items: [
+        {
+          id: "budget-overruns",
+          title: "遅れて表面化するコスト偏差",
+          description:
+            "コスト圧力はステアリング委員会の後に判明し、回復の選択肢が限られます。",
+        },
+        {
+          id: "excel-processes",
+          title: "スプレッドシート集計",
+          description:
+            "PMO チームは毎月、委託先データ、変更ログ、ポートフォリオビューの統合に日数を費やします。",
+        },
+        {
+          id: "sap-shadow-ledger",
+          title: "ERP との乖離",
+          description:
+            "ERP インポートが拠点横断のコストブックと一致しないため、並行した Excel 管理が続きます。",
+        },
+      ],
     },
     solution: {
       eyebrow: "国内プログラム向け",

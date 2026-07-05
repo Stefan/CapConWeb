@@ -21,10 +21,35 @@ export const koreaVariant: Partial<Record<"ko" | "en", Partial<SiteDictionary>>>
       openGraphLocale: "ko_KR",
     },
     hero: {
-      eyebrow: "CapEx · 대한민국",
+      eyebrow: "CapEx & Portfolio Intelligence · 대한민국",
       headline: "다수 사업장 CapEx를 신뢰할 수 있는 수치로 통제하세요.",
       subheadline: `${PRODUCT_NAME}는 코스트북, 변경 승인, 포트폴리오 지표를 하나의 플랫폼에 통합합니다. 반도체·제조·인프라 대형 투자 프로그램을 월말 Excel 집계 없이 운영할 수 있습니다. ERP가 재무 데이터를 보유한 다수 사업장 프로그램에 특히 강력합니다.`,
       primaryCta: "데모 신청",
+    },
+    problem: {
+      title: "복잡한 프로그램. 분산된 통제.",
+      description:
+        "국내 CapEx 투자는 사업장, 협력사, 규제 요건을 아우르지만, 많은 팀이 여전히 Excel로 조정합니다.",
+      items: [
+        {
+          id: "budget-overruns",
+          title: "늦게 드러나는 비용 편차",
+          description:
+            "비용 압력은 스티어링 위원회 이후에야 확인되어 회복 옵션이 제한됩니다.",
+        },
+        {
+          id: "excel-processes",
+          title: "스프레드시트 통합",
+          description:
+            "PMO 팀은 매월 협력사 데이터, 변경 로그, 포트폴리오 뷰 병합에 며칠을 소비합니다.",
+        },
+        {
+          id: "sap-shadow-ledger",
+          title: "ERP 불일치",
+          description:
+            "ERP 가져오기가 사업장 간 코스트북과 맞지 않아 병행 Excel 관리가 지속됩니다.",
+        },
+      ],
     },
     solution: {
       eyebrow: "국내 프로그램용",

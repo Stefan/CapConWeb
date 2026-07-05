@@ -3,45 +3,45 @@ import { PRODUCT_NAME } from "@/lib/brand";
 import type { Locale } from "@/i18n/config";
 import type { SiteDictionary } from "@/i18n/types";
 
-/** SAP-first pharma / diagnostics division roll-up — DE, FR, GB geo-routed. */
+/** Division-level costbook consolidation for pharma / diagnostics — edition landing pages only. */
 export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
   en: {
     meta: {
-      title: `${PRODUCT_NAME} – SAP costbook roll-up for pharma & diagnostics`,
+      title: `${PRODUCT_NAME} – Costbook consolidation for pharma & diagnostics divisions`,
       description:
-        "Division-level costbook, ERP reconciliation, and change control for SAP-first capex programmes — diagnostics, pharma sites, and multi-project roll-ups without a shadow Excel ledger.",
+        "Consolidated division costbook, ERP reconciliation, and change control for capital programmes — diagnostics, pharma sites, and multi-project portfolios without parallel spreadsheet workbooks.",
       keywords: [
-        "SAP",
         "Costbook",
-        "Reconciliation",
+        "ERP reconciliation",
         "Diagnostics",
         "Pharma",
-        "Roll-up",
+        "Portfolio consolidation",
         "Capex",
         "Change Management",
+        "Project Controls",
       ],
       openGraphLocale: "en_GB",
     },
     hero: {
-      eyebrow: "CapEx & SAP · Division roll-up",
-      headline: "One costbook truth across SAP and your project portfolio.",
-      subheadline: `${PRODUCT_NAME} connects costbook, change management, and ERP reconciliation for SAP-first capex divisions — with defensible forecasts, division roll-up, and audit-ready approvals. Especially strong for diagnostics, pharma manufacturing, and multi-project steering teams.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Pharma & diagnostics",
+      headline: "Steer division capex with forecasts leadership can defend.",
+      subheadline: `${PRODUCT_NAME} unifies costbook, change management, and portfolio consolidation for multi-project divisions — with ERP reconciliation, audit-ready approvals, and traceability from project detail to management metrics. Built for diagnostics, pharma site investments, and division steering teams.`,
       primaryCta: "Request a demo",
     },
     problem: {
-      title: "SAP holds financials. Project controls still live in Excel.",
+      title: "Financial data fragments between ERP and the field.",
       description:
-        "When ERP actuals, commitments, and project costbooks diverge, controllers rebuild truth every month — and division roll-up becomes a reconciliation exercise, not governance.",
+        "When ERP actuals, commitments, and project costbooks diverge, controllers rebuild the numbers every month — and division consolidation becomes reconciliation, not governance.",
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "ERP shadow ledger",
+          title: "Parallel costbook workbooks",
           description:
-            "Parallel Excel costbooks because SAP imports do not match project costbook truth across WBS and divisions.",
+            "Project teams maintain Excel workbooks because ERP imports do not match the consolidated costbook across WBS and divisions.",
         },
         {
           id: "rollup-gaps",
-          title: "Division roll-up gaps",
+          title: "Consolidation gaps",
           description:
             "Portfolio metrics lag when each project team maintains its own forecast assumptions and change log.",
         },
@@ -49,26 +49,26 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
           id: "change-audit-trail",
           title: "Changes without evidence",
           description:
-            "Approved changes are hard to tie back to costbook lines and SAP source keys for audit.",
+            "Approved changes are hard to tie back to costbook lines and ERP source references for audit and steering.",
         },
         {
           id: "opaque-forecasts",
           title: "Opaque forecasts",
           description:
-            "Version sprawl across sites makes a defensible estimate at completion difficult to present to finance.",
+            "Version sprawl across sites makes a defensible estimate at completion difficult to present to finance leadership.",
         },
       ],
     },
     solution: {
-      eyebrow: "SAP-first project controls",
-      title: "From ERP import to division roll-up — one control layer.",
+      eyebrow: "For division steering",
+      title: "From project costbook to division consolidation — one control layer.",
       description:
-        "CapCon sits above SAP with CSV/bridge import and reconciliation — costbook as SSOT, change with forecast impact, and portfolio KPIs your division can defend.",
+        "CapCon complements your ERP with import, reconciliation, and project controls — a consolidated costbook, change with forecast impact, and portfolio KPIs your division can defend in every steering cycle.",
       steps: [
         {
           step: "01",
-          title: "Reconciliation",
-          text: "SAP actuals vs. costbook vs. commitments — variance rows with traceable source keys.",
+          title: "ERP reconciliation",
+          text: "ERP actuals vs. costbook vs. commitments — variance rows with traceable source references.",
         },
         {
           step: "02",
@@ -77,22 +77,22 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
         },
         {
           step: "03",
-          title: "Division roll-up",
+          title: "Portfolio consolidation",
           text: "Consolidated portfolio view across projects, currencies, and steering KPIs.",
         },
       ],
     },
     features: {
-      eyebrow: "SAP roll-up capabilities",
-      title: "What diagnostics and pharma steering teams need",
+      eyebrow: "Division capabilities",
+      title: "What pharma and diagnostics steering teams require",
       description:
-        "Costbook SSOT, ERP reconciliation, and change control — without replacing SAP or building a shadow ledger in spreadsheets.",
+        "Consolidated costbook, ERP reconciliation, and change control — complementing your ERP, not replacing it.",
       items: [
         {
           id: "reconciliation",
-          title: "SAP reconciliation",
+          title: "ERP reconciliation",
           description:
-            "Import vs. costbook vs. commitments — explainable variance rows with source project keys.",
+            "Import vs. costbook vs. commitments — explainable variance rows with source project references.",
         },
         {
           id: "costbook",
@@ -108,9 +108,9 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
         },
         {
           id: "portfolio",
-          title: "Portfolio roll-up",
+          title: "Portfolio consolidation",
           description:
-            "Division KPIs, drift alerts, and executive briefs — one number the board can trust.",
+            "Division KPIs, drift alerts, and executive briefs — one number leadership can trust.",
         },
         {
           id: "workflows",
@@ -121,14 +121,14 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       ],
     },
     productScreens: {
-      eyebrow: "SAP workflow",
-      title: "Reconciliation → costbook → division view",
+      eyebrow: "Division workflow",
+      title: "Reconciliation → costbook → portfolio steering",
       description:
-        "The monthly steering loop: ERP variance, costbook detail, and portfolio roll-up on the diagnostics reference profile.",
+        "The monthly steering loop finance and project controls run together: ERP variance, costbook detail, and division consolidation.",
       panels: [
         {
           id: "recon",
-          title: "SAP reconciliation",
+          title: "ERP reconciliation",
           caption: "Variance rows with costbook and ERP source trace.",
         },
         {
@@ -144,20 +144,20 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       ],
     },
     audience: {
-      eyebrow: "DACH · UK · EU Pharma",
-      title: "For SAP-first capex divisions",
+      eyebrow: "Pharma & diagnostics",
+      title: "For division-level capex steering",
       description:
-        "Project controllers, finance, and PMO teams steering diagnostics, pharma site, and division-level capex with SAP as financial system of record.",
+        "Project controllers, finance, and PMO leaders governing diagnostics, pharma site, and division-level capital programmes where ERP holds financial data.",
       personas: [
         {
           title: "Project controls",
           description:
-            "Costbook SSOT, change impact, and reconciliation without parallel Excel workbooks.",
+            "Consolidated costbook, change impact, and reconciliation without parallel Excel workbooks.",
         },
         {
           title: "Finance / controlling",
           description:
-            "Defensible division roll-up, commitment control, and ERP-aligned forecasts.",
+            "Defensible division consolidation, commitment control, and ERP-aligned forecasts.",
         },
         {
           title: "PMO / programme management",
@@ -167,14 +167,14 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       ],
     },
     cta: {
-      headline: "See SAP reconciliation and division roll-up live.",
+      headline: "See division consolidation and costbook control in a live walkthrough.",
       description:
-        "We'll demo costbook, ERP variance rows, and change impact on the diagnostics reference pack.",
+        "We will demonstrate costbook, variance reconciliation, and change impact on a representative division programme.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
     dashboard: {
-      title: "Division costbook – SAP roll-up",
+      title: "Division costbook – consolidated view",
       stats: [
         { label: "Open variances", value: "7" },
         { label: "Projects", value: "12" },
@@ -190,37 +190,56 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
   },
   de: {
     meta: {
-      title: `${PRODUCT_NAME} – SAP-Costbook-Roll-up für Pharma & Diagnostics`,
+      title: `${PRODUCT_NAME} – Costbook-Konsolidierung für Pharma & Diagnostics`,
       description:
-        "Divisionales Costbook, ERP-Abgleich und Change Control für SAP-first CapEx-Programme — Diagnostics, Pharma-Standorte und Multi-Projekt-Roll-ups ohne Excel-Shadow-Ledger.",
+        "Einheitliches Divisions-Costbook, ERP-Abgleich und Change Management für CapEx-Programme — Diagnostics, Pharma-Standorte und Multi-Projekt-Portfolios ohne parallele Excel-Listen.",
       keywords: [
-        "SAP",
         "Costbook",
-        "Reconciliation",
+        "ERP-Abgleich",
         "Diagnostics",
         "Pharma",
-        "Roll-up",
+        "Portfolio-Konsolidierung",
         "Capex",
         "Change Management",
+        "Projektsteuerung",
       ],
       openGraphLocale: "de_DE",
     },
     hero: {
-      eyebrow: "CapEx & SAP · Division Roll-up",
-      headline: "Eine Costbook-Wahrheit über SAP und Ihr Projektportfolio.",
-      subheadline: `${PRODUCT_NAME} verbindet Costbook, Change Management und ERP-Reconciliation für SAP-first CapEx-Divisionen — mit belastbaren Forecasts, Division-Roll-up und auditierbaren Freigaben. Besonders stark für Diagnostics, Pharma-Fertigung und Multi-Projekt-Steuerung.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Pharma & Diagnostics",
+      headline: "CapEx auf Divisionsebene mit belastbaren Forecasts steuern.",
+      subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management und Portfolio-Konsolidierung für Multi-Projekt-Divisionen — mit ERP-Abgleich, auditierbaren Freigaben und Nachverfolgbarkeit vom Projektdetail bis zur Management-Kennzahl. Für Diagnostics, Pharma-Standortinvestitionen und Divisions-Steuerung.`,
       primaryCta: "Demo anfragen",
     },
-    solution: {
-      eyebrow: "SAP-first Project Controls",
-      title: "Vom ERP-Import zum Division-Roll-up — eine Steuerungsebene.",
+    problem: {
+      title: "Finanzdaten gehen zwischen ERP und Projekt auseinander.",
       description:
-        "CapCon sitzt über SAP mit CSV/Bridge-Import und Reconciliation — Costbook als SSOT, Change mit Forecast-Wirkung und Portfolio-KPIs, die Ihre Division verteidigen kann.",
+        "Wenn ERP-Ist, Verpflichtungen und Projekt-Costbooks nicht zusammenpassen, bauen Controller jeden Monat die Zahlen neu — Konsolidierung wird zur Abstimmung statt Steuerung.",
+      items: [
+        {
+          id: "sap-shadow-ledger",
+          title: "Parallele Costbook-Listen",
+          description:
+            "Projektteams pflegen Excel-Listen, weil ERP-Importe nicht mit dem einheitlichen Costbook über WBS und Divisionen übereinstimmen.",
+        },
+        {
+          id: "rollup-gaps",
+          title: "Lücken in der Portfolio-Konsolidierung",
+          description:
+            "Portfolio-Kennzahlen hinken hinterher, wenn jedes Projekt eigene Forecast-Annahmen und Nachtragsprotokolle führt.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Für Divisions-Steuerung",
+      title: "Vom Projekt-Costbook zur Divisions-Konsolidierung — eine Steuerungsebene.",
+      description:
+        "CapCon ergänzt Ihr ERP mit Import, Abgleich und Projektsteuerung — ein einheitliches Costbook, Nachträge mit Forecast-Wirkung und Portfolio-KPIs für jeden Lenkungszyklus.",
       steps: [
         {
           step: "01",
-          title: "Reconciliation",
-          text: "SAP-Ist vs. Costbook vs. Verpflichtungen — Varianzzeilen mit nachvollziehbaren Source Keys.",
+          title: "ERP-Abgleich",
+          text: "ERP-Ist vs. Costbook vs. Verpflichtungen — Varianzzeilen mit nachvollziehbaren Quellreferenzen.",
         },
         {
           step: "02",
@@ -229,56 +248,177 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
         },
         {
           step: "03",
-          title: "Division Roll-up",
-          text: "Konsolidierte Portfolio-Sicht über Projekte, Währungen und Steering-KPIs.",
+          title: "Portfolio-Konsolidierung",
+          text: "Konsolidierte Portfolio-Sicht über Projekte, Währungen und Lenkungs-KPIs.",
         },
       ],
     },
-    cta: {
-      headline: "SAP-Reconciliation und Division-Roll-up live sehen.",
+    audience: {
+      eyebrow: "Pharma & Diagnostics",
+      title: "Für CapEx-Steuerung auf Divisionsebene",
       description:
-        "Wir demonstrieren Costbook, ERP-Varianzzeilen und Change-Impact am Diagnostics-Referenzpack.",
+        "Projektsteuerung, Finance und PMO bei Diagnostics-, Pharma-Standort- und Divisions-CapEx — wenn das ERP die Finanzdaten führt.",
+    },
+    cta: {
+      headline: "Portfolio-Konsolidierung und Costbook-Steuerung live erleben.",
+      description:
+        "Wir demonstrieren Costbook, Varianzabgleich und Forecast-Auswirkung von Nachträgen an einem repräsentativen Divisionsprogramm.",
       primaryCta: "Demo anfragen",
       contactPrefix: "Oder kontaktieren Sie uns unter",
     },
   },
   fr: {
     meta: {
-      title: `${PRODUCT_NAME} – Roll-up costbook SAP pour pharma & diagnostics`,
+      title: `${PRODUCT_NAME} – Consolidation costbook pour pharma & diagnostics`,
       description:
-        "Costbook divisionnel, rapprochement ERP et change control pour programmes capex SAP-first — diagnostics, sites pharma et roll-up multi-projets sans shadow ledger Excel.",
+        "Costbook divisionnel consolidé, rapprochement ERP et gestion des changements pour programmes capex — diagnostics, sites pharma et portefeuilles multi-projets sans classeurs Excel parallèles.",
       keywords: [
-        "SAP",
         "Costbook",
-        "Rapprochement",
+        "Rapprochement ERP",
         "Diagnostics",
         "Pharma",
-        "Roll-up",
+        "Consolidation portefeuille",
         "Capex",
+        "Project Controls",
       ],
       openGraphLocale: "fr_FR",
     },
     hero: {
-      eyebrow: "CapEx & SAP · Roll-up division",
-      headline: "Une vérité costbook entre SAP et votre portefeuille projets.",
-      subheadline: `${PRODUCT_NAME} relie costbook, change management et rapprochement ERP pour divisions capex SAP-first — forecasts défendables, roll-up divisionnel et approbations audit-ready. Particulièrement fort pour diagnostics, fabrication pharma et pilotage multi-projets.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Pharma & diagnostics",
+      headline: "Piloter le capex divisionnel avec des prévisions défendables.",
+      subheadline: `${PRODUCT_NAME} unifie costbook, gestion des changements et consolidation portefeuille pour divisions multi-projets — avec rapprochement ERP, approbations auditables et traçabilité du détail projet aux indicateurs de direction. Conçu pour diagnostics, sites pharma et pilotage divisionnel.`,
       primaryCta: "Demander une démo",
     },
-    audience: {
-      eyebrow: "DACH · UK · Pharma EU",
-      title: "Pour divisions capex SAP-first",
+    problem: {
+      title: "Les données financières se fragmentent entre l'ERP et le terrain.",
       description:
-        "Project controllers, finance et PMO pilotant diagnostics, sites pharma et capex divisionnel avec SAP comme système financier de référence.",
+        "Quand les actuals ERP, engagements et costbooks projet divergent, les contrôleurs reconstruisent les chiffres chaque mois — la consolidation divisionnelle devient du rapprochement, pas du pilotage.",
+      items: [
+        {
+          id: "sap-shadow-ledger",
+          title: "Classeurs costbook parallèles",
+          description:
+            "Les équipes projet maintiennent des Excel parce que les imports ERP ne correspondent pas au costbook consolidé sur les WBS et divisions.",
+        },
+        {
+          id: "rollup-gaps",
+          title: "Lacunes de consolidation",
+          description:
+            "Les métriques portefeuille prennent du retard quand chaque projet conserve ses propres hypothèses de prévision et journal des changements.",
+        },
+        {
+          id: "change-audit-trail",
+          title: "Changements sans preuve",
+          description:
+            "Les changements approuvés sont difficiles à relier aux lignes costbook et références ERP pour audit et pilotage.",
+        },
+        {
+          id: "opaque-forecasts",
+          title: "Prévisions opaques",
+          description:
+            "La prolifération de versions entre sites rend difficile la présentation d'un EAC défendable à la direction finance.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Pour le pilotage divisionnel",
+      title: "Du costbook projet à la consolidation divisionnelle — une couche de pilotage.",
+      description:
+        "CapCon complète votre ERP avec import, rapprochement et project controls — un costbook consolidé, changements avec impact prévision, et KPI portefeuille défendables à chaque cycle de pilotage.",
+      steps: [
+        {
+          step: "01",
+          title: "Rapprochement ERP",
+          text: "Actuals ERP vs. costbook vs. engagements — lignes d'écart avec références sources traçables.",
+        },
+        {
+          step: "02",
+          title: "Change & prévision",
+          text: "Change orders et approbations avec impact transparent sur EAC et métriques divisionnelles.",
+        },
+        {
+          step: "03",
+          title: "Consolidation portefeuille",
+          text: "Vue portefeuille consolidée sur projets, devises et KPI de pilotage.",
+        },
+      ],
+    },
+    features: {
+      eyebrow: "Capacités divisionnelles",
+      title: "Ce dont les équipes pharma et diagnostics ont besoin",
+      description:
+        "Costbook consolidé, rapprochement ERP et gestion des changements — en complément de votre ERP, sans le remplacer.",
+      items: [
+        {
+          id: "reconciliation",
+          title: "Rapprochement ERP",
+          description:
+            "Import vs. costbook vs. engagements — lignes d'écart explicables avec références projet source.",
+        },
+        {
+          id: "costbook",
+          title: "Costbook divisionnel",
+          description:
+            "Budget, engagements et prévisions avec justification claire sur 5 à 20 projets.",
+        },
+        {
+          id: "change-orders",
+          title: "Change vers prévision",
+          description:
+            "Changements approuvés vers costbook avec historique d'approbation complet et impact prévision.",
+        },
+        {
+          id: "portfolio",
+          title: "Consolidation portefeuille",
+          description:
+            "KPI divisionnels, alertes d'écart et briefs direction — un chiffre en lequel la direction peut avoir confiance.",
+        },
+        {
+          id: "workflows",
+          title: "Workflows & audit",
+          description:
+            "Approbations configurables et piste d'audit exportable pour programmes capex réglementés.",
+        },
+      ],
+    },
+    productScreens: {
+      eyebrow: "Workflow divisionnel",
+      title: "Rapprochement → costbook → pilotage portefeuille",
+      description:
+        "La boucle mensuelle que finance et project controls mènent ensemble : écarts ERP, détail costbook et consolidation divisionnelle.",
+      panels: [
+        {
+          id: "recon",
+          title: "Rapprochement ERP",
+          caption: "Lignes d'écart avec trace costbook et source ERP.",
+        },
+        {
+          id: "costbook",
+          title: "Costbook divisionnel",
+          caption: "Budget, engagements et EAC défendable sur les projets.",
+        },
+        {
+          id: "steering",
+          title: "Pilotage portefeuille",
+          caption: "KPI divisionnels et alertes d'écart en un coup d'œil.",
+        },
+      ],
+    },
+    audience: {
+      eyebrow: "Pharma & diagnostics",
+      title: "Pour le pilotage capex divisionnel",
+      description:
+        "Project controllers, finance et PMO gouvernant diagnostics, sites pharma et capex divisionnel lorsque l'ERP détient les données financières.",
       personas: [
         {
           title: "Project controls",
           description:
-            "SSOT costbook, impact change et rapprochement sans workbooks Excel parallèles.",
+            "Costbook consolidé, impact des changements et rapprochement sans classeurs Excel parallèles.",
         },
         {
           title: "Finance / controlling",
           description:
-            "Roll-up divisionnel défendable, contrôle des engagements et forecasts alignés ERP.",
+            "Consolidation divisionnelle défendable, contrôle des engagements et prévisions alignées ERP.",
         },
         {
           title: "PMO / programme",
@@ -288,11 +428,25 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       ],
     },
     cta: {
-      headline: "Voir le rapprochement SAP et le roll-up divisionnel en live.",
+      headline: "Voir la consolidation divisionnelle et le pilotage costbook en démo.",
       description:
-        "Démo costbook, lignes de variance ERP et impact change sur le pack référence diagnostics.",
+        "Démonstration costbook, rapprochement des variances et impact des changements sur un programme divisionnel représentatif.",
       primaryCta: "Demander une démo",
       contactPrefix: "Ou contactez notre équipe à",
+    },
+    dashboard: {
+      title: "Costbook divisionnel – vue consolidée",
+      stats: [
+        { label: "Écarts ouverts", value: "7" },
+        { label: "Projets", value: "12" },
+        { label: "EAC division", value: "€142M" },
+      ],
+      columns: { project: "Projet / WBS", budget: "Budget", eac: "EAC" },
+      rows: [
+        { name: "Extension diagnostics", budget: "€38,2M", eac: "€39,1M" },
+        { name: "Infrastructure site", budget: "€24,6M", eac: "€24,6M" },
+        { name: "Programme retrofit labo", budget: "€18,4M", eac: "€19,0M" },
+      ],
     },
   },
 };

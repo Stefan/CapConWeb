@@ -60,7 +60,7 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
   },
   solution: {
     eyebrow: "Construction ↔ GMP",
-    title: "Un hub du capex à l'équipement qualifié.",
+    title: "Une couche de pilotage du capex à l'équipement qualifié.",
     description:
       "CapCon fait le pont entre change orders construction, liens forecast/SOV équipement et workflows change control GMP — avec analyse d'impact et approbations e-sign.",
     steps: [

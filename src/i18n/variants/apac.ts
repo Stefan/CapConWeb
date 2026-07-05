@@ -23,9 +23,9 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       openGraphLocale: "en_AU",
     },
     hero: {
-      eyebrow: "CapEx · Australia & Singapore",
+      eyebrow: "CapEx & Portfolio Intelligence · Australia & Singapore",
       headline: "Govern multi-site CapEx with numbers the board can trust.",
-      subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation. Especially strong where ERP holds financial data and multi-site programmes need one costbook truth.`,
+      subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation. Especially strong where ERP holds financial data and multi-site programmes need one consolidated costbook.`,
       primaryCta: "Request a demo",
     },
     problem: {
@@ -120,7 +120,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     cta: {
       headline: "See how APAC programmes run on one control layer.",
       description:
-        "We'll tailor the walkthrough to your sector — infrastructure, resources, or life sciences.",
+        "We will tailor the walkthrough to your sector — infrastructure, resources, or life sciences.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
@@ -134,7 +134,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       openGraphLocale: "zh_SG",
     },
     hero: {
-      eyebrow: "CapEx · 澳大利亚与新加坡",
+      eyebrow: "CapEx & Portfolio Intelligence · 澳大利亚与新加坡",
       headline: "以可辩护的数据，管控多站点资本支出。",
       subheadline: `${PRODUCT_NAME} 将成本账、变更审批与投资组合指标贯通——适用于亚太区基础设施、资源与生命科学项目，无需月末 Excel 汇总。`,
       primaryCta: "申请演示",

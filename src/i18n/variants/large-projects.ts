@@ -34,12 +34,12 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       eyebrow: "For project owners",
       title: "From costbook to GC billing — one owner control layer.",
       description:
-        "Whether you are expanding a pharma facility, delivering industrial capex, or running a multi-building campus, when a general contractor bills across SOV lines and change orders drive total cost forecast, spreadsheets break. CapCon is the owner layer between ERP, contract, and the job site.",
+        "Whether you are expanding a pharma facility, delivering industrial capex, or running a multi-building campus, when a general contractor bills across SOV lines and change orders drive total cost forecast, month-end consolidation cannot keep pace with the programme. CapCon is the owner control layer between ERP, contract, and the job site.",
       steps: [
         {
           step: "01",
           title: "Financials & contract",
-          text: "Costbook as SSOT, commitments, SOV, and GC billing with explainable EAC/ETC — not status slides.",
+          text: "Authoritative costbook, commitments, SOV, and GC billing with explainable EAC/ETC — not status slides.",
         },
         {
           step: "02",
@@ -75,7 +75,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
           id: "explainability",
           title: "Defensible forecasts",
           description:
-            "Trace any number from portfolio metrics to costbook detail — owner SSOT without parallel Excel workbooks.",
+            "Trace any number from portfolio metrics to costbook detail — one consolidated costbook without parallel Excel workbooks.",
         },
         {
           id: "portfolio",
@@ -132,7 +132,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
         },
         {
           title: "Industrial & manufacturing",
-          description: "Multi-site programs with costbook SSOT, commitments, and defensible forecasts.",
+          description: "Multi-site programs with consolidated costbook, commitments, and defensible forecasts.",
         },
         {
           title: "Campus & mega-programs",
@@ -143,7 +143,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
     cta: {
       headline: "See owner financial control in a live demo.",
       description:
-        "We'll walk through costbook, SOV billing, and change implementation — and master plan steering for campus programs.",
+        "We will walk through costbook, SOV billing, and change implementation — and master plan steering for campus programs.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
@@ -177,12 +177,12 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       eyebrow: "Für Bauherren",
       title: "Vom Costbook bis zur GU-Abrechnung — eine Owner-Schicht.",
       description:
-        "Ob Pharma-Erweiterung, Industrial CapEx oder Multi-Building-Campus: Wenn der General Contractor über SOV-Positionen abrechnet und Nachträge die Gesamtkostenprognose treiben, scheitern Tabellen. CapCon ist die Steuerungsebene des Bauherrn zwischen ERP, Vertrag und Baustelle.",
+        "Ob Pharma-Erweiterung, Industrial CapEx oder Multi-Building-Campus: Wenn der General Contractor über SOV-Positionen abrechnet und Nachträge die Gesamtkostenprognose treiben, hält die Monatskonsolidierung nicht mit dem Programm mit. CapCon ist die Steuerungsebene des Bauherrn zwischen ERP, Vertrag und Baustelle.",
       steps: [
         {
           step: "01",
           title: "Finanzen & Vertrag",
-          text: "Costbook als SSOT, Verpflichtungen, SOV und GU-Abrechnung mit nachvollziehbaren EAC/ETC — nicht nur Statusfolien.",
+          text: "Verbindliches Costbook, Verpflichtungen, SOV und GU-Abrechnung mit nachvollziehbaren EAC/ETC — nicht nur Statusfolien.",
         },
         {
           step: "02",
@@ -218,7 +218,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
           id: "explainability",
           title: "Belastbare Forecasts",
           description:
-            "Jede Kennzahl vom Portfolio bis zur Costbook-Zeile nachvollziehbar — Owner-SSOT ohne parallele Excel-Listen.",
+            "Jede Kennzahl vom Portfolio bis zur Costbook-Zeile nachvollziehbar — ein einheitliches Costbook ohne parallele Excel-Listen.",
         },
         {
           id: "portfolio",
@@ -275,7 +275,7 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
         },
         {
           title: "Industrial & Manufacturing",
-          description: "Multi-Site-Programme mit Costbook-SSOT, Verpflichtungen und belastbaren Forecasts.",
+          description: "Multi-Site-Programme mit einheitlichem Costbook, Verpflichtungen und belastbaren Forecasts.",
         },
         {
           title: "Campus & Mega-Programme",

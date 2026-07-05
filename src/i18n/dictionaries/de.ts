@@ -46,7 +46,7 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Projektsteuerung und Finanzcontrolling für kapitalintensive Programme",
-    subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Terminplanbezug und Portfolio-Steuerung auf einer Plattform — mit nachvollziehbaren Forecasts, durchgängigen Freigaben und belastbaren Kennzahlen für komplexe Capex-Programme. Besonders stark dort, wo ERP die Finanzdaten liefert und Multi-Site-Portfolios eine Costbook-Wahrheit brauchen.`,
+    subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Terminplanbezug und Portfolio-Steuerung auf einer Plattform — mit nachvollziehbaren Forecasts, durchgängigen Freigaben und belastbaren Kennzahlen für komplexe Capex-Programme. Besonders stark dort, wo ERP die Finanzdaten liefert und Multi-Site-Portfolios ein einheitliches Costbook brauchen.`,
     primaryCta: "Demo anfragen",
     secondaryCta: "Plattform entdecken",
   },
@@ -81,9 +81,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "sap-shadow-ledger",
-        title: "ERP-Shadow-Ledger",
+        title: "Parallele Costbook-Arbeitsmappen",
         description:
-          "Controller pflegen parallele Excel-Costbooks, weil ERP-Importe nicht zur Projekt-Costbook-Wahrheit passen.",
+          "Controller pflegen parallele Excel-Costbooks, weil ERP-Importe nicht mit dem einheitlichen Projekt-Costbook übereinstimmen.",
       },
       {
         id: "change-audit-trail",
@@ -95,7 +95,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "Die Lösung",
-    title: `${PRODUCT_NAME} schafft Klarheit, wo andere nur Daten sehen.`,
+    title: `${PRODUCT_NAME} — eine Steuerungsebene für CapEx-Programme.`,
     description:
       "Statt verstreuter Tabellen und isolierter Projektberichte führt CapCon Kosten, Verpflichtungen, Änderungsauswirkungen und Portfolio-Kennzahlen in einem verlässlichen System zusammen — vom Projekt-Costbook bis zur Konzern-Konsolidierung.",
     steps: [
@@ -156,7 +156,7 @@ const dictionary: SiteDictionary = {
         id: "sap-reconciliation",
         title: "SAP / ERP-Abgleich",
         description:
-          "Ist-Werte und Verpflichtungen importieren, ERP vs. Costbook vergleichen — weniger Shadow Ledger in der Steuerung.",
+          "Ist-Werte und Verpflichtungen importieren, ERP vs. Costbook vergleichen — weniger parallele Arbeitsmappen in der Steuerung.",
       },
       {
         id: "vendor-portal",

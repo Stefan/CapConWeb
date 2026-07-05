@@ -81,9 +81,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "sap-shadow-ledger",
-        title: "ERP shadow ledger",
+        title: "Parallel costbook workbooks",
         description:
-          "Controllers maintain parallel Excel costbooks because ERP imports do not match project costbook truth.",
+          "Controllers maintain parallel Excel costbooks because ERP imports do not match the consolidated project costbook.",
       },
       {
         id: "change-audit-trail",
@@ -95,7 +95,7 @@ const dictionary: SiteDictionary = {
   },
   solution: {
     eyebrow: "The solution",
-    title: `${PRODUCT_NAME} creates clarity where others only see data.`,
+    title: `${PRODUCT_NAME} — one control layer for capital programmes.`,
     description:
       "Instead of scattered spreadsheets and isolated project reports, CapCon brings costs, commitments, change impacts, and portfolio metrics together in one reliable system — from project costbook to enterprise consolidation.",
     steps: [
@@ -156,7 +156,7 @@ const dictionary: SiteDictionary = {
         id: "sap-reconciliation",
         title: "SAP / ERP reconciliation",
         description:
-          "Import actuals and commitments, compare ERP vs. costbook — reduce shadow ledgers in steering.",
+          "Import actuals and commitments, compare ERP vs. costbook — reduce parallel workbooks in steering.",
       },
       {
         id: "vendor-portal",

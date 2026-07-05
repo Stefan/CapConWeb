@@ -7,9 +7,9 @@ import type { SiteDictionary } from "@/i18n/types";
 export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
   en: {
     meta: {
-      title: `${PRODUCT_NAME} – Global FMCG plant capex & SAP roll-up`,
+      title: `${PRODUCT_NAME} – Global manufacturing plant capex`,
       description:
-        "Multi-site manufacturing capex with SAP WBS roll-up, costbook, change control, and GC collaboration — for global food and consumer goods plant programmes without campus or GMP complexity.",
+        "Multi-site manufacturing capex with portfolio consolidation, change control, and vendor collaboration — for global food and consumer goods programmes at plant-line scale.",
       keywords: [
         "FMCG",
         "Manufacturing",
@@ -18,26 +18,26 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         "Multi-Site",
         "Costbook",
         "SOV",
-        "Roll-up",
+        "Portfolio consolidation",
       ],
       openGraphLocale: "en_US",
     },
     hero: {
-      eyebrow: "CapEx · Global FMCG Manufacturing",
-      headline: "Steer multi-site plant capex with one SAP-aligned costbook.",
-      subheadline: `${PRODUCT_NAME} connects costbook, SAP reconciliation, change orders, and vendor/GC collaboration for global manufacturing programmes — NA, EMEA, LATAM, and APAC in one portfolio view. No campus master plan. No GMP module. Built for plant-line capex at scale.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Global manufacturing",
+      headline: "Steer global plant capex with one consolidated costbook.",
+      subheadline: `${PRODUCT_NAME} unifies costbook, change control, vendor collaboration, and ERP reconciliation across regions — one portfolio view for capital excellence teams running multi-site manufacturing programmes.`,
       primaryCta: "Request a demo",
     },
     problem: {
-      title: "Global plant programmes. Local spreadsheets.",
+      title: "Global programmes deserve more than regional spreadsheets.",
       description:
-        "When each region runs its own costbook in Excel and SAP WBS truth lives in finance, capital excellence teams lose weeks every month on consolidation — and forecast drift shows up late.",
+        "When each region maintains its own costbook in Excel and ERP consolidation lives in finance, capital excellence teams lose weeks each month on consolidation — and forecast drift surfaces too late for steering.",
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "SAP shadow ledger",
+          title: "Parallel costbook workbooks",
           description:
-            "Regional controllers maintain parallel workbooks because SAP roll-up does not match project costbook truth.",
+            "Regional controllers maintain separate workbooks because ERP consolidation does not match project costbook data.",
         },
         {
           id: "multi-site-blind-spots",
@@ -63,12 +63,12 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       eyebrow: "For capital excellence",
       title: "One control layer from plant line to global programme.",
       description:
-        "CapCon gives regional engineering, plant controllers, and global PMO a shared costbook — reconciled with SAP, connected to SOV billing where contracts require it, and rolled up for executive steering.",
+        "CapCon gives regional engineering, plant controllers, and global PMO a shared costbook — reconciled with ERP, connected to SOV billing where contracts require it, and rolled up for executive steering.",
       steps: [
         {
           step: "01",
-          title: "SAP & costbook",
-          text: "WBS-linked costbook, commitments, and reconciliation — less shadow Excel across sites.",
+          title: "Costbook & ERP",
+          text: "WBS-linked costbook, commitments, and reconciliation — less reliance on parallel workbooks across sites.",
         },
         {
           step: "02",
@@ -78,19 +78,19 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         {
           step: "03",
           title: "Global portfolio",
-          text: "Programme roll-up across regions with variance signals and health matrix views.",
+          text: "Programme consolidation across regions with variance signals and health matrix views.",
         },
       ],
     },
     features: {
       eyebrow: "FMCG capabilities",
-      title: "What global plant capex teams need",
+      title: "Built for global capital excellence teams",
       description:
-        "SAP roll-up, multi-site portfolio, and line-level change control — without US campus master plan or CDMO/GMP modules.",
+        "ERP consolidation, multi-site portfolio, and line-level change control — focused on plant and line capex at programme scale.",
       items: [
         {
           id: "sap-rollup",
-          title: "SAP WBS roll-up",
+          title: "ERP / WBS consolidation",
           description:
             "Division and programme consolidation with source project keys and reconciliation variance rows.",
         },
@@ -121,10 +121,10 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       ],
     },
     productScreens: {
-      eyebrow: "FMCG journey",
-      title: "Programme → SAP → packaging line",
+      eyebrow: "Manufacturing journey",
+      title: "Programme → costbook → packaging line",
       description:
-        "The Mondelez-style walkthrough: global programme view, SAP reconciliation on a control project, and packaging-line SOV.",
+        "The capital excellence walkthrough: global programme view, ERP reconciliation on a control project, and line-level SOV.",
       panels: [
         {
           id: "steering",
@@ -133,7 +133,7 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         },
         {
           id: "recon",
-          title: "SAP reconciliation",
+          title: "ERP reconciliation",
           caption: "SOV ↔ commitment links on the control project.",
         },
         {
@@ -144,15 +144,15 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       ],
     },
     audience: {
-      eyebrow: "Global FMCG",
+      eyebrow: "Global manufacturing",
       title: "For multi-site manufacturing capex",
       description:
-        "Global capital excellence, regional engineering PM, plant controllers, and SAP steering teams running 3–10 site plant programmes.",
+        "Global capital excellence, regional engineering PM, plant controllers, and ERP steering teams running multi-site plant programmes.",
       personas: [
         {
           title: "Capital excellence / finance",
           description:
-            "Programme roll-up, commitment control, and board-ready metrics across regions.",
+            "Programme consolidation, commitment control, and board-ready metrics across regions.",
         },
         {
           title: "Regional engineering PM",
@@ -162,19 +162,19 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         {
           title: "Plant controller",
           description:
-            "SAP-aligned costbook truth, reconciliation, and defensible forecasts per site.",
+            "Consolidated costbook, ERP reconciliation, and defensible forecasts per site.",
         },
       ],
     },
     cta: {
-      headline: "See global FMCG plant capex on one control layer.",
+      headline: "See global plant capex on one control layer.",
       description:
-        "We'll demo programme roll-up, SAP reconciliation, and packaging-line SOV on the FMCG reference pack.",
+        "We will demonstrate programme consolidation, ERP reconciliation, and line-level SOV on a representative manufacturing programme.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
     dashboard: {
-      title: "Global FMCG programme – plant capex",
+      title: "Global manufacturing programme – plant capex",
       stats: [
         { label: "Active sites", value: "8" },
         { label: "Programme EAC", value: "$284M" },
@@ -190,9 +190,9 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
   },
   de: {
     meta: {
-      title: `${PRODUCT_NAME} – Globales FMCG-Werks-CapEx & SAP-Roll-up`,
+      title: `${PRODUCT_NAME} – Globales Werks-CapEx für Manufacturing-Programme`,
       description:
-        "Multi-Site-Manufacturing-CapEx mit SAP-WBS-Roll-up, Costbook, Change Control und GU/EPC-Zusammenarbeit — für globale Food- und Consumer-Goods-Werksprogramme ohne Campus- oder GMP-Komplexität.",
+        "Multi-Site-Manufacturing-CapEx mit Portfolio-Konsolidierung, Change Management und Vendor-Zusammenarbeit — für globale Fertigungsprogramme auf Werkslinien-Ebene.",
       keywords: [
         "FMCG",
         "Manufacturing",
@@ -205,21 +205,21 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       openGraphLocale: "de_DE",
     },
     hero: {
-      eyebrow: "CapEx · Globales FMCG Manufacturing",
-      headline: "Multi-Site-Werks-CapEx mit einem SAP-abgestimmten Costbook steuern.",
-      subheadline: `${PRODUCT_NAME} verbindet Costbook, SAP-Reconciliation, Nachträge und Vendor-/GU-Zusammenarbeit für globale Fertigungsprogramme — NA, EMEA, LATAM und APAC in einer Portfolio-Sicht. Kein Campus Master Plan. Kein GMP-Modul. Gebaut für Werkslinien-CapEx im großen Maßstab.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Globales Manufacturing",
+      headline: "Globales Werks-CapEx mit einem einheitlichen Costbook steuern.",
+      subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Vendor-Zusammenarbeit und ERP-Abgleich über Regionen — eine Portfolio-Sicht für CapEx-Excellence-Teams mit Multi-Site-Fertigungsprogrammen.`,
       primaryCta: "Demo anfragen",
     },
     audience: {
-      eyebrow: "Global FMCG",
+      eyebrow: "Globales Manufacturing",
       title: "Für Multi-Site-Manufacturing-CapEx",
       description:
-        "Global Capital Excellence, Regional Engineering PM, Werkscontroller und SAP-Steuerung bei 3–10 Standort-Werksprogrammen.",
+        "Global Capital Excellence, Regional Engineering PM, Werkscontroller und ERP-Steuerung bei Multi-Site-Werksprogrammen.",
       personas: [
         {
           title: "Capital Excellence / Finance",
           description:
-            "Programm-Roll-up, Commitment-Control und board-taugliche Metriken über Regionen.",
+            "Programm-Konsolidierung, Verpflichtungssteuerung und managementfähige Metriken über Regionen.",
         },
         {
           title: "Regional Engineering PM",
@@ -229,61 +229,190 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         {
           title: "Werkscontroller",
           description:
-            "SAP-abgestimmte Costbook-Wahrheit, Reconciliation und belastbare Forecasts pro Standort.",
+            "Einheitliches Costbook, ERP-Abgleich und belastbare Forecasts pro Standort.",
         },
       ],
     },
     cta: {
-      headline: "Globales FMCG-Werks-CapEx auf einer Steuerungsebene sehen.",
+      headline: "Globales Werks-CapEx auf einer Steuerungsebene sehen.",
       description:
-        "Wir demonstrieren Programm-Roll-up, SAP-Reconciliation und Packaging-Line-SOV am FMCG-Referenzpack.",
+        "Wir demonstrieren Programm-Konsolidierung, ERP-Abgleich und Line-SOV an einem repräsentativen Fertigungsprogramm.",
       primaryCta: "Demo anfragen",
       contactPrefix: "Oder kontaktieren Sie uns unter",
     },
   },
   fr: {
     meta: {
-      title: `${PRODUCT_NAME} – Capex usines FMCG global & roll-up SAP`,
+      title: `${PRODUCT_NAME} – Capex usines manufacturing global`,
       description:
-        "Capex manufacturing multi-sites avec roll-up WBS SAP, costbook, change control et collaboration GC/EPC — programmes usines food & consumer goods sans campus ni GMP.",
-      keywords: ["FMCG", "Manufacturing", "SAP", "Capex usine", "Multi-sites"],
+        "Capex manufacturing multi-sites avec consolidation portefeuille, gestion des changements et collaboration GC/EPC — programmes food & consumer goods à l'échelle ligne de production.",
+      keywords: ["FMCG", "Manufacturing", "Capex usine", "Multi-sites", "Consolidation portefeuille"],
       openGraphLocale: "fr_FR",
     },
     hero: {
-      eyebrow: "CapEx · FMCG Manufacturing global",
-      headline: "Piloter le capex usines multi-sites avec un costbook aligné SAP.",
-      subheadline: `${PRODUCT_NAME} relie costbook, rapprochement SAP, change orders et collaboration vendor/GC pour programmes manufacturing globaux — NA, EMEA, LATAM et APAC dans une vue portefeuille. Sans master plan campus. Sans module GMP.`,
+      eyebrow: "CapEx & Portfolio Intelligence · Manufacturing global",
+      headline: "Piloter le capex usines multi-sites avec un costbook consolidé.",
+      subheadline: `${PRODUCT_NAME} unifie costbook, gestion des changements, collaboration fournisseurs/GC et rapprochement ERP sur les régions — une vue portefeuille pour les équipes capital excellence sur programmes manufacturing multi-sites.`,
       primaryCta: "Demander une démo",
     },
+    problem: {
+      title: "Les programmes globaux méritent mieux que des feuilles régionales.",
+      description:
+        "Quand chaque région tient son costbook dans Excel et que la consolidation ERP vit en finance, les équipes capital excellence perdent des semaines chaque mois — et la dérive de prévision arrive trop tard pour le pilotage.",
+      items: [
+        {
+          id: "sap-shadow-ledger",
+          title: "Classeurs costbook parallèles",
+          description:
+            "Les contrôleurs régionaux maintiennent des classeurs séparés parce que la consolidation ERP ne correspond pas aux données costbook projet.",
+        },
+        {
+          id: "multi-site-blind-spots",
+          title: "Angles morts multi-sites",
+          description:
+            "Les projets usine individuels sont suivis — cash programme, utilisation des plafonds et SPI/CPI inter-sites souvent pas.",
+        },
+        {
+          id: "change-audit-trail",
+          title: "Changements de ligne sans trace",
+          description:
+            "Les variations de ligne packaging et scope EPC sont difficiles à relier au budget approuvé et baseline prévision.",
+        },
+        {
+          id: "gc-collaboration",
+          title: "Friction collaboration GC",
+          description:
+            "Entreprises générales et EPC ressaisissent avancement et facturation faute d'une couche fournisseur maîtrisée par le maître d'ouvrage.",
+        },
+      ],
+    },
+    solution: {
+      eyebrow: "Pour capital excellence",
+      title: "Une couche de pilotage de la ligne usine au programme global.",
+      description:
+        "CapCon donne à l'ingénierie régionale, contrôleurs d'usine et PMO global un costbook partagé — rapproché ERP, connecté à la facturation SOV où le contrat l'exige, consolidé pour le pilotage direction.",
+      steps: [
+        {
+          step: "01",
+          title: "Costbook & ERP",
+          text: "Costbook lié WBS, engagements et rapprochement — moins de classeurs parallèles entre sites.",
+        },
+        {
+          step: "02",
+          title: "Ligne & contrat",
+          text: "Change orders, avancement SOV et portail vendor pour self-service EPC/GC où activé.",
+        },
+        {
+          step: "03",
+          title: "Portefeuille global",
+          text: "Consolidation programme inter-régions avec signaux d'écart et vues matrice santé.",
+        },
+      ],
+    },
+    features: {
+      eyebrow: "Capacités manufacturing",
+      title: "Conçu pour les équipes capital excellence globales",
+      description:
+        "Consolidation ERP, portefeuille multi-sites et change control au niveau ligne — focalisé sur capex usine et ligne à l'échelle programme.",
+      items: [
+        {
+          id: "sap-rollup",
+          title: "Consolidation ERP / WBS",
+          description:
+            "Consolidation programme et division avec clés projet source et lignes d'écart rapprochement.",
+        },
+        {
+          id: "costbook",
+          title: "Costbook usine",
+          description:
+            "Budget, engagements et EAC défendable pour lignes packaging, utilities et infrastructure site.",
+        },
+        {
+          id: "change-orders",
+          title: "Change vers prévision",
+          description:
+            "Changements approuvés avec impact prévision — documentés de la demande à la vue portefeuille.",
+        },
+        {
+          id: "sov-vendor",
+          title: "SOV & portail vendor",
+          description:
+            "Soumissions facturation et avancement EPC/GC où la structure contrat exige SOV — complément, pas remplacement ERP.",
+        },
+        {
+          id: "portfolio",
+          title: "Portefeuille global",
+          description:
+            "KPI programme multi-régions, outliers SPI/CPI et brief direction sur 3 à 10 sites.",
+        },
+      ],
+    },
+    productScreens: {
+      eyebrow: "Parcours manufacturing",
+      title: "Programme → costbook → ligne packaging",
+      description:
+        "Le parcours capital excellence : vue programme global, rapprochement ERP sur projet témoin, et SOV au niveau ligne.",
+      panels: [
+        {
+          id: "steering",
+          title: "Pilotage programme global",
+          caption: "Programmes régionaux et KPI portefeuille en une vue.",
+        },
+        {
+          id: "recon",
+          title: "Rapprochement ERP",
+          caption: "Liens SOV ↔ engagement sur le projet témoin.",
+        },
+        {
+          id: "sov",
+          title: "SOV ligne packaging",
+          caption: "Base de facturation au niveau ligne pour collaboration EPC/GC.",
+        },
+      ],
+    },
     audience: {
-      eyebrow: "FMCG global",
+      eyebrow: "Manufacturing global",
       title: "Pour capex manufacturing multi-sites",
       description:
-        "Capital excellence global, PM engineering régional, contrôleurs d'usine et pilotage SAP pour programmes 3–10 sites.",
+        "Capital excellence global, PM engineering régional, contrôleurs d'usine et pilotage ERP pour programmes multi-sites.",
       personas: [
         {
           title: "Capital excellence / finance",
           description:
-            "Roll-up programme, contrôle engagements et métriques board-ready multi-régions.",
+            "Consolidation programme, contrôle engagements et métriques pour la direction multi-régions.",
         },
         {
           title: "PM engineering régional",
           description:
-            "Costbook ligne, change control et collaboration EPC/GC sur capex usine.",
+            "Costbook ligne, gestion des changements et collaboration EPC/GC sur capex usine.",
         },
         {
           title: "Contrôleur d'usine",
           description:
-            "Vérité costbook alignée SAP, rapprochement et forecasts défendables par site.",
+            "Costbook consolidé, rapprochement ERP et prévisions défendables par site.",
         },
       ],
     },
     cta: {
-      headline: "Voir le capex usines FMCG global sur une couche de pilotage.",
+      headline: "Voir le capex usines global sur une couche de pilotage.",
       description:
-        "Démo roll-up programme, rapprochement SAP et SOV ligne packaging sur le pack référence FMCG.",
+        "Démo consolidation programme, rapprochement ERP et SOV ligne sur un programme manufacturing représentatif.",
       primaryCta: "Demander une démo",
       contactPrefix: "Ou contactez notre équipe à",
+    },
+    dashboard: {
+      title: "Programme manufacturing global – capex usine",
+      stats: [
+        { label: "Sites actifs", value: "8" },
+        { label: "EAC programme", value: "$284M" },
+        { label: "CO ouverts", value: "11" },
+      ],
+      columns: { project: "Site / ligne", budget: "Budget", eac: "EAC" },
+      rows: [
+        { name: "Ligne packaging Meadowbrook", budget: "$42,1M", eac: "$43,6M" },
+        { name: "Upgrade utilities EMEA", budget: "$28,4M", eac: "$28,4M" },
+        { name: "Retrofit remplisseuse APAC", budget: "$19,8M", eac: "$20,2M" },
+      ],
     },
   },
 };

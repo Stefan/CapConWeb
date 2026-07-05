@@ -119,7 +119,7 @@ export const variantEditionMeta: Record<
     region: { de: "International", en: "International", fr: "International" },
   },
   cdmo: {
-    label: { de: "CDMO", en: "CDMO", fr: "CDMO" },
+    label: { de: "GMP Manufacturing", en: "GMP manufacturing", fr: "Manufacturing GMP" },
     region: {
       de: "Europa & Schweiz",
       en: "Europe & Switzerland",
@@ -127,32 +127,36 @@ export const variantEditionMeta: Record<
     },
   },
   "sap-rollup": {
-    label: { de: "SAP Roll-up", en: "SAP Roll-up", fr: "SAP Roll-up" },
+    label: {
+      de: "Pharma & Diagnostics",
+      en: "Pharma & diagnostics",
+      fr: "Pharma & diagnostics",
+    },
     region: {
-      de: "DACH · UK · EU Pharma",
-      en: "DACH · UK · EU Pharma",
-      fr: "DACH · UK · Pharma EU",
+      de: "Portfolio-Konsolidierung",
+      en: "Portfolio consolidation",
+      fr: "Consolidation portefeuille",
     },
   },
   "fmcg-sap": {
     label: {
-      de: "FMCG Manufacturing",
-      en: "FMCG Manufacturing",
-      fr: "FMCG Manufacturing",
+      de: "Global Manufacturing",
+      en: "Global manufacturing",
+      fr: "Manufacturing global",
     },
     region: {
-      de: "Global · Multi-Site",
-      en: "Global · Multi-Site",
-      fr: "Global · Multi-Sites",
+      de: "Multi-Site-Programme",
+      en: "Multi-site programmes",
+      fr: "Programmes multi-sites",
     },
   },
   apac: {
     label: {
-      en: "APAC CapEx",
-      zh: "亚太 CapEx",
-      ja: "APAC CapEx",
-      ko: "APAC CapEx",
-      pl: "APAC CapEx",
+      en: "APAC programmes",
+      zh: "亚太区项目",
+      ja: "APAC programmes",
+      ko: "APAC programmes",
+      pl: "Programy APAC",
     },
     region: {
       en: "Australia & Singapore",
@@ -163,11 +167,11 @@ export const variantEditionMeta: Record<
     },
   },
   japan: {
-    label: { ja: "国内 CapEx", en: "Japan CapEx" },
+    label: { ja: "製造 CapEx", en: "Manufacturing CapEx" },
     region: { ja: "日本", en: "Japan" },
   },
   korea: {
-    label: { ko: "CapEx 통합", en: "Korea CapEx" },
+    label: { ko: "산업 CapEx", en: "Industrial CapEx" },
     region: { ko: "대한민국", en: "South Korea" },
   },
   poland: {

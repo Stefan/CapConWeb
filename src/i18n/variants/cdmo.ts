@@ -62,7 +62,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     },
     solution: {
       eyebrow: "Construction ↔ GMP",
-      title: "One hub from capex to qualified equipment.",
+      title: "One control layer from capex to qualified equipment.",
       description:
         "CapCon bridges construction change orders, forecast/SOV equipment links, and GMP change control workflows — with impact analysis and e-sign approvals.",
       steps: [
@@ -226,7 +226,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     cta: {
       headline: "See the CDMO capex → GMP loop live.",
       description:
-        "We'll demo equipment-linked forecast, construction CO bridge, and GMP approval on the CDMO reference pack.",
+        "We will demonstrate equipment-linked forecast, construction change bridge, and GMP approval on a representative CDMO programme.",
       primaryCta: "Request a demo",
       contactPrefix: "Or contact our team at",
     },
@@ -302,7 +302,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     },
     solution: {
       eyebrow: "Construction ↔ GMP",
-      title: "Ein Hub vom CapEx bis zum qualifizierten Equipment.",
+      title: "Eine Steuerungsebene vom CapEx bis zum qualifizierten Equipment.",
       description:
         "CapCon verbindet Construction Change Orders, Forecast-/SOV-Equipment-Links und GMP-Change-Control-Workflows — mit Impact-Analyse und E-Sign-Freigaben.",
       steps: [

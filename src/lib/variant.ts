@@ -3,6 +3,8 @@ export const siteVariants = [
   "large-projects",
   "standard-capex",
   "cdmo",
+  "sap-rollup",
+  "fmcg-sap",
   "apac",
   "japan",
   "korea",
@@ -15,6 +17,9 @@ export const VARIANT_COOKIE = "capcon-site-variant";
 export const defaultVariant: SiteVariant = "standard-capex";
 
 const northAmericaCountries = new Set(["US", "CA"]);
+/** CDMO EU biotech hubs — CH handled separately. */
+const cdmoEuCountries = new Set(["AT", "IE", "NL"]);
+const sapRollupCountries = new Set(["DE", "FR", "GB"]);
 const apacCountries = new Set(["AU", "SG"]);
 const japanCountries = new Set(["JP"]);
 const koreaCountries = new Set(["KR"]);
@@ -46,6 +51,12 @@ export function detectVariant(input: {
   if (override === "cdmo") {
     return "cdmo";
   }
+  if (override === "sap-rollup" || override === "sap_rollup") {
+    return "sap-rollup";
+  }
+  if (override === "fmcg-sap" || override === "fmcg_sap" || override === "fmcg") {
+    return "fmcg-sap";
+  }
   if (override === "apac") {
     return "apac";
   }
@@ -65,6 +76,12 @@ export function detectVariant(input: {
   }
   if (country === "CH") {
     return "cdmo";
+  }
+  if (country && cdmoEuCountries.has(country)) {
+    return "cdmo";
+  }
+  if (country && sapRollupCountries.has(country)) {
+    return "sap-rollup";
   }
   if (country && japanCountries.has(country)) {
     return "japan";
@@ -99,7 +116,31 @@ export const variantEditionMeta: Record<
   },
   cdmo: {
     label: { de: "CDMO", en: "CDMO", fr: "CDMO" },
-    region: { de: "Schweiz", en: "Switzerland", fr: "Suisse" },
+    region: {
+      de: "Europa & Schweiz",
+      en: "Europe & Switzerland",
+      fr: "Europe & Suisse",
+    },
+  },
+  "sap-rollup": {
+    label: { de: "SAP Roll-up", en: "SAP Roll-up", fr: "SAP Roll-up" },
+    region: {
+      de: "DACH · UK · EU Pharma",
+      en: "DACH · UK · EU Pharma",
+      fr: "DACH · UK · Pharma EU",
+    },
+  },
+  "fmcg-sap": {
+    label: {
+      de: "FMCG Manufacturing",
+      en: "FMCG Manufacturing",
+      fr: "FMCG Manufacturing",
+    },
+    region: {
+      de: "Global · Multi-Site",
+      en: "Global · Multi-Site",
+      fr: "Global · Multi-Sites",
+    },
   },
   apac: {
     label: {

@@ -7,15 +7,16 @@ import { cdmoFrPatch } from "@/i18n/variants/cdmo-fr";
 export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
   en: {
     meta: {
-      title: `${PRODUCT_NAME} – CDMO project controls & GMP for Switzerland`,
+      title: `${PRODUCT_NAME} – CDMO project controls & GMP for Europe & Switzerland`,
       description:
-        "Connect capex, equipment qualification, and GMP change control in one audit-ready layer — complementing QMS and MES for Swiss CDMO and pharma manufacturing.",
+        "Connect capex, equipment qualification, and GMP change control in one audit-ready layer — complementing QMS and MES for European and Swiss CDMO and pharma manufacturing.",
       keywords: [
         "CDMO",
         "GMP",
         "IQ OQ PQ",
         "Change Control",
         "Validation",
+        "Europe",
         "Switzerland",
         "Pharma",
         "Capex",
@@ -23,7 +24,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       openGraphLocale: "de_CH",
     },
     hero: {
-      eyebrow: "CapEx & GMP · Switzerland",
+      eyebrow: "CapEx & GMP · Europe",
       headline: "Owner capex control from construction through equipment qualification.",
       subheadline: `${PRODUCT_NAME} links costbook, construction programs, equipment qualification, and GMP change control in one audit-ready layer — complementing your QMS and MES, not replacing them.`,
       primaryCta: "Request a demo",
@@ -162,10 +163,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     socialProof: {
-      eyebrow: "Swiss CDMO",
+      eyebrow: "CDMO · Europe",
       quote:
         "Finally a path from construction change to GMP sign-off without re-keying impact in three systems.",
-      attribution: "QA lead, peptide CDMO (Switzerland)",
+      attribution: "QA lead, peptide CDMO (Europe)",
       metrics: [
         { value: "CO ↔ CC", label: "Linked change bridge" },
         { value: "IQ/OQ/PQ", label: "Qualification matrix" },
@@ -173,10 +174,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     audience: {
-      eyebrow: "Switzerland",
+      eyebrow: "Europe",
       title: "For CDMO and GMP manufacturing capex",
       description:
-        "Project controls, engineering, and QA teams investing in Swiss production and fill-finish capacity.",
+        "Project controls, engineering, and QA teams investing in European and Swiss production and fill-finish capacity.",
       personas: [
         {
           title: "Project controls",
@@ -195,7 +196,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     enterprise: {
       eyebrow: "GMP enterprise",
       title: "Validation-friendly, QMS-aware",
-      description: `${PRODUCT_NAME} complements your existing quality stack with clear boundaries for regulated Swiss deployments.`,
+      description: `${PRODUCT_NAME} complements your existing quality stack with clear boundaries for regulated European and Swiss deployments.`,
       badgeDisclaimer:
         "Validation scope and Part 11 depth depend on deployment — we align in the pilot workshop.",
       signals: [
@@ -246,15 +247,16 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
   },
   de: {
     meta: {
-      title: `${PRODUCT_NAME} – CDMO Project Controls & GMP für die Schweiz`,
+      title: `${PRODUCT_NAME} – CDMO Project Controls & GMP für Europa & Schweiz`,
       description:
-        "CapEx, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — Ergänzung zu QMS und MES für Schweizer CDMO und Pharma-Fertigung.",
+        "CapEx, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — Ergänzung zu QMS und MES für europäische und Schweizer CDMO und Pharma-Fertigung.",
       keywords: [
         "CDMO",
         "GMP",
         "IQ OQ PQ",
         "Change Control",
         "Validierung",
+        "Europa",
         "Schweiz",
         "Pharma",
         "Capex",
@@ -262,7 +264,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       openGraphLocale: "de_CH",
     },
     hero: {
-      eyebrow: "CapEx & GMP · Schweiz",
+      eyebrow: "CapEx & GMP · Europa",
       headline: "Owner-CapEx-Steuerung von der Baustelle bis zur Equipment-Qualifizierung.",
       subheadline: `${PRODUCT_NAME} verbindet Costbook, Bauprojekte, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — als Ergänzung zu QMS und MES, nicht als Ersatz.`,
       primaryCta: "Demo anfragen",
@@ -401,10 +403,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     socialProof: {
-      eyebrow: "Swiss CDMO",
+      eyebrow: "CDMO · Europa",
       quote:
         "Endlich ein Weg vom Construction Change zur GMP-Freigabe — ohne Impact in drei Systemen neu zu erfassen.",
-      attribution: "QA Lead, Peptide-CDMO (Schweiz)",
+      attribution: "QA Lead, Peptide-CDMO (Europa)",
       metrics: [
         { value: "CO ↔ CC", label: "Verknüpfte Change-Brücke" },
         { value: "IQ/OQ/PQ", label: "Qualifizierungsmatrix" },
@@ -412,10 +414,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     audience: {
-      eyebrow: "Schweiz",
+      eyebrow: "Europa",
       title: "Für CDMO- und GMP-Manufacturing-CapEx",
       description:
-        "Project Controls, Engineering und QA bei Investitionen in Schweizer Produktion und Fill-Finish.",
+        "Project Controls, Engineering und QA bei Investitionen in europäische und Schweizer Produktion und Fill-Finish.",
       personas: [
         {
           title: "Project Controls",
@@ -434,7 +436,7 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     enterprise: {
       eyebrow: "GMP Enterprise",
       title: "Validierungsnah, QMS-bewusst",
-      description: `${PRODUCT_NAME} ergänzt Ihren Quality-Stack mit klaren Grenzen für regulierte Schweizer Deployments.`,
+      description: `${PRODUCT_NAME} ergänzt Ihren Quality-Stack mit klaren Grenzen für regulierte europäische und Schweizer Deployments.`,
       badgeDisclaimer:
         "Validierungsumfang und Part-11-Tiefe hängen vom Deployment ab — Abstimmung im Pilot-Workshop.",
       signals: [

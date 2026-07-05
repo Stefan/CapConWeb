@@ -60,10 +60,26 @@ describe("detectVariant", () => {
     assert.equal(detectVariant({ countryCode: "PL" }), "poland");
   });
 
+  it("routes CDMO EU countries to cdmo edition", () => {
+    assert.equal(detectVariant({ countryCode: "CH" }), "cdmo");
+    assert.equal(detectVariant({ countryCode: "AT" }), "cdmo");
+    assert.equal(detectVariant({ countryCode: "IE" }), "cdmo");
+    assert.equal(detectVariant({ countryCode: "NL" }), "cdmo");
+  });
+
+  it("routes SAP roll-up countries to sap-rollup edition", () => {
+    assert.equal(detectVariant({ countryCode: "DE" }), "sap-rollup");
+    assert.equal(detectVariant({ countryCode: "FR" }), "sap-rollup");
+    assert.equal(detectVariant({ countryCode: "GB" }), "sap-rollup");
+  });
+
   it("respects query overrides for new editions", () => {
     assert.equal(detectVariant({ queryOverride: "apac" }), "apac");
     assert.equal(detectVariant({ queryOverride: "japan" }), "japan");
     assert.equal(detectVariant({ queryOverride: "korea" }), "korea");
     assert.equal(detectVariant({ queryOverride: "poland" }), "poland");
+    assert.equal(detectVariant({ queryOverride: "sap-rollup" }), "sap-rollup");
+    assert.equal(detectVariant({ queryOverride: "fmcg-sap" }), "fmcg-sap");
+    assert.equal(detectVariant({ queryOverride: "fmcg" }), "fmcg-sap");
   });
 });

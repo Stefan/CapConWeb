@@ -31,12 +31,21 @@ type SiteProviderProps = {
   locale: Locale;
   variant: SiteVariant;
   dict: SiteDictionary;
+  /** Marketing base path for in-page anchors (edition landings vs locale home). */
+  basePath?: string;
   children: ReactNode;
 };
 
-export function SiteProvider({ locale, variant, dict, children }: SiteProviderProps) {
+export function SiteProvider({
+  locale,
+  variant,
+  dict,
+  basePath,
+  children,
+}: SiteProviderProps) {
   const meta = variantEditionMeta[variant];
   const brandLine = `${PRODUCT_NAME} – ${dict.tagline}`;
+  const marketingBase = basePath ?? `/${locale}`;
 
   const value: SiteContextValue = {
     locale,
@@ -50,11 +59,11 @@ export function SiteProvider({ locale, variant, dict, children }: SiteProviderPr
     appSignupUrl,
     contactEmail,
     navLinks: [
-      { label: dict.nav.problem, href: `/${locale}#problem` },
-      { label: dict.nav.solution, href: `/${locale}#solution` },
-      { label: dict.nav.features, href: `/${locale}#features` },
-      { label: dict.nav.audience, href: `/${locale}#audience` },
-      { label: dict.nav.enterprise, href: `/${locale}#enterprise` },
+      { label: dict.nav.problem, href: `${marketingBase}#problem` },
+      { label: dict.nav.solution, href: `${marketingBase}#solution` },
+      { label: dict.nav.features, href: `${marketingBase}#features` },
+      { label: dict.nav.audience, href: `${marketingBase}#audience` },
+      { label: dict.nav.enterprise, href: `${marketingBase}#enterprise` },
     ],
   };
 

@@ -9,6 +9,7 @@ import {
 } from "@/lib/consent";
 import { buildContentSecurityPolicy, createCspNonce } from "@/lib/csp";
 import { isGoogleAnalyticsEnabled } from "@/lib/analytics";
+import { queryVariantToEditionPath } from "@/lib/seo";
 import { VARIANT_COOKIE, detectVariant } from "@/lib/variant";
 
 const VARIANT_SESSION_MAX_AGE = 60 * 60 * 24; // 24h without full consent
@@ -54,6 +55,7 @@ function nextWithCsp(request: NextRequest): NextResponse {
   });
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
   requestHeaders.set("Content-Security-Policy", csp);
 
   const response = NextResponse.next({
@@ -75,6 +77,18 @@ export function proxy(request: NextRequest) {
   );
 
   if (pathnameLocale) {
+    const queryVariant = request.nextUrl.searchParams.get("variant");
+    const editionRedirect = queryVariantToEditionPath(pathnameLocale, queryVariant);
+    if (
+      editionRedirect &&
+      (pathname === `/${pathnameLocale}` || pathname === `/${pathnameLocale}/`)
+    ) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = editionRedirect;
+      redirectUrl.searchParams.delete("variant");
+      return redirectWithVariant(request, redirectUrl);
+    }
+
     return nextWithCsp(request);
   }
 

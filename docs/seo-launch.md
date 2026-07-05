@@ -2,24 +2,37 @@
 
 Checklist for indexing the CapCon marketing site at **https://capconhq.com**.
 
-## Current status (2026-06-16)
+## Current status (2026-07-05)
 
 | Check | Status |
 | ----- | ------ |
 | `robots.txt` allows crawling | ✅ Live (`Allow: /`, sitemap linked) |
-| `sitemap.xml` with hreflang | ✅ Live (7 locales × marketing routes) |
-| GSC property verified | ❌ **Failed** — no Google verification TXT on DNS |
-| DNS host | Vercel (`ns1.vercel-dns.com`, `ns2.vercel-dns.com`) |
+| `sitemap.xml` with BCP47 hreflang | ✅ 7 locales × core routes + **56 edition landings** |
+| Edition landing pages (`/de/editions/sap-rollup`, …) | ✅ Indexable segment SEO |
+| JSON-LD (Organization, WebSite, SoftwareApplication) | ✅ Variant-aware on home + editions |
+| Query `?variant=` → edition redirect | ✅ Consolidates duplicate URLs |
+| FMCG edition | ✅ `/editions/fmcg-sap` with `noindex` (campaign only) |
+| GSC property verified | ❌ **Pending** — set DNS TXT or `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` |
 
-**Why domain verification failed:** Google looks for a TXT record like `google-site-verification=…` on the apex domain. As of the last DNS check, `capconhq.com` had **no TXT records at all**. The token was either never added, added at the wrong DNS provider (e.g. registrar while nameservers point to Vercel), or not yet propagated.
+---
 
-Verify yourself:
+## URL model (2026-07)
 
-```bash
-dig +short TXT capconhq.com
-```
+| URL type | Example | SEO role |
+| -------- | ------- | -------- |
+| Locale home (geo/cookie variant) | `/de` | Broad CapEx — geo-personalized |
+| **Edition landing** | `/de/editions/sap-rollup` | **Segment SEO** — stable, indexable |
+| Sales campaign | `/en/editions/fmcg-sap` | `noindex` — demo links only |
+| Legal / demo | `/de/demo`, `/de/privacy` | Supporting pages |
 
-You should see a line containing `google-site-verification=`.
+**Submit these edition URLs in GSC after launch (examples):**
+
+- `https://capconhq.com/de/editions/sap-rollup`
+- `https://capconhq.com/en/editions/large-projects`
+- `https://capconhq.com/de/editions/cdmo`
+- `https://capconhq.com/en/editions/apac`
+
+Full list: open `https://capconhq.com/sitemap.xml` and filter `/editions/`.
 
 ---
 
@@ -57,10 +70,13 @@ After verification:
 1. GSC → property `capconhq.com` → **Sitemaps**
 2. Submit: `https://capconhq.com/sitemap.xml`
 
-### 5. Request indexing (optional, speeds up first crawl)
+### 5. Request indexing (priority URLs)
 
-1. **URL Inspection** → `https://capconhq.com/de` (and `/en` if needed)
-2. **Request indexing**
+1. **URL Inspection** → edition landings (segment focus):
+   - `https://capconhq.com/de/editions/sap-rollup`
+   - `https://capconhq.com/en/editions/large-projects`
+   - `https://capconhq.com/de/editions/cdmo`
+2. **Request indexing** for each
 
 ---
 
@@ -90,11 +106,11 @@ The site reads this env var in `src/app/layout.tsx` (`metadata.verification.goog
 | Milestone | Typical timing |
 | --------- | -------------- |
 | GSC shows “Ownership verified” | Minutes after DNS/meta is correct |
-| First URLs in **Coverage** / **Pages** | 1–7 days |
-| Brand query “CapCon” / “capconhq” | Days to a few weeks (low competition helps) |
-| Broader keywords | Weeks to months (content + backlinks) |
+| Edition URLs in **Pages** | 3–14 days |
+| Brand query “CapCon” / “capconhq” | Days to a few weeks |
+| Segment keywords (SAP costbook, CDMO GMP) | Weeks to months |
 
-GSC does not guarantee ranking; it only lets you monitor indexing and request crawls.
+GSC does not guarantee ranking; edition landings improve **segment** discoverability vs. cookie-only variants.
 
 ---
 
@@ -103,8 +119,9 @@ GSC does not guarantee ranking; it only lets you monitor indexing and request cr
 - [ ] `NEXT_PUBLIC_SITE_URL=https://capconhq.com` on Vercel Production
 - [ ] GSC property verified (Option A or B)
 - [ ] Sitemap `https://capconhq.com/sitemap.xml` submitted
-- [ ] URL Inspection run for `/de` (primary locale)
-- [ ] Optional: GA4 consent flow already gates `NEXT_PUBLIC_GA_MEASUREMENT_ID` until “Accept all”
+- [ ] URL Inspection for `/de/editions/sap-rollup`, `/en/editions/large-projects`, `/de/editions/cdmo`
+- [ ] Confirm `?variant=sap-rollup` on `/de` redirects to `/de/editions/sap-rollup` (301/308)
+- [ ] Optional: GA4 consent flow gates `NEXT_PUBLIC_GA_MEASUREMENT_ID` until “Accept all”
 
 ---
 
@@ -116,7 +133,8 @@ GSC does not guarantee ranking; it only lets you monitor indexing and request cr
 | TXT at registrar but NS = Vercel | Records ignored | Move TXT to Vercel DNS |
 | Meta tag verify fails | Env not set or old deploy | Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, redeploy, hard-refresh |
 | Sitemap “Couldn't fetch” | Site down or wrong URL | Open `https://capconhq.com/sitemap.xml` in browser |
-| Pages not indexed yet | Normal delay | Wait 3–7 days; use URL Inspection |
+| Edition page shows wrong copy | Old deploy | Redeploy; check `/de/editions/sap-rollup` hero |
+| Duplicate content warnings | Query + edition both indexed | Query variants redirect to edition paths (built-in) |
 
 ---
 
@@ -124,4 +142,7 @@ GSC does not guarantee ranking; it only lets you monitor indexing and request cr
 
 - Sitemap: https://capconhq.com/sitemap.xml
 - Robots: https://capconhq.com/robots.txt
-- Primary landing: https://capconhq.com/de
+- Locale home: https://capconhq.com/de
+- SAP Roll-up (DE): https://capconhq.com/de/editions/sap-rollup
+- Large Projects (EN): https://capconhq.com/en/editions/large-projects
+- CDMO (DE): https://capconhq.com/de/editions/cdmo

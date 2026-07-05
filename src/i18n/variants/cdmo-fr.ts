@@ -5,15 +5,16 @@ import type { SiteDictionary } from "@/i18n/types";
 /** French overlay for CDMO edition (Suisse romande, etc.). */
 export const cdmoFrPatch: Partial<SiteDictionary> = {
   meta: {
-    title: `${PRODUCT_NAME} – Project controls CDMO & GMP pour la Suisse`,
+    title: `${PRODUCT_NAME} – Project controls CDMO & GMP pour l'Europe`,
     description:
-      "Reliez capex, qualification équipement et change control GMP dans une couche audit-ready — en complément du QMS et du MES pour CDMO et pharma en Suisse.",
+      "Reliez capex, qualification équipement et change control GMP dans une couche audit-ready — en complément du QMS et du MES pour CDMO et pharma en Europe et en Suisse.",
     keywords: [
       "CDMO",
       "GMP",
       "IQ OQ PQ",
       "Change Control",
       "Validation",
+      "Europe",
       "Suisse",
       "Pharma",
       "Capex",
@@ -21,7 +22,7 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
     openGraphLocale: "fr_CH",
   },
   hero: {
-    eyebrow: "CapEx & GMP · Suisse",
+    eyebrow: "CapEx & GMP · Europe",
     headline: "Pilotage capex maître d'ouvrage de la construction à la qualification équipement.",
     subheadline: `${PRODUCT_NAME} relie costbook, programmes construction, qualification équipement et change control GMP dans une couche audit-ready — en complément de votre QMS et MES, sans les remplacer.`,
     primaryCta: "Demander une démo",

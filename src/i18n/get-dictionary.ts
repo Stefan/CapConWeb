@@ -18,10 +18,12 @@ import { mergeDictionary } from "@/i18n/merge-dictionary";
 import type { SiteDictionary } from "@/i18n/types";
 import { apacVariant } from "@/i18n/variants/apac";
 import { cdmoVariant } from "@/i18n/variants/cdmo";
+import { fmcgSapVariant } from "@/i18n/variants/fmcg-sap";
 import { japanVariant } from "@/i18n/variants/japan";
 import { koreaVariant } from "@/i18n/variants/korea";
 import { largeProjectsVariant } from "@/i18n/variants/large-projects";
 import { polandVariant } from "@/i18n/variants/poland";
+import { sapRollupVariant } from "@/i18n/variants/sap-rollup";
 import {
   VARIANT_COOKIE,
   defaultVariant,
@@ -64,6 +66,8 @@ const variantPatches: Record<
   "large-projects": largeProjectsVariant,
   "standard-capex": null,
   cdmo: cdmoVariant,
+  "sap-rollup": sapRollupVariant,
+  "fmcg-sap": fmcgSapVariant,
   apac: apacVariant,
   japan: japanVariant,
   korea: koreaVariant,

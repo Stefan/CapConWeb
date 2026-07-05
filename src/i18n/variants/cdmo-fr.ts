@@ -22,8 +22,8 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
   },
   hero: {
     eyebrow: "CapEx & GMP · Suisse",
-    headline: "Le capex construction rencontre le change control GMP.",
-    subheadline: `${PRODUCT_NAME} relie programmes construction, qualification équipement et change control GMP dans une couche audit-ready — en complément de votre QMS et MES, sans les remplacer.`,
+    headline: "Pilotage capex maître d'ouvrage de la construction à la qualification équipement.",
+    subheadline: `${PRODUCT_NAME} relie costbook, programmes construction, qualification équipement et change control GMP dans une couche audit-ready — en complément de votre QMS et MES, sans les remplacer.`,
     primaryCta: "Demander une démo",
   },
   problem: {
@@ -81,11 +81,29 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
     ],
   },
   features: {
-    eyebrow: "CDMO / GMP",
-    title: "Module set pour déploiements CDMO en Suisse",
+    eyebrow: "Capacités CDMO",
+    title: "Du capex maître d'ouvrage à la signature GMP",
     description:
-      "Capex lié aux équipements, qualification (IQ/OQ/PQ) et change control GMP — pour la fabrication CDMO en Suisse.",
+      "Contrôle construction et costbook en premier — change control GMP, qualification et pont QMS là où la fabrication réglementée l'exige.",
     items: [
+      {
+        id: "costbook-capex",
+        title: "Capex maître d'ouvrage & costbook",
+        description:
+          "Budget, engagements et prévisions pour programmes construction — traçables jusqu'aux lignes équipement et actifs.",
+      },
+      {
+        id: "construction-co",
+        title: "Change orders construction",
+        description:
+          "CO approuvés avec impact prévision et liens équipement — documentés de la demande à la vue portefeuille.",
+      },
+      {
+        id: "equipment",
+        title: "Release équipement",
+        description:
+          "États release et quarantaine avec événements auditables sur l'actif.",
+      },
       {
         id: "gmp-cc",
         title: "Change control GMP",
@@ -105,12 +123,6 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
           "Statut de qualification par ligne équipement — aligné sur les enregistrements validation.",
       },
       {
-        id: "equipment",
-        title: "Release équipement",
-        description:
-          "États release et quarantaine avec événements auditables sur l'actif.",
-      },
-      {
         id: "deviation",
         title: "Miroir déviation & CAPA",
         description:
@@ -124,9 +136,9 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
     ],
   },
   cta: {
-    headline: "Voir la boucle capex CDMO → GMP en direct.",
+    headline: "Voir le pilotage capex maître d'ouvrage jusqu'à la boucle GMP en direct.",
     description:
-      "Démo forecast lié équipement, pont CO construction et approbation GMP sur le pack référence CDMO.",
+      "Démo costbook, pont CO construction et approbation GMP sur le pack référence CDMO.",
     primaryCta: "Demander une démo",
     contactPrefix: "Ou contactez notre équipe à",
   },

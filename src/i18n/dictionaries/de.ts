@@ -16,8 +16,8 @@ const dictionary: SiteDictionary = {
       "Construction",
       "Life Sciences",
       "PMO",
-      "SOV",
-      "Master Plan",
+      "SAP",
+      "ERP Abgleich",
     ],
     openGraphLocale: "de_DE",
   },
@@ -46,7 +46,7 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Projektsteuerung und Finanzcontrolling für kapitalintensive Programme",
-    subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Terminplanbezug und Portfolio-Steuerung auf einer Plattform — mit nachvollziehbaren Forecasts, durchgängigen Freigaben und belastbaren Kennzahlen für komplexe Capex-Programme.`,
+    subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Terminplanbezug und Portfolio-Steuerung auf einer Plattform — mit nachvollziehbaren Forecasts, durchgängigen Freigaben und belastbaren Kennzahlen für komplexe Capex-Programme. Besonders stark dort, wo ERP die Finanzdaten liefert und Multi-Site-Portfolios eine Costbook-Wahrheit brauchen.`,
     primaryCta: "Demo anfragen",
     secondaryCta: "Plattform entdecken",
   },
@@ -80,10 +80,16 @@ const dictionary: SiteDictionary = {
           "Einzelprojekte sind sichtbar – die Gesamtwirkung auf Investitionsbudget, Obergrenzen und Cashflow nicht.",
       },
       {
+        id: "sap-shadow-ledger",
+        title: "ERP-Shadow-Ledger",
+        description:
+          "Controller pflegen parallele Excel-Costbooks, weil ERP-Importe nicht zur Projekt-Costbook-Wahrheit passen.",
+      },
+      {
         id: "change-audit-trail",
         title: "Änderungen ohne Nachweis",
         description:
-          "Nachträge und Scope-Änderungen lassen sich schwer gegen die ursprüngliche Planung und den Master Plan belegen.",
+          "Nachträge und Scope-Änderungen lassen sich schwer gegen genehmigtes Budget und Forecast-Baseline belegen.",
       },
     ],
   },
@@ -114,7 +120,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "Funktionen",
     title: "Die Werkzeuge für verlässliche Capex-Steuerung",
     description:
-      "Was Finanzcontroller und PMO-Leiter täglich brauchen: belastbare Zahlen, klare Abweichungen und einen durchgängigen Portfolio-Überblick.",
+      "Kern-Project-Controls im Alltag — plus ERP-Abgleich und Vendor-Portal, wo Ihr Deployment es erfordert.",
     items: [
       {
         id: "costbook",
@@ -141,16 +147,22 @@ const dictionary: SiteDictionary = {
           "Terminplan und Costbook im Zusammenspiel — Soll-Ist-Vergleich, Verpflichtungen und Finanzkennzahlen in einer Sicht.",
       },
       {
-        id: "registers",
-        title: "Risiken, Issues & Entscheidungen",
-        description:
-          "Register mit Wirkungshistorie und verknüpften Freigabeprozessen.",
-      },
-      {
         id: "workflows",
         title: "Workflows & Audit",
         description:
           "Konfigurierbare Freigaben, Compliance-Kontext und vollständiger Audit-Trail für regulierte Umgebungen.",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "SAP / ERP-Abgleich",
+        description:
+          "Ist-Werte und Verpflichtungen importieren, ERP vs. Costbook vergleichen — weniger Shadow Ledger in der Steuerung.",
+      },
+      {
+        id: "vendor-portal",
+        title: "Vendor / GU-Portal",
+        description:
+          "SOV-Progress und Billing-Submissions wo aktiv — ergänzt Field-Tools, kein Vertragsmanagement-Ersatz.",
       },
     ],
   },
@@ -207,7 +219,7 @@ const dictionary: SiteDictionary = {
       {
         title: "PMO / Programmmanagement",
         description:
-          "Programm- und Portfolio-Steuerung mit einheitlichem Reporting, Master Plan und Abweichungen im Gesamtportfolio.",
+          "Programm- und Portfolio-Steuerung mit einheitlichem Reporting und Abweichungssignalen im Gesamtportfolio.",
       },
       {
         title: "Projektcontroller & Qualität",
@@ -270,7 +282,7 @@ const dictionary: SiteDictionary = {
     roleLabel: "Rolle",
     rolePlaceholder: "z. B. Finanzcontroller, PMO-Leiter",
     messageLabel: "Nachricht (optional)",
-    messagePlaceholder: "Projekttyp, Campus-Größe, besondere Anforderungen …",
+    messagePlaceholder: "Projekttyp, Programmgröße, ERP-Landschaft, besondere Anforderungen …",
     submit: "Anfrage senden",
     consentBefore: "Ich willige ein, dass meine Angaben gemäß unserer",
     consentAfter: " verarbeitet werden.",

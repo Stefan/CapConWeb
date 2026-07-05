@@ -23,7 +23,7 @@ export const koreaVariant: Partial<Record<"ko" | "en", Partial<SiteDictionary>>>
     hero: {
       eyebrow: "CapEx · 대한민국",
       headline: "다수 사업장 CapEx를 신뢰할 수 있는 수치로 통제하세요.",
-      subheadline: `${PRODUCT_NAME}는 코스트북, 변경 승인, 포트폴리오 지표를 하나의 플랫폼에 통합합니다. 반도체·제조·인프라 대형 투자 프로그램을 월말 Excel 집계 없이 운영할 수 있습니다.`,
+      subheadline: `${PRODUCT_NAME}는 코스트북, 변경 승인, 포트폴리오 지표를 하나의 플랫폼에 통합합니다. 반도체·제조·인프라 대형 투자 프로그램을 월말 Excel 집계 없이 운영할 수 있습니다. ERP가 재무 데이터를 보유한 다수 사업장 프로그램에 특히 강력합니다.`,
       primaryCta: "데모 신청",
     },
     solution: {

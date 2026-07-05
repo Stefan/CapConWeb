@@ -16,8 +16,8 @@ const dictionary: SiteDictionary = {
       "Construction",
       "Life Sciences",
       "PMO",
-      "SOV",
-      "Master Plan",
+      "SAP",
+      "ERP Reconciliation",
     ],
     openGraphLocale: "en_US",
   },
@@ -46,7 +46,7 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Project controls and financial governance for capital-intensive programs",
-    subheadline: `${PRODUCT_NAME} unifies costbook, change management, schedule alignment, and portfolio governance on one platform — with defensible forecasts, end-to-end approvals, and dependable metrics for complex capex programs.`,
+    subheadline: `${PRODUCT_NAME} unifies costbook, change management, schedule alignment, and portfolio governance on one platform — with defensible forecasts, end-to-end approvals, and dependable metrics for complex capex programs. Especially strong where ERP holds financial data and multi-site portfolios need one costbook truth.`,
     primaryCta: "Request a demo",
     secondaryCta: "Explore the platform",
   },
@@ -80,10 +80,16 @@ const dictionary: SiteDictionary = {
           "Individual projects are visible – the impact on investment budget, caps, and cash flow is not.",
       },
       {
+        id: "sap-shadow-ledger",
+        title: "ERP shadow ledger",
+        description:
+          "Controllers maintain parallel Excel costbooks because ERP imports do not match project costbook truth.",
+      },
+      {
         id: "change-audit-trail",
         title: "Changes without evidence",
         description:
-          "Variations and scope changes are hard to substantiate against the original plan and master plan.",
+          "Variations and scope changes are hard to substantiate against approved budget and forecast baseline.",
       },
     ],
   },
@@ -114,7 +120,7 @@ const dictionary: SiteDictionary = {
     eyebrow: "Capabilities",
     title: "The toolkit for reliable capex control",
     description:
-      "What finance controllers and PMO leaders need every day: dependable numbers, clear variances, and a continuous portfolio view.",
+      "Core project controls every day — plus ERP reconciliation and vendor billing where your deployment requires them.",
     items: [
       {
         id: "costbook",
@@ -141,16 +147,22 @@ const dictionary: SiteDictionary = {
           "Schedule and costbook working together — plan vs. actual, commitments, and financial metrics in one view.",
       },
       {
-        id: "registers",
-        title: "Risks, issues & decisions",
-        description:
-          "Registers with impact history and linked approval processes.",
-      },
-      {
         id: "workflows",
         title: "Workflows & audit",
         description:
           "Configurable approvals, compliance context, and a complete audit trail for regulated environments.",
+      },
+      {
+        id: "sap-reconciliation",
+        title: "SAP / ERP reconciliation",
+        description:
+          "Import actuals and commitments, compare ERP vs. costbook — reduce shadow ledgers in steering.",
+      },
+      {
+        id: "vendor-portal",
+        title: "Vendor / GC portal",
+        description:
+          "SOV progress and billing submissions where enabled — complementing field tools, not replacing CLM.",
       },
     ],
   },
@@ -207,7 +219,7 @@ const dictionary: SiteDictionary = {
       {
         title: "PMO / program management",
         description:
-          "Program and portfolio governance with consistent reporting, master plan, and variance across the full portfolio.",
+          "Program and portfolio governance with consistent reporting and variance signals across the full portfolio.",
       },
       {
         title: "Project controllers & quality",
@@ -270,7 +282,7 @@ const dictionary: SiteDictionary = {
     roleLabel: "Role",
     rolePlaceholder: "e.g. finance controller, PMO lead",
     messageLabel: "Message (optional)",
-    messagePlaceholder: "Project type, campus size, specific requirements …",
+    messagePlaceholder: "Project type, program size, ERP landscape, specific requirements …",
     submit: "Send request",
     consentBefore: "I agree to the processing of my data under our",
     consentAfter: ".",

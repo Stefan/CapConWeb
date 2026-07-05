@@ -24,8 +24,8 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     },
     hero: {
       eyebrow: "CapEx & GMP · Switzerland",
-      headline: "Construction capex meets GMP change control.",
-      subheadline: `${PRODUCT_NAME} links construction programs, equipment qualification, and GMP change control in one audit-ready layer — complementing your QMS and MES, not replacing them.`,
+      headline: "Owner capex control from construction through equipment qualification.",
+      subheadline: `${PRODUCT_NAME} links costbook, construction programs, equipment qualification, and GMP change control in one audit-ready layer — complementing your QMS and MES, not replacing them.`,
       primaryCta: "Request a demo",
     },
     problem: {
@@ -83,11 +83,29 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     features: {
-      eyebrow: "CDMO / GMP",
-      title: "Module set for Swiss CDMO deployments",
+      eyebrow: "CDMO capabilities",
+      title: "From owner capex to GMP sign-off",
       description:
-        "Equipment-linked capex, qualification (IQ/OQ/PQ), and GMP change control — tailored for Swiss CDMO manufacturing.",
+        "Core construction and costbook control first — GMP change control, qualification, and QMS bridge where regulated manufacturing requires them.",
       items: [
+        {
+          id: "costbook-capex",
+          title: "Owner capex & costbook",
+          description:
+            "Budget, commitments, and forecasts for construction programs — traceable to equipment and asset lines.",
+        },
+        {
+          id: "construction-co",
+          title: "Construction change orders",
+          description:
+            "Approved COs with forecast impact and equipment links — documented from request to portfolio view.",
+        },
+        {
+          id: "equipment",
+          title: "Equipment release",
+          description:
+            "Release and quarantine states with auditable events on the asset.",
+        },
         {
           id: "gmp-cc",
           title: "GMP change control",
@@ -105,12 +123,6 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
           title: "IQ / OQ / PQ matrix",
           description:
             "Qualification status per equipment line — aligned with validation records.",
-        },
-        {
-          id: "equipment",
-          title: "Equipment release",
-          description:
-            "Release and quarantine states with auditable events on the asset.",
         },
         {
           id: "deviation",
@@ -251,8 +263,8 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     },
     hero: {
       eyebrow: "CapEx & GMP · Schweiz",
-      headline: "Bauprojekt-CapEx trifft GMP Change Control.",
-      subheadline: `${PRODUCT_NAME} verbindet Bauprojekte, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — als Ergänzung zu QMS und MES, nicht als Ersatz.`,
+      headline: "Owner-CapEx-Steuerung von der Baustelle bis zur Equipment-Qualifizierung.",
+      subheadline: `${PRODUCT_NAME} verbindet Costbook, Bauprojekte, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — als Ergänzung zu QMS und MES, nicht als Ersatz.`,
       primaryCta: "Demo anfragen",
     },
     problem: {
@@ -310,11 +322,29 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
       ],
     },
     features: {
-      eyebrow: "CDMO / GMP",
-      title: "Modulset für Schweizer CDMO-Deployments",
+      eyebrow: "CDMO-Funktionen",
+      title: "Vom Owner-CapEx bis zur GMP-Freigabe",
       description:
-        "Equipment-verknüpftes CapEx, Qualifikation (IQ/OQ/PQ) und GMP-Change-Control — für Schweizer CDMO-Fertigung.",
+        "Kern: Bau und Costbook-Steuerung — GMP Change Control, Qualifizierung und QMS-Brücke, wo regulierte Fertigung es verlangt.",
       items: [
+        {
+          id: "costbook-capex",
+          title: "Owner CapEx & Costbook",
+          description:
+            "Budget, Verpflichtungen und Forecasts für Bauprogramme — nachverfolgbar bis Equipment- und Asset-Lines.",
+        },
+        {
+          id: "construction-co",
+          title: "Construction Change Orders",
+          description:
+            "Freigegebene COs mit Forecast-Impact und Equipment-Links — dokumentiert von der Anfrage bis zur Portfolio-Sicht.",
+        },
+        {
+          id: "equipment",
+          title: "Equipment Release",
+          description:
+            "Release- und Quarantäne-Status mit auditierbaren Events am Asset.",
+        },
         {
           id: "gmp-cc",
           title: "GMP Change Control",
@@ -332,12 +362,6 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
           title: "IQ / OQ / PQ Matrix",
           description:
             "Qualifizierungsstatus pro Equipment-Line — abgestimmt auf Validierungsrecords.",
-        },
-        {
-          id: "equipment",
-          title: "Equipment Release",
-          description:
-            "Release- und Quarantäne-Status mit auditierbaren Events am Asset.",
         },
         {
           id: "deviation",

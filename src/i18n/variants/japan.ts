@@ -23,7 +23,7 @@ export const japanVariant: Partial<Record<"ja" | "en", Partial<SiteDictionary>>>
     hero: {
       eyebrow: "CapEx · 日本",
       headline: "複数拠点の設備投資を、説明可能な数字で統制する。",
-      subheadline: `${PRODUCT_NAME}は、コストブック、変更承認、ポートフォリオ指標を一つのプラットフォームに統合。製造・ライフサイエンスの大規模設備投資に、月末の Excel 集計なしで対応します。`,
+      subheadline: `${PRODUCT_NAME}は、コストブック、変更承認、ポートフォリオ指標を一つのプラットフォームに統合。製造・ライフサイエンスの大規模設備投資に、月末の Excel 集計なしで対応します。ERP が財務データを保持する多拠点プログラムで特に強力です。`,
       primaryCta: "デモを申し込む",
     },
     solution: {

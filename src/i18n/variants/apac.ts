@@ -25,7 +25,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     hero: {
       eyebrow: "CapEx · Australia & Singapore",
       headline: "Govern multi-site CapEx with numbers the board can trust.",
-      subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation.`,
+      subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation. Especially strong where ERP holds financial data and multi-site programmes need one costbook truth.`,
       primaryCta: "Request a demo",
     },
     problem: {
@@ -58,10 +58,16 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
             "Individual projects are tracked — programme-level cash and cap utilisation often are not.",
         },
         {
+          id: "sap-shadow-ledger",
+          title: "ERP reconciliation gaps",
+          description:
+            "Programme teams maintain parallel spreadsheets because ERP imports do not match costbook truth across sites.",
+        },
+        {
           id: "change-audit-trail",
           title: "Change evidence gaps",
           description:
-            "Variations and scope shifts are hard to tie back to approved budgets and stage gates.",
+            "Variations and scope shifts are hard to tie back to approved budgets and forecast baseline.",
         },
       ],
     },
@@ -102,7 +108,7 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
         {
           title: "PMO / programme management",
           description:
-            "Consistent reporting, stage-gate compliance, and portfolio governance across sites.",
+            "Consistent reporting, portfolio governance, and variance signals across sites.",
         },
         {
           title: "Project controls",

@@ -7,6 +7,10 @@ const originalFetch = globalThis.fetch;
 const envBackup = {
   slack: process.env.SLACK_DEMO_WEBHOOK_URL,
   generic: process.env.DEMO_FORM_WEBHOOK_URL,
+  resendKey: process.env.RESEND_API_KEY,
+  resendFrom: process.env.RESEND_FROM_EMAIL,
+  notifyEmail: process.env.DEMO_NOTIFY_EMAIL,
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
 };
 
 afterEach(() => {
@@ -20,6 +24,26 @@ afterEach(() => {
     delete process.env.DEMO_FORM_WEBHOOK_URL;
   } else {
     process.env.DEMO_FORM_WEBHOOK_URL = envBackup.generic;
+  }
+  if (envBackup.resendKey === undefined) {
+    delete process.env.RESEND_API_KEY;
+  } else {
+    process.env.RESEND_API_KEY = envBackup.resendKey;
+  }
+  if (envBackup.resendFrom === undefined) {
+    delete process.env.RESEND_FROM_EMAIL;
+  } else {
+    process.env.RESEND_FROM_EMAIL = envBackup.resendFrom;
+  }
+  if (envBackup.notifyEmail === undefined) {
+    delete process.env.DEMO_NOTIFY_EMAIL;
+  } else {
+    process.env.DEMO_NOTIFY_EMAIL = envBackup.notifyEmail;
+  }
+  if (envBackup.contactEmail === undefined) {
+    delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  } else {
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL = envBackup.contactEmail;
   }
 });
 
@@ -37,9 +61,34 @@ describe("deliverDemoRequest", () => {
   it("returns delivered=false when no webhook configured", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
+    delete process.env.RESEND_API_KEY;
+    delete process.env.DEMO_NOTIFY_EMAIL;
+    delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
     const result = await deliverDemoRequest(samplePayload);
     assert.deepEqual(result, { delivered: false, targetCount: 0 });
+  });
+
+  it("sends email via Resend when configured", async () => {
+    delete process.env.SLACK_DEMO_WEBHOOK_URL;
+    delete process.env.DEMO_FORM_WEBHOOK_URL;
+    process.env.RESEND_API_KEY = "re_test";
+    process.env.RESEND_FROM_EMAIL = "noreply@capconhq.com";
+    process.env.DEMO_NOTIFY_EMAIL = "sales@capconhq.com";
+
+    let url = "";
+    let body: unknown;
+    globalThis.fetch = (async (input, init) => {
+      url = String(input);
+      body = JSON.parse(String(init?.body));
+      return new Response(JSON.stringify({ id: "email_123" }), { status: 200 });
+    }) as typeof fetch;
+
+    const result = await deliverDemoRequest(samplePayload);
+    assert.equal(result.delivered, true);
+    assert.equal(result.targetCount, 1);
+    assert.equal(url, "https://api.resend.com/emails");
+    assert.equal((body as { reply_to: string }).reply_to, samplePayload.email);
   });
 
   it("posts Slack Block Kit payload to Slack webhook URL", async () => {

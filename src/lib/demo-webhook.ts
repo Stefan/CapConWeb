@@ -1,3 +1,5 @@
+import { deliverDemoRequestEmail, resolveDemoNotifyRecipients } from "@/lib/demo-email";
+
 export type DemoRequestPayload = {
   name: string;
   company: string;
@@ -111,26 +113,35 @@ export async function deliverDemoRequest(payload: DemoRequestPayload): Promise<{
   targetCount: number;
 }> {
   const targets = resolveWebhookTargets();
-  if (targets.length === 0) {
-    return { delivered: false, targetCount: 0 };
-  }
-
   const failures: Error[] = [];
+  let successCount = 0;
 
-  await Promise.all(
-    targets.map(async (url) => {
-      try {
-        const body = isSlackWebhookUrl(url) ? buildSlackDemoPayload(payload) : payload;
-        await postWebhook(url, body);
-      } catch (error) {
-        failures.push(error instanceof Error ? error : new Error("Webhook delivery failed"));
-      }
-    }),
-  );
-
-  if (failures.length === targets.length) {
-    throw failures[0] ?? new Error("All webhook deliveries failed");
+  if (targets.length > 0) {
+    await Promise.all(
+      targets.map(async (url) => {
+        try {
+          const body = isSlackWebhookUrl(url) ? buildSlackDemoPayload(payload) : payload;
+          await postWebhook(url, body);
+          successCount += 1;
+        } catch (error) {
+          failures.push(error instanceof Error ? error : new Error("Webhook delivery failed"));
+        }
+      }),
+    );
   }
 
-  return { delivered: true, targetCount: targets.length - failures.length };
+  try {
+    const emailResult = await deliverDemoRequestEmail(payload);
+    if (emailResult.delivered) {
+      successCount += emailResult.recipientCount;
+    }
+  } catch (error) {
+    failures.push(error instanceof Error ? error : new Error("Email delivery failed"));
+  }
+
+  if (successCount === 0 && (targets.length > 0 || resolveDemoNotifyRecipients().length > 0)) {
+    throw failures[0] ?? new Error("All demo notification channels failed");
+  }
+
+  return { delivered: successCount > 0, targetCount: successCount };
 }

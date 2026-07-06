@@ -66,7 +66,9 @@ Rechtstexte werden zentral in `src/i18n/legal/pages.ts` gepflegt und zur Laufzei
 
 **Vor Production:** alle `NEXT_PUBLIC_LEGAL_*` auf Vercel setzen, Demo-Webhook anbinden (siehe unten), Cookie-Banner + Footer manuell prüfen.
 
-## Demo-Formular → Slack
+## Demo-Formular → Slack oder Resend
+
+### Option A — Slack (empfohlen für Team-Channel)
 
 1. Slack: **Apps** → **Incoming Webhooks** → Workspace + Channel (z. B. `#demo-leads`)
 2. Webhook-URL kopieren
@@ -78,7 +80,23 @@ SLACK_DEMO_WEBHOOK_URL=https://hooks.slack.com/services/T…/B…/…
 
 Optional zusätzlich `DEMO_FORM_WEBHOOK_URL` für CRM/Zapier — Slack-URLs werden automatisch als Block-Kit formatiert.
 
-Lokal testen: URL in `.env.local` setzen, `npm run dev`, `/de/demo` absenden. Payload-Tests: `npm run test:webhook`.
+### Option B — E-Mail via Resend
+
+1. [resend.com](https://resend.com) → **API Keys** → Key erstellen  
+2. **Domains** → Absender-Domain verifizieren (z. B. `capconhq.com`)  
+3. Auf Vercel (**CapConWeb**-Projekt, server-only):
+
+```bash
+RESEND_API_KEY=re_xxxxxxxx
+RESEND_FROM_EMAIL=noreply@capconhq.com
+DEMO_NOTIFY_EMAIL=contact@capconhq.com
+```
+
+`DEMO_NOTIFY_EMAIL` kann mehrere Empfänger enthalten (kommagetrennt). Ohne `DEMO_NOTIFY_EMAIL` wird `NEXT_PUBLIC_CONTACT_EMAIL` verwendet.
+
+Slack und Resend können **parallel** aktiv sein — mindestens ein Kanal muss erfolgreich sein.
+
+Lokal testen: Variablen in `.env.local` setzen, `npm run dev`, `/de/demo` absenden. Payload-Tests: `npm run test:webhook`.
 
 **Rate-Limit (Missbrauchsschutz):** `/api/demo-request` erlaubt 5 Anfragen pro IP und Stunde. In Production über **Upstash Redis** (Vercel Marketplace Integration); lokal ohne Redis automatisch In-Memory-Fallback.
 

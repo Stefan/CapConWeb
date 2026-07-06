@@ -9,6 +9,9 @@ const originalFetch = globalThis.fetch;
 const envBackup = {
   slack: process.env.SLACK_DEMO_WEBHOOK_URL,
   generic: process.env.DEMO_FORM_WEBHOOK_URL,
+  resendKey: process.env.RESEND_API_KEY,
+  notifyEmail: process.env.DEMO_NOTIFY_EMAIL,
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
 };
 
 afterEach(() => {
@@ -23,6 +26,21 @@ afterEach(() => {
     delete process.env.DEMO_FORM_WEBHOOK_URL;
   } else {
     process.env.DEMO_FORM_WEBHOOK_URL = envBackup.generic;
+  }
+  if (envBackup.resendKey === undefined) {
+    delete process.env.RESEND_API_KEY;
+  } else {
+    process.env.RESEND_API_KEY = envBackup.resendKey;
+  }
+  if (envBackup.notifyEmail === undefined) {
+    delete process.env.DEMO_NOTIFY_EMAIL;
+  } else {
+    process.env.DEMO_NOTIFY_EMAIL = envBackup.notifyEmail;
+  }
+  if (envBackup.contactEmail === undefined) {
+    delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  } else {
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL = envBackup.contactEmail;
   }
 });
 
@@ -75,6 +93,9 @@ describe("POST /api/demo-request", () => {
   it("returns 200 with mailto fallback when no webhook is configured", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
+    delete process.env.RESEND_API_KEY;
+    delete process.env.DEMO_NOTIFY_EMAIL;
+    delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
     const res = await demoRequest(
       {

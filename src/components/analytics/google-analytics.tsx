@@ -8,7 +8,10 @@ import {
   readConsentFromDocument,
   type ConsentLevel,
 } from "@/lib/consent";
-import { getGaMeasurementId } from "@/lib/analytics";
+import {
+  getGaMeasurementId,
+  getGoogleAdsId,
+} from "@/lib/analytics";
 
 type GoogleAnalyticsProps = {
   nonce?: string;
@@ -16,6 +19,8 @@ type GoogleAnalyticsProps = {
 
 export function GoogleAnalytics({ nonce }: GoogleAnalyticsProps) {
   const measurementId = getGaMeasurementId();
+  const googleAdsId = getGoogleAdsId();
+  const gtagLoaderId = measurementId ?? googleAdsId;
   const [consent, setConsent] = useState<ConsentLevel | null>(null);
 
   useEffect(() => {
@@ -30,19 +35,29 @@ export function GoogleAnalytics({ nonce }: GoogleAnalyticsProps) {
     return () => window.removeEventListener("capcon-consent-change", onConsentChange);
   }, []);
 
-  if (!measurementId || !allowsAnalytics(consent)) {
+  if (!gtagLoaderId || !allowsAnalytics(consent)) {
     return null;
   }
+
+  const configLines = [
+    "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());",
+    measurementId
+      ? `gtag('config','${measurementId}',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});`
+      : null,
+    googleAdsId ? `gtag('config','${googleAdsId}');` : null,
+  ]
+    .filter(Boolean)
+    .join("");
 
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtagLoaderId}`}
         strategy="afterInteractive"
         nonce={nonce}
       />
-      <Script id="capcon-ga4" strategy="afterInteractive" nonce={nonce}>
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false});`}
+      <Script id="capcon-google-tags" strategy="afterInteractive" nonce={nonce}>
+        {configLines}
       </Script>
     </>
   );

@@ -21,10 +21,11 @@
     "test:rate-limit": "tsx scripts/demo-rate-limit.test.mts",
     "test:csp": "tsx scripts/csp.test.mts",
     "test:analytics": "tsx scripts/analytics.test.mts",
+    "test:gtag-consent": "tsx scripts/gtag-consent.test.mts",
     "test:seo": "tsx scripts/seo.test.mts",
     "test:content-icons": "tsx scripts/content-icons.test.mts",
     "test:proxy-csp": "tsx scripts/proxy-csp.test.mts",
-    "test": "npm run test:geo && npm run test:webhook && npm run test:consent && npm run test:legal && npm run test:rate-limit && npm run test:csp && npm run test:proxy-csp && npm run test:analytics && npm run test:content-icons && npm run test:seo && npm run test:demo-api"
+    "test": "npm run test:geo && npm run test:webhook && npm run test:consent && npm run test:legal && npm run test:rate-limit && npm run test:csp && npm run test:proxy-csp && npm run test:analytics && npm run test:gtag-consent && npm run test:content-icons && npm run test:seo && npm run test:demo-api"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

@@ -3,7 +3,7 @@ import { connection } from "next/server";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { GoogleConsentSync } from "@/components/analytics/google-consent-sync";
 
 import { SetHtmlLang } from "@/components/i18n/set-html-lang";
 import { CookieConsentBanner } from "@/components/legal/cookie-consent-banner";
@@ -67,7 +67,6 @@ export default async function LocaleLayout({
   const basePath = isEditionPage
     ? `/${locale}/editions/${editionFromPath}`
     : `/${locale}`;
-  const nonce = headerList.get("x-nonce") ?? undefined;
 
   return (
     <>
@@ -87,7 +86,7 @@ export default async function LocaleLayout({
       >
         {children}
         <CookieConsentBanner />
-        <GoogleAnalytics nonce={nonce} />
+        <GoogleConsentSync />
       </SiteProvider>
     </>
   );

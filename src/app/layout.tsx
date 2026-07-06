@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { connection } from "next/server";
+import { headers } from "next/headers";
 import { Inter } from "next/font/google";
 
+import { GoogleTagsHead } from "@/components/analytics/google-tags-head";
 import { PRODUCT_NAME } from "@/lib/brand";
 
 import "./globals.css";
@@ -39,6 +41,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   await connection();
+  const headerList = await headers();
+  const nonce = headerList.get("x-nonce") ?? undefined;
 
   return (
     <html
@@ -46,6 +50,9 @@ export default async function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} scroll-smooth`}
     >
+      <head>
+        <GoogleTagsHead nonce={nonce} />
+      </head>
       <body
         suppressHydrationWarning
         className="min-h-screen font-sans antialiased"

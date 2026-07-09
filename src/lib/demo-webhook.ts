@@ -147,30 +147,6 @@ export async function deliverDemoRequest(payload: DemoRequestPayload): Promise<{
   }
 
   const channelsConfigured = targets.length + (emailAttempted ? 1 : 0);
-  // #region agent log
-  fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
-    body: JSON.stringify({
-      sessionId: "3440af",
-      runId: "post-fix",
-      hypothesisId: "H1-H3",
-      location: "demo-webhook.ts:deliverDemoRequest",
-      message: "delivery summary",
-      data: {
-        successCount,
-        channelsConfigured,
-        webhookCount: targets.length,
-        emailAttempted,
-        emailConfigured,
-        recipientCount: recipients.length,
-        failureCount: failures.length,
-        failureMessage: failures[0]?.message?.slice(0, 120) ?? null,
-      },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
 
   if (successCount === 0 && channelsConfigured > 0) {
     throw failures[0] ?? new Error("All demo notification channels failed");

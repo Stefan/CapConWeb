@@ -60,21 +60,6 @@ export async function POST(request: NextRequest) {
 
   try {
     const { delivered } = await deliverDemoRequest(payload);
-    // #region agent log
-    fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
-      body: JSON.stringify({
-        sessionId: "3440af",
-        runId: "post-fix",
-        hypothesisId: "H1-H5",
-        location: "demo-request/route.ts:POST",
-        message: "demo delivery outcome",
-        data: { delivered, hasResendKey: Boolean(process.env.RESEND_API_KEY?.trim()) },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
     if (!delivered) {
       if (process.env.NODE_ENV === "production") {
         console.info("[demo-request]", JSON.stringify({ ...payload, email: "[redacted]" }));
@@ -90,21 +75,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     const detail = error instanceof Error ? error.message : "Upstream failed";
-    // #region agent log
-    fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
-      body: JSON.stringify({
-        sessionId: "3440af",
-        runId: "post-fix",
-        hypothesisId: "H3-H4",
-        location: "demo-request/route.ts:POST",
-        message: "demo delivery threw",
-        data: { detail: detail.slice(0, 120) },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
     console.warn("[demo-request] delivery failed:", detail);
     return NextResponse.json({ error: "Upstream failed" }, { status: 502 });
   }

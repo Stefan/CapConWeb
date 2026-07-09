@@ -88,25 +88,6 @@ export function DemoPageContent() {
           body: JSON.stringify({ name, company, email, role, message, locale }),
         });
         const payload = (await response.json().catch(() => ({}))) as DemoRequestResponse;
-        // #region agent log
-        fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
-          body: JSON.stringify({
-            sessionId: "3440af",
-            runId: "post-fix",
-            hypothesisId: "H5",
-            location: "demo-page-content.tsx:handleSubmit",
-            message: "demo form api response",
-            data: {
-              status: response.status,
-              delivered: payload.delivered ?? null,
-              hasMailtoFallback: Boolean(payload.mailtoFallback),
-            },
-            timestamp: Date.now(),
-          }),
-        }).catch(() => {});
-        // #endregion
 
         if (response.ok && payload.delivered !== false) {
           setSubmitted(true);

@@ -71,7 +71,7 @@ export function buildContentSecurityPolicy(
     // nonces drift; unsafe-inline keeps React inline style={{}} valid.
     `style-src 'self' 'unsafe-inline'`,
     `img-src ${imgSrc}`,
-    "font-src 'self' data:",
+    `font-src 'self' data: ${VERCEL_LIVE_SRC.join(" ")}`,
     `connect-src ${connectSrc}`,
     ...(frameSrc ? [frameSrc] : []),
     "object-src 'none'",

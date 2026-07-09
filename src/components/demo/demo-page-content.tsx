@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Check } from "lucide-react";
 
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -13,6 +14,7 @@ import {
   demoThankYouPrefix,
 } from "@/i18n/demo-locale-copy";
 import { contactEmail } from "@/lib/brand";
+import { cn } from "@/lib/utils";
 
 type DemoRequestResponse = {
   ok?: boolean;
@@ -220,20 +222,37 @@ export function DemoPageContent() {
                   htmlFor="privacyConsent"
                   className="flex cursor-pointer items-start gap-3 text-sm text-slate-600"
                 >
-                  <input
-                    id="privacyConsent"
-                    name="privacyConsent"
-                    type="checkbox"
-                    checked={privacyConsent}
-                    aria-required="true"
-                    aria-invalid={consentError}
-                    aria-describedby={consentError ? "privacyConsent-error" : undefined}
-                    onChange={(event) => {
-                      setPrivacyConsent(event.target.checked);
-                      setConsentError(false);
-                    }}
-                    className="mt-0.5 h-4 w-4 min-h-4 min-w-4 shrink-0 cursor-pointer appearance-auto rounded-sm border border-slate-400 bg-white accent-indigo-600 focus:ring-2 focus:ring-indigo-600"
-                  />
+                  <span className="relative mt-0.5 inline-flex h-5 w-5 shrink-0">
+                    <input
+                      id="privacyConsent"
+                      name="privacyConsent"
+                      type="checkbox"
+                      checked={privacyConsent}
+                      aria-required="true"
+                      aria-invalid={consentError}
+                      aria-describedby={consentError ? "privacyConsent-error" : undefined}
+                      onChange={(event) => {
+                        setPrivacyConsent(event.target.checked);
+                        setConsentError(false);
+                      }}
+                      className="peer sr-only"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "pointer-events-none absolute inset-0 flex items-center justify-center rounded border-2 transition-colors",
+                        "peer-focus-visible:ring-2 peer-focus-visible:ring-indigo-600 peer-focus-visible:ring-offset-2",
+                        privacyConsent
+                          ? "border-indigo-600 bg-indigo-600"
+                          : "border-slate-500 bg-white",
+                        consentError && !privacyConsent && "border-red-500",
+                      )}
+                    >
+                      {privacyConsent ? (
+                        <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
+                      ) : null}
+                    </span>
+                  </span>
                   <span>
                     {demo.consentBefore}{" "}
                     <Link

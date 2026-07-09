@@ -8,6 +8,7 @@ describe("buildContentSecurityPolicy", () => {
     const csp = buildContentSecurityPolicy("abc123", { isDev: false });
 
     assert.match(csp, /script-src 'self' 'nonce-abc123' 'strict-dynamic'/);
+    assert.doesNotMatch(csp, /script-src[^;]*https:\/\/www\.googletagmanager\.com/);
     assert.doesNotMatch(csp, /script-src[^;]*'unsafe-inline'/);
     assert.doesNotMatch(csp, /script-src[^;]*'unsafe-eval'/);
     assert.match(csp, /upgrade-insecure-requests/);
@@ -44,9 +45,11 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /googleadservices\.com/);
   });
 
-  it("allows Vercel Live toolbar hosts", () => {
-    const csp = buildContentSecurityPolicy("x", { isDev: false, enableAnalytics: false });
-    assert.match(csp, /script-src[^;]*https:\/\/vercel\.live/);
+  it("allows Vercel Live toolbar hosts on script-src-elem", () => {
+    const csp = buildContentSecurityPolicy("x", { isDev: false, enableAnalytics: true });
+    assert.match(csp, /script-src-elem[^;]*https:\/\/vercel\.live/);
+    assert.match(csp, /script-src-elem[^;]*https:\/\/www\.googletagmanager\.com/);
+    assert.doesNotMatch(csp, /script-src 'self'[^;]*https:\/\/vercel\.live/);
     assert.match(csp, /connect-src[^;]*https:\/\/vercel\.live/);
     assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
   });

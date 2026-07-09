@@ -33,12 +33,19 @@ export function buildContentSecurityPolicy(
 ): string {
   const isDev = options.isDev ?? process.env.NODE_ENV === "development";
   const enableAnalytics = options.enableAnalytics ?? false;
+  const scriptSrcElem = [
+    "'self'",
+    `'nonce-${nonce}'`,
+    ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
+    ...VERCEL_LIVE_SRC,
+    ...(isDev ? ["'unsafe-eval'"] : []),
+  ].join(" ");
+
+  // strict-dynamic ignores host allowlists — external <script src> hosts belong on script-src-elem.
   const scriptSrc = [
     "'self'",
     `'nonce-${nonce}'`,
     "'strict-dynamic'",
-    ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
-    ...VERCEL_LIVE_SRC,
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
 
@@ -59,6 +66,7 @@ export function buildContentSecurityPolicy(
   return [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
+    `script-src-elem ${scriptSrcElem}`,
     // Nonce on styles breaks Next-generated <link rel="stylesheet"> when request/response
     // nonces drift; unsafe-inline keeps React inline style={{}} valid.
     `style-src 'self' 'unsafe-inline'`,

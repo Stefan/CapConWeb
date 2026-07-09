@@ -4,6 +4,18 @@ import { afterEach, describe, it } from "node:test";
 import { deliverDemoRequest } from "../src/lib/demo-webhook.ts";
 
 const originalFetch = globalThis.fetch;
+
+function passthroughDebugIngest(
+  handler: (url: string, init?: RequestInit) => Response | Promise<Response>,
+): typeof fetch {
+  return (async (input, init) => {
+    const url = String(input);
+    if (url.includes("/ingest/")) {
+      return new Response(null, { status: 204 });
+    }
+    return handler(url, init);
+  }) as typeof fetch;
+}
 const envBackup = {
   slack: process.env.SLACK_DEMO_WEBHOOK_URL,
   generic: process.env.DEMO_FORM_WEBHOOK_URL,
@@ -58,15 +70,17 @@ const samplePayload = {
 };
 
 describe("deliverDemoRequest", () => {
-  it("returns delivered=false when no webhook configured", async () => {
+  it("throws when no delivery channel succeeds but recipients exist", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
     delete process.env.RESEND_API_KEY;
     delete process.env.DEMO_NOTIFY_EMAIL;
     delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
-    const result = await deliverDemoRequest(samplePayload);
-    assert.deepEqual(result, { delivered: false, targetCount: 0 });
+    await assert.rejects(
+      () => deliverDemoRequest(samplePayload),
+      /All demo notification channels failed/,
+    );
   });
 
   it("sends email via Resend when configured", async () => {
@@ -78,11 +92,11 @@ describe("deliverDemoRequest", () => {
 
     let url = "";
     let body: unknown;
-    globalThis.fetch = (async (input, init) => {
-      url = String(input);
+    globalThis.fetch = passthroughDebugIngest((_url, init) => {
+      url = _url;
       body = JSON.parse(String(init?.body));
       return new Response(JSON.stringify({ id: "email_123" }), { status: 200 });
-    }) as typeof fetch;
+    });
 
     const result = await deliverDemoRequest(samplePayload);
     assert.equal(result.delivered, true);
@@ -96,10 +110,10 @@ describe("deliverDemoRequest", () => {
       "https://hooks.slack.com/services/TTEST/BTEST/secret";
 
     let body: unknown;
-    globalThis.fetch = (async (_url, init) => {
+    globalThis.fetch = passthroughDebugIngest((_url, init) => {
       body = JSON.parse(String(init?.body));
       return new Response("ok", { status: 200 });
-    }) as typeof fetch;
+    });
 
     const result = await deliverDemoRequest(samplePayload);
     assert.equal(result.delivered, true);
@@ -137,10 +151,10 @@ describe("deliverDemoRequest", () => {
     process.env.DEMO_FORM_WEBHOOK_URL = url;
 
     let calls = 0;
-    globalThis.fetch = (async () => {
+    globalThis.fetch = passthroughDebugIngest(() => {
       calls += 1;
       return new Response("ok", { status: 200 });
-    }) as typeof fetch;
+    });
 
     await deliverDemoRequest(samplePayload);
     assert.equal(calls, 1);

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import { LegalDocument } from "@/components/legal/legal-document";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { useSite } from "@/components/providers/site-provider";
@@ -24,6 +23,7 @@ export function DemoPageContent() {
     const consent = data.get("privacyConsent") === "on";
     if (!consent) {
       setConsentError(true);
+      form.querySelector<HTMLInputElement>("#privacyConsent")?.focus();
       return;
     }
     setConsentError(false);
@@ -166,28 +166,31 @@ export function DemoPageContent() {
                 />
               </div>
               <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-3">
-                <label htmlFor="privacyConsent" className="flex items-start gap-3 text-sm text-slate-600">
+                <div className="flex items-start gap-3 text-sm text-slate-600">
                   <input
                     id="privacyConsent"
                     name="privacyConsent"
                     type="checkbox"
-                    required
+                    aria-required="true"
+                    aria-invalid={consentError}
+                    aria-describedby={consentError ? "privacyConsent-error" : undefined}
                     onChange={() => setConsentError(false)}
                     className="mt-0.5 size-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
                   />
-                  <span>
+                  <label htmlFor="privacyConsent" className="cursor-pointer">
                     {demo.consentBefore}{" "}
                     <Link
                       href={`/${locale}/privacy`}
                       className="font-medium text-indigo-600 underline underline-offset-2 hover:text-indigo-700"
+                      onClick={(event) => event.stopPropagation()}
                     >
                       {dict.footer.privacy}
                     </Link>
                     {demo.consentAfter}
-                  </span>
-                </label>
+                  </label>
+                </div>
                 {consentError ? (
-                  <p className="mt-2 text-xs text-red-600" role="alert">
+                  <p id="privacyConsent-error" className="mt-2 text-xs text-red-600" role="alert">
                     {demo.consentRequired}
                   </p>
                 ) : null}

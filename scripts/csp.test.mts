@@ -33,12 +33,30 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /object-src 'none'/);
   });
 
-  it("allows Google endpoints when analytics is enabled", () => {
+  it("allows Google and Ads endpoints when analytics is enabled", () => {
     const csp = buildContentSecurityPolicy("x", {
       isDev: false,
       enableAnalytics: true,
     });
     assert.match(csp, /googletagmanager\.com/);
     assert.match(csp, /google-analytics\.com/);
+    assert.match(csp, /pagead2\.googlesyndication\.com/);
+    assert.match(csp, /googleadservices\.com/);
+  });
+
+  it("allows frame-src for Vercel preview toolbar in development", () => {
+    const csp = buildContentSecurityPolicy("x", {
+      isDev: true,
+      enableAnalytics: true,
+    });
+    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
+  });
+
+  it("omits frame-src in production", () => {
+    const csp = buildContentSecurityPolicy("x", {
+      isDev: false,
+      enableAnalytics: true,
+    });
+    assert.doesNotMatch(csp, /frame-src/);
   });
 });

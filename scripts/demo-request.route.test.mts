@@ -6,10 +6,23 @@ import { POST } from "../src/app/api/demo-request/route.ts";
 import { resetMemoryRateLimitStore } from "../src/lib/demo-rate-limit.ts";
 
 const originalFetch = globalThis.fetch;
+
+function passthroughDebugIngest(
+  handler: (url: string, init?: RequestInit) => Response | Promise<Response>,
+): typeof fetch {
+  return (async (input, init) => {
+    const url = String(input);
+    if (url.includes("/ingest/")) {
+      return new Response(null, { status: 204 });
+    }
+    return handler(url, init);
+  }) as typeof fetch;
+}
 const envBackup = {
   slack: process.env.SLACK_DEMO_WEBHOOK_URL,
   generic: process.env.DEMO_FORM_WEBHOOK_URL,
   resendKey: process.env.RESEND_API_KEY,
+  resendFrom: process.env.RESEND_FROM_EMAIL,
   notifyEmail: process.env.DEMO_NOTIFY_EMAIL,
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
 };
@@ -31,6 +44,11 @@ afterEach(() => {
     delete process.env.RESEND_API_KEY;
   } else {
     process.env.RESEND_API_KEY = envBackup.resendKey;
+  }
+  if (envBackup.resendFrom === undefined) {
+    delete process.env.RESEND_FROM_EMAIL;
+  } else {
+    process.env.RESEND_FROM_EMAIL = envBackup.resendFrom;
   }
   if (envBackup.notifyEmail === undefined) {
     delete process.env.DEMO_NOTIFY_EMAIL;
@@ -90,7 +108,7 @@ describe("POST /api/demo-request", () => {
     assert.deepEqual(await res.json(), { error: "Payload too large" });
   });
 
-  it("returns 200 with mailto fallback when no webhook is configured", async () => {
+  it("returns 502 when no delivery channel is configured", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
     delete process.env.RESEND_API_KEY;
@@ -109,11 +127,39 @@ describe("POST /api/demo-request", () => {
       "203.0.113.14",
     );
 
+    assert.equal(res.status, 502);
+    assert.deepEqual(await res.json(), { error: "Upstream failed" });
+  });
+
+  it("returns 200 when Resend delivery succeeds", async () => {
+    delete process.env.SLACK_DEMO_WEBHOOK_URL;
+    delete process.env.DEMO_FORM_WEBHOOK_URL;
+    process.env.RESEND_API_KEY = "re_test";
+    process.env.RESEND_FROM_EMAIL = "noreply@capconhq.com";
+    delete process.env.DEMO_NOTIFY_EMAIL;
+    delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+
+    globalThis.fetch = passthroughDebugIngest((url) => {
+      if (url.includes("api.resend.com")) {
+        return new Response(JSON.stringify({ id: "email_123" }), { status: 200 });
+      }
+      return originalFetch(url);
+    });
+
+    const res = await demoRequest(
+      {
+        name: "Ada Lovelace",
+        company: "Analytical Engines",
+        email: "ada@example.com",
+        locale: "en",
+      },
+      "203.0.113.14",
+    );
+
     assert.equal(res.status, 200);
     const json = (await res.json()) as { ok: boolean; mailtoFallback: string };
     assert.equal(json.ok, true);
     assert.match(json.mailtoFallback, /^mailto:/);
-    assert.match(json.mailtoFallback, /Analytical%20Engines|Analytical Engines/);
   });
 
   it("returns 502 when webhook delivery fails", async () => {
@@ -137,6 +183,18 @@ describe("POST /api/demo-request", () => {
   });
 
   it("returns 429 after more than five submissions from one IP", async () => {
+    delete process.env.SLACK_DEMO_WEBHOOK_URL;
+    delete process.env.DEMO_FORM_WEBHOOK_URL;
+    process.env.RESEND_API_KEY = "re_test";
+    process.env.RESEND_FROM_EMAIL = "noreply@capconhq.com";
+
+    globalThis.fetch = passthroughDebugIngest((url) => {
+      if (url.includes("api.resend.com")) {
+        return new Response(JSON.stringify({ id: "email_123" }), { status: 200 });
+      }
+      return originalFetch(url);
+    });
+
     const ip = "203.0.113.16";
     const body = {
       name: "Rate",

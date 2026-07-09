@@ -15,6 +15,15 @@ const GA_IMG_SRC = [
   "https://www.googletagmanager.com",
 ];
 
+/** Google Ads conversion tag (AW-…) beacons — not covered by GA4-only hosts. */
+const GOOGLE_ADS_CONNECT_SRC = [
+  "https://pagead2.googlesyndication.com",
+  "https://www.googleadservices.com",
+  "https://googleads.g.doubleclick.net",
+];
+
+const GOOGLE_ADS_IMG_SRC = ["https://pagead2.googlesyndication.com"];
+
 export function buildContentSecurityPolicy(
   nonce: string,
   options: CspOptions = {},
@@ -29,10 +38,18 @@ export function buildContentSecurityPolicy(
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
 
-  const connectSrc = ["'self'", ...(enableAnalytics ? GA_CONNECT_SRC : [])].join(" ");
-  const imgSrc = ["'self'", "data:", "blob:", ...(enableAnalytics ? GA_IMG_SRC : [])].join(
-    " ",
-  );
+  const connectSrc = [
+    "'self'",
+    ...(enableAnalytics ? [...GA_CONNECT_SRC, ...GOOGLE_ADS_CONNECT_SRC] : []),
+  ].join(" ");
+  const imgSrc = [
+    "'self'",
+    "data:",
+    "blob:",
+    ...(enableAnalytics ? [...GA_IMG_SRC, ...GOOGLE_ADS_IMG_SRC] : []),
+  ].join(" ");
+
+  const frameSrc = isDev ? "frame-src 'self' https://vercel.live" : null;
 
   return [
     "default-src 'self'",
@@ -43,6 +60,7 @@ export function buildContentSecurityPolicy(
     `img-src ${imgSrc}`,
     "font-src 'self' data:",
     `connect-src ${connectSrc}`,
+    ...(frameSrc ? [frameSrc] : []),
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self' mailto:",

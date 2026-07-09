@@ -1,4 +1,5 @@
 import type { DemoRequestPayload } from "@/lib/demo-webhook";
+import { contactEmail } from "@/lib/brand";
 import { sendResendEmail } from "@/lib/send-via-resend";
 
 function escapeHtml(value: string): string {
@@ -13,9 +14,9 @@ export function resolveDemoNotifyRecipients(): string[] {
   const raw =
     process.env.DEMO_NOTIFY_EMAIL?.trim() ||
     process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ||
-    "";
-  if (!raw) return [];
-  return [...new Set(raw.split(/[,;]/).map((e) => e.trim()).filter(Boolean))];
+    contactEmail;
+  const recipients = [...new Set(raw.split(/[,;]/).map((e) => e.trim()).filter(Boolean))];
+  return recipients;
 }
 
 export function buildDemoRequestEmail(payload: DemoRequestPayload): {

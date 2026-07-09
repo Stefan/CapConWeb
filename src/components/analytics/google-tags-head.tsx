@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 import { getGaMeasurementId, getGoogleAdsId } from "@/lib/analytics";
 import { buildGtagInitScript } from "@/lib/gtag-consent";
 
@@ -17,16 +15,24 @@ export function GoogleTagsHead({ nonce }: GoogleTagsHeadProps) {
     return null;
   }
 
+  // Native <script> tags (not next/script): next/script clears nonce on the client during
+  // hydration, which mismatches the CSP nonce set in middleware for SSR.
+  const nonceProps = nonce ? { nonce } : {};
+
   return (
     <>
-      <Script
+      <script
         src={`https://www.googletagmanager.com/gtag/js?id=${loaderId}`}
-        strategy="beforeInteractive"
-        nonce={nonce}
+        async
+        suppressHydrationWarning
+        {...nonceProps}
       />
-      <Script id="capcon-gtag-init" strategy="beforeInteractive" nonce={nonce}>
-        {buildGtagInitScript(measurementId, googleAdsId)}
-      </Script>
+      <script
+        id="capcon-gtag-init"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: buildGtagInitScript(measurementId, googleAdsId) }}
+        {...nonceProps}
+      />
     </>
   );
 }

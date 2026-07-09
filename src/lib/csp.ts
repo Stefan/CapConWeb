@@ -27,6 +27,9 @@ const GOOGLE_ADS_IMG_SRC = ["https://pagead2.googlesyndication.com"];
 /** Vercel Live / Preview toolbar (feedback overlay on deployments). */
 const VERCEL_LIVE_SRC = ["https://vercel.live"];
 
+/** Vercel dashboard assets loaded by the Live toolbar (e.g. collaborator avatars). */
+const VERCEL_TOOLBAR_IMG_SRC = ["https://vercel.com"];
+
 export function buildContentSecurityPolicy(
   nonce: string,
   options: CspOptions = {},
@@ -59,6 +62,7 @@ export function buildContentSecurityPolicy(
     "data:",
     "blob:",
     ...(enableAnalytics ? [...GA_IMG_SRC, ...GOOGLE_ADS_IMG_SRC] : []),
+    ...VERCEL_TOOLBAR_IMG_SRC,
   ].join(" ");
 
   const frameSrc = `frame-src 'self' ${VERCEL_LIVE_SRC.join(" ")}`;

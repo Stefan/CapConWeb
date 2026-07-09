@@ -53,6 +53,7 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /connect-src[^;]*https:\/\/vercel\.live/);
     assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
     assert.match(csp, /font-src 'self' data: https:\/\/vercel\.live/);
+    assert.match(csp, /img-src[^;]*https:\/\/vercel\.com/);
   });
 
   it("allows frame-src for Vercel preview toolbar", () => {

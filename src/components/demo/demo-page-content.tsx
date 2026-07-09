@@ -27,6 +27,7 @@ export function DemoPageContent() {
   const [submitted, setSubmitted] = useState(false);
   const [deliveryFailed, setDeliveryFailed] = useState(false);
   const [mailtoHref, setMailtoHref] = useState<string | null>(null);
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -34,7 +35,7 @@ export function DemoPageContent() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    const consent = data.get("privacyConsent") === "on";
+    const consent = privacyConsent;
     if (!consent) {
       setConsentError(true);
       form.querySelector<HTMLInputElement>("#privacyConsent")?.focus();
@@ -215,18 +216,25 @@ export function DemoPageContent() {
                 />
               </div>
               <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-3">
-                <div className="flex items-start gap-3 text-sm text-slate-600">
+                <label
+                  htmlFor="privacyConsent"
+                  className="flex cursor-pointer items-start gap-3 text-sm text-slate-600"
+                >
                   <input
                     id="privacyConsent"
                     name="privacyConsent"
                     type="checkbox"
+                    checked={privacyConsent}
                     aria-required="true"
                     aria-invalid={consentError}
                     aria-describedby={consentError ? "privacyConsent-error" : undefined}
-                    onChange={() => setConsentError(false)}
-                    className="mt-0.5 size-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+                    onChange={(event) => {
+                      setPrivacyConsent(event.target.checked);
+                      setConsentError(false);
+                    }}
+                    className="mt-0.5 h-4 w-4 min-h-4 min-w-4 shrink-0 cursor-pointer appearance-auto rounded-sm border border-slate-400 bg-white accent-indigo-600 focus:ring-2 focus:ring-indigo-600"
                   />
-                  <label htmlFor="privacyConsent" className="cursor-pointer">
+                  <span>
                     {demo.consentBefore}{" "}
                     <Link
                       href={`/${locale}/privacy`}
@@ -236,8 +244,8 @@ export function DemoPageContent() {
                       {dict.footer.privacy}
                     </Link>
                     {demo.consentAfter}
-                  </label>
-                </div>
+                  </span>
+                </label>
                 {consentError ? (
                   <p id="privacyConsent-error" className="mt-2 text-xs text-red-600" role="alert">
                     {demo.consentRequired}

@@ -44,6 +44,13 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /googleadservices\.com/);
   });
 
+  it("allows Vercel Live toolbar hosts", () => {
+    const csp = buildContentSecurityPolicy("x", { isDev: false, enableAnalytics: false });
+    assert.match(csp, /script-src[^;]*https:\/\/vercel\.live/);
+    assert.match(csp, /connect-src[^;]*https:\/\/vercel\.live/);
+    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
+  });
+
   it("allows frame-src for Vercel preview toolbar", () => {
     const csp = buildContentSecurityPolicy("x", {
       isDev: false,

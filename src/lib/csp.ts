@@ -49,7 +49,7 @@ export function buildContentSecurityPolicy(
     ...(enableAnalytics ? [...GA_IMG_SRC, ...GOOGLE_ADS_IMG_SRC] : []),
   ].join(" ");
 
-  const frameSrc = isDev ? "frame-src 'self' https://vercel.live" : null;
+  const frameSrc = "frame-src 'self' https://vercel.live";
 
   return [
     "default-src 'self'",

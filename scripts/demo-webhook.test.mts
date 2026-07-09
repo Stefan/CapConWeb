@@ -70,17 +70,15 @@ const samplePayload = {
 };
 
 describe("deliverDemoRequest", () => {
-  it("throws when no delivery channel succeeds but recipients exist", async () => {
+  it("returns delivered=false when Resend is not configured", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
     delete process.env.RESEND_API_KEY;
     delete process.env.DEMO_NOTIFY_EMAIL;
     delete process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
-    await assert.rejects(
-      () => deliverDemoRequest(samplePayload),
-      /All demo notification channels failed/,
-    );
+    const result = await deliverDemoRequest(samplePayload);
+    assert.deepEqual(result, { delivered: false, targetCount: 0 });
   });
 
   it("sends email via Resend when configured", async () => {
@@ -103,6 +101,20 @@ describe("deliverDemoRequest", () => {
     assert.equal(result.targetCount, 1);
     assert.equal(url, "https://api.resend.com/emails");
     assert.equal((body as { reply_to: string }).reply_to, samplePayload.email);
+  });
+
+  it("throws when Resend is configured but delivery fails", async () => {
+    delete process.env.SLACK_DEMO_WEBHOOK_URL;
+    delete process.env.DEMO_FORM_WEBHOOK_URL;
+    process.env.RESEND_API_KEY = "re_test";
+    process.env.RESEND_FROM_EMAIL = "noreply@capconhq.com";
+    process.env.DEMO_NOTIFY_EMAIL = "sales@capconhq.com";
+
+    globalThis.fetch = passthroughDebugIngest(() =>
+      new Response("invalid from", { status: 403 }),
+    );
+
+    await assert.rejects(() => deliverDemoRequest(samplePayload), /invalid from|Resend failed/);
   });
 
   it("posts Slack Block Kit payload to Slack webhook URL", async () => {

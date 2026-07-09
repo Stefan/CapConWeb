@@ -7,14 +7,28 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { useSite } from "@/components/providers/site-provider";
 import { Button } from "@/components/ui/button";
-import { demoMailSubject, demoThankYouPrefix } from "@/i18n/demo-locale-copy";
+import {
+  demoDeliveryFailedPrefix,
+  demoMailSubject,
+  demoThankYouPrefix,
+} from "@/i18n/demo-locale-copy";
 import { contactEmail } from "@/lib/brand";
+
+type DemoRequestResponse = {
+  ok?: boolean;
+  delivered?: boolean;
+  mailtoFallback?: string;
+  error?: string;
+};
 
 export function DemoPageContent() {
   const { locale, dict } = useSite();
   const { demo } = dict;
   const [submitted, setSubmitted] = useState(false);
+  const [deliveryFailed, setDeliveryFailed] = useState(false);
+  const [mailtoHref, setMailtoHref] = useState<string | null>(null);
   const [consentError, setConsentError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,6 +41,9 @@ export function DemoPageContent() {
       return;
     }
     setConsentError(false);
+    setDeliveryFailed(false);
+    setMailtoHref(null);
+
     const name = String(data.get("name") ?? "");
     const company = String(data.get("company") ?? "");
     const email = String(data.get("email") ?? "");
@@ -45,34 +62,65 @@ export function DemoPageContent() {
       .filter(Boolean)
       .join("\n");
 
-    const submitViaApi = async () => {
-      const response = await fetch("/api/demo-request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, company, email, role, message, locale }),
-      });
-      if (response.ok) {
-        setSubmitted(true);
-        return true;
-      }
-      return false;
-    };
+    const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     const endpoint = process.env.NEXT_PUBLIC_DEMO_FORM_ENDPOINT;
     if (endpoint) {
+      setSubmitting(true);
       void fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, company, email, role, message, locale }),
-      }).finally(() => setSubmitted(true));
+      })
+        .finally(() => {
+          setSubmitting(false);
+          setSubmitted(true);
+        });
       return;
     }
 
+    setSubmitting(true);
     void (async () => {
-      const ok = await submitViaApi().catch(() => false);
-      if (ok) return;
-      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      setSubmitted(true);
+      try {
+        const response = await fetch("/api/demo-request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, company, email, role, message, locale }),
+        });
+        const payload = (await response.json().catch(() => ({}))) as DemoRequestResponse;
+        // #region agent log
+        fetch("http://127.0.0.1:7619/ingest/41eb16b3-7ed9-4c67-b75e-52406b1509e4", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "3440af" },
+          body: JSON.stringify({
+            sessionId: "3440af",
+            runId: "post-fix",
+            hypothesisId: "H5",
+            location: "demo-page-content.tsx:handleSubmit",
+            message: "demo form api response",
+            data: {
+              status: response.status,
+              delivered: payload.delivered ?? null,
+              hasMailtoFallback: Boolean(payload.mailtoFallback),
+            },
+            timestamp: Date.now(),
+          }),
+        }).catch(() => {});
+        // #endregion
+
+        if (response.ok && payload.delivered !== false) {
+          setSubmitted(true);
+          return;
+        }
+
+        setMailtoHref(payload.mailtoFallback ?? mailto);
+        setDeliveryFailed(true);
+      } catch {
+        setMailtoHref(mailto);
+        setDeliveryFailed(true);
+      } finally {
+        setSubmitting(false);
+      }
     })();
   };
 
@@ -103,6 +151,26 @@ export function DemoPageContent() {
               </a>
               .
             </p>
+          ) : deliveryFailed && mailtoHref ? (
+            <div
+              className="mt-8 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+              role="alert"
+            >
+              <p>
+                {demoDeliveryFailedPrefix(locale)}
+                <a href={mailtoHref} className="font-medium underline underline-offset-2">
+                  {contactEmail}
+                </a>
+                .
+              </p>
+              <Button
+                render={<a href={mailtoHref} />}
+                size="sm"
+                className="mt-3 bg-indigo-600 text-white hover:bg-indigo-700"
+              >
+                {demo.submit}
+              </Button>
+            </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-10 space-y-5">
               <div>
@@ -198,6 +266,7 @@ export function DemoPageContent() {
               <Button
                 type="submit"
                 size="lg"
+                disabled={submitting}
                 className="w-full bg-indigo-600 text-white hover:bg-indigo-700 sm:w-auto"
               >
                 {demo.submit}

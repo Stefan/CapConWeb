@@ -44,19 +44,11 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /googleadservices\.com/);
   });
 
-  it("allows frame-src for Vercel preview toolbar in development", () => {
-    const csp = buildContentSecurityPolicy("x", {
-      isDev: true,
-      enableAnalytics: true,
-    });
-    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
-  });
-
-  it("omits frame-src in production", () => {
+  it("allows frame-src for Vercel preview toolbar", () => {
     const csp = buildContentSecurityPolicy("x", {
       isDev: false,
       enableAnalytics: true,
     });
-    assert.doesNotMatch(csp, /frame-src/);
+    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
   });
 });

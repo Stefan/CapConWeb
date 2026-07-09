@@ -108,7 +108,7 @@ describe("POST /api/demo-request", () => {
     assert.deepEqual(await res.json(), { error: "Payload too large" });
   });
 
-  it("returns 502 when no delivery channel is configured", async () => {
+  it("returns 200 with delivered=false when Resend is not configured", async () => {
     delete process.env.SLACK_DEMO_WEBHOOK_URL;
     delete process.env.DEMO_FORM_WEBHOOK_URL;
     delete process.env.RESEND_API_KEY;
@@ -127,8 +127,11 @@ describe("POST /api/demo-request", () => {
       "203.0.113.14",
     );
 
-    assert.equal(res.status, 502);
-    assert.deepEqual(await res.json(), { error: "Upstream failed" });
+    assert.equal(res.status, 200);
+    const json = (await res.json()) as { ok: boolean; delivered: boolean; mailtoFallback: string };
+    assert.equal(json.ok, true);
+    assert.equal(json.delivered, false);
+    assert.match(json.mailtoFallback, /^mailto:/);
   });
 
   it("returns 200 when Resend delivery succeeds", async () => {
@@ -157,8 +160,9 @@ describe("POST /api/demo-request", () => {
     );
 
     assert.equal(res.status, 200);
-    const json = (await res.json()) as { ok: boolean; mailtoFallback: string };
+    const json = (await res.json()) as { ok: boolean; delivered: boolean; mailtoFallback: string };
     assert.equal(json.ok, true);
+    assert.equal(json.delivered, true);
     assert.match(json.mailtoFallback, /^mailto:/);
   });
 

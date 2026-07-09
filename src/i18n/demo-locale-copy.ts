@@ -27,3 +27,17 @@ export function demoMailSubject(locale: Locale, company: string): string {
 export function demoThankYouPrefix(locale: Locale): string {
   return demoThankYouPrefixByLocale[locale];
 }
+
+const demoDeliveryFailedPrefixByLocale: Record<Locale, string> = {
+  de: "Die Anfrage konnte nicht automatisch zugestellt werden. Bitte senden Sie uns Ihre Anfrage per E-Mail: ",
+  en: "We could not deliver your request automatically. Please email us instead: ",
+  fr: "Nous n'avons pas pu transmettre votre demande automatiquement. Écrivez-nous à ",
+  ja: "リクエストを自動送信できませんでした。以下までメールでお問い合わせください：",
+  ko: "요청을 자동으로 전달하지 못했습니다. 아래로 이메일을 보내 주세요: ",
+  pl: "Nie udało się automatycznie dostarczyć zapytania. Prosimy o kontakt e-mail: ",
+  zh: "无法自动提交您的请求。请发送邮件至：",
+};
+
+export function demoDeliveryFailedPrefix(locale: Locale): string {
+  return demoDeliveryFailedPrefixByLocale[locale];
+}

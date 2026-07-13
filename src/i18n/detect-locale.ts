@@ -7,6 +7,7 @@ import {
   koreaCountryCodes,
   polandCountryCodes,
   singaporeCountryCodes,
+  spanishCountryCodes,
   type Locale,
 } from "@/i18n/config";
 
@@ -22,7 +23,7 @@ function primaryLanguage(acceptLanguage: string | null | undefined): string {
 
 /**
  * Geo + browser language → site locale.
- * New markets: JP→ja, KR→ko, PL→pl, AU→en, SG→zh|en.
+ * Markets: DE→de, FR→fr, ES/LATAM→es, JP→ja, KR→ko, PL→pl, AU→en, SG→zh|en.
  */
 export function detectLocale(input: DetectLocaleInput): Locale {
   const country = input.countryCode?.trim().toUpperCase() ?? "";
@@ -44,12 +45,20 @@ export function detectLocale(input: DetectLocaleInput): Locale {
     return "fr";
   }
 
+  if (
+    spanishCountryCodes.includes(country as (typeof spanishCountryCodes)[number])
+  ) {
+    return "es";
+  }
+
   if (country === "BE") {
     return lang === "fr" ? "fr" : "en";
   }
 
   if (country === "CA") {
-    return lang === "fr" ? "fr" : "en";
+    if (lang === "fr") return "fr";
+    if (lang === "es") return "es";
+    return "en";
   }
 
   if (japanCountryCodes.includes(country as (typeof japanCountryCodes)[number])) {
@@ -81,6 +90,7 @@ export function detectLocale(input: DetectLocaleInput): Locale {
   }
 
   if (lang === "de") return "de";
+  if (lang === "es") return "es";
   if (lang === "fr") return "fr";
   if (lang === "ja") return "ja";
   if (lang === "ko") return "ko";

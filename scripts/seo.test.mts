@@ -31,6 +31,7 @@ describe("buildPageMetadata", () => {
     assert.equal(languages["en-US"], "/en/demo");
     assert.equal(languages["de-DE"], "/de/demo");
     assert.equal(languages["fr-FR"], "/fr/demo");
+    assert.equal(languages["es"], "/es/demo");
   });
 
   it("includes x-default pointing at the default locale version", () => {

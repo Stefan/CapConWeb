@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { LegalSection } from "@/i18n/types";
+import { esPages } from "@/i18n/legal/locales/es";
 import { frPages } from "@/i18n/legal/locales/fr";
 import { jaPages } from "@/i18n/legal/locales/ja";
 import { koPages } from "@/i18n/legal/locales/ko";
@@ -434,6 +435,7 @@ const footerLegalDe: ExtendedFooterLegal = {
 export const cookieSettingsLabel: Record<Locale, string> = {
   de: "Cookie-Einstellungen",
   en: "Cookie settings",
+  es: "Configuración de cookies",
   fr: "Paramètres cookies",
   ja: "Cookie設定",
   ko: "쿠키 설정",
@@ -444,6 +446,7 @@ export const cookieSettingsLabel: Record<Locale, string> = {
 export const socialProofDisclaimerByLocale: Record<Locale, string> = {
   de: "Beispielzitat zu Illustrationszwecken — kein verifiziertes Kundenstatement.",
   en: "Illustrative example — not a verified customer testimonial.",
+  es: "Ejemplo ilustrativo — no es un testimonio verificado de cliente.",
   fr: "Exemple illustratif — témoignage non vérifié.",
   ja: "説明用の示例引用であり、特定のお客様の声ではありません。",
   ko: "설명용 예시 인용이며, 검증된 고객 후기가 아닙니다.",
@@ -454,6 +457,7 @@ export const socialProofDisclaimerByLocale: Record<Locale, string> = {
 export const legalPagesByLocale: Record<Locale, ExtendedLegalPages> = {
   de: dePages,
   en: enPages,
+  es: esPages,
   fr: frPages,
   ja: jaPages,
   ko: koPages,
@@ -484,6 +488,7 @@ export const legalPagesByLocale: Record<Locale, ExtendedLegalPages> = {
 export const footerLegalByLocale: Record<Locale, ExtendedFooterLegal> = {
   de: footerLegalDe,
   en: footerLegalEn,
+  es: { cookies: "Cookies", terms: "Condiciones", accessibility: "Accesibilidad" },
   fr: { cookies: "Cookies", terms: "Conditions", accessibility: "Accessibilité" },
   ja: { cookies: "Cookie", terms: "利用規約", accessibility: "アクセシビリティ" },
   ko: { cookies: "쿠키", terms: "이용약관", accessibility: "접근성" },
@@ -514,6 +519,17 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     privacyLink: "Privacy policy",
     settingsDetailEssential: "Essential only: consent + session edition cookie.",
     settingsDetailAll: "Accept all: also 90-day regional edition cookie and Google Analytics (aggregate statistics).",
+  },
+  es: {
+    title: "Cookies y privacidad",
+    description:
+      "Usamos cookies esenciales y — con su consentimiento — una cookie para recordar su edición regional.",
+    acceptAll: "Aceptar todas",
+    essentialOnly: "Solo necesarias",
+    settingsLink: "Política de cookies",
+    privacyLink: "Política de privacidad",
+    settingsDetailEssential: "Solo necesarias: cookie de consentimiento + edición de sesión.",
+    settingsDetailAll: "Aceptar todas: también cookie de edición regional de 90 días y Google Analytics (estadísticas agregadas).",
   },
   fr: {
     title: "Cookies & confidentialité",

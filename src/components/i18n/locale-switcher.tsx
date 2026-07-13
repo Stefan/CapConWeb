@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 const localeLabels: Record<Locale, string> = {
   de: "DE",
   en: "EN",
+  es: "ES",
   fr: "FR",
   ja: "JA",
   ko: "KO",
@@ -22,6 +23,7 @@ const localeLabels: Record<Locale, string> = {
 const localeNames: Record<Locale, string> = {
   de: "Deutsch",
   en: "English",
+  es: "Español",
   fr: "Français",
   ja: "日本語",
   ko: "한국어",

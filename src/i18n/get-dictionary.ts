@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import type { Locale } from "@/i18n/config";
 import de from "@/i18n/dictionaries/de";
 import en from "@/i18n/dictionaries/en";
+import es from "@/i18n/dictionaries/es";
 import fr from "@/i18n/dictionaries/fr";
 import ja from "@/i18n/dictionaries/ja";
 import ko from "@/i18n/dictionaries/ko";
@@ -31,7 +32,7 @@ import {
   type SiteVariant,
 } from "@/lib/variant";
 
-const rawDictionaries = { de, en, fr, ja, ko, pl, zh } as const;
+const rawDictionaries = { de, en, es, fr, ja, ko, pl, zh } as const;
 
 function enrichLaunchCompliance(dict: SiteDictionary, locale: Locale): SiteDictionary {
   const footerLegal = footerLegalByLocale[locale];
@@ -52,6 +53,7 @@ function enrichLaunchCompliance(dict: SiteDictionary, locale: Locale): SiteDicti
 const baseDictionaries: Record<Locale, SiteDictionary> = {
   de: enrichLaunchCompliance(de as unknown as SiteDictionary, "de"),
   en: enrichLaunchCompliance(en as unknown as SiteDictionary, "en"),
+  es: enrichLaunchCompliance(es as unknown as SiteDictionary, "es"),
   fr: enrichLaunchCompliance(fr as unknown as SiteDictionary, "fr"),
   ja: enrichLaunchCompliance(ja as unknown as SiteDictionary, "ja"),
   ko: enrichLaunchCompliance(ko as unknown as SiteDictionary, "ko"),

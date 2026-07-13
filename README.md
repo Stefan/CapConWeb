@@ -18,7 +18,7 @@ Der Proxy setzt ein Cookie `capcon-site-variant` anhand Geo-IP (Vercel/Cloudflar
 
 ## Tech Stack
 
-- **Next.js 16** (App Router, i18n `/de` · `/en` · `/fr` · `/ja` · `/ko` · `/pl` · `/zh`)
+- **Next.js 16** (App Router, i18n `/de` · `/en` · `/es` · `/fr` · `/ja` · `/ko` · `/pl` · `/zh`)
 - **TypeScript**, **Tailwind CSS v4**, **shadcn/ui**, **Framer Motion**
 
 ## Entwicklung
@@ -31,7 +31,7 @@ npm run dev
 - `http://localhost:3000` → leitet per Proxy auf die passende Sprache (Geo + Accept-Language)
 - Edition testen: `http://localhost:3000/ja?variant=japan`, `http://localhost:3000/en?variant=apac`
 - Sprache testen: `http://localhost:3000/pl?variant=poland`, `http://localhost:3000/zh?variant=apac`
-- Demo-Formular: `/ja/demo`, `/ko/demo`, `/pl/demo`, `/zh/demo`
+- Demo-Formular: `/es/demo`, `/ja/demo`, `/ko/demo`, `/pl/demo`, `/zh/demo`
 - Geo-Routing-Tests: `npm run test:geo`
 - Compliance-Tests: `npm run test:consent`, `npm run test:legal`, `npm run test:demo-api`, `npm run test:webhook`
 - Alles: `npm test`
@@ -122,13 +122,14 @@ GA4 lädt **nur nach Cookie-Einwilligung „Alle akzeptieren“** — nicht bei 
 | ------- | ------------------ |
 | **Deutsch** (`de`) | DE, AT, LI; CH wenn Browser nicht `fr` |
 | **Français** (`fr`) | FR, LU, MC, DOM-TOM; BE wenn `fr`; CA wenn `fr`; CH wenn `fr` |
+| **Español** (`es`) | ES, MX, AR, CO, CL, PE und weitere LATAM; CA wenn Browser `es`; sonst Accept-Language `es` |
 | **English** (`en`) | US, UK, Australien; BE (nl); CA (en); Singapur (wenn Browser nicht `zh`) |
 | **日本語** (`ja`) | Japan (JP) |
 | **한국어** (`ko`) | Südkorea (KR) |
 | **Polski** (`pl`) | Polen (PL) |
 | **中文** (`zh`) | Singapur wenn Browser `zh`; sonst manuell `/zh` |
 
-Manuell: `/de/…`, `/en/…`, `/fr/…`, `/ja/…`, `/ko/…`, `/pl/…`, `/zh/…` oder Locale-Switcher in der Navigation.
+Manuell: `/de/…`, `/en/…`, `/es/…`, `/fr/…`, `/ja/…`, `/ko/…`, `/pl/…`, `/zh/…` oder Locale-Switcher in der Navigation.
 
 ## Projektstruktur
 
@@ -136,7 +137,7 @@ Manuell: `/de/…`, `/en/…`, `/fr/…`, `/ja/…`, `/ko/…`, `/pl/…`, `/zh/
 src/
 ├── app/[locale]/          # Landing, Demo, Impressum, Privacy, Cookies, Terms, A11y
 ├── app/api/demo-request/  # Demo form POST + rate limit
-├── i18n/dictionaries/     # de, en, fr, ja, ko, pl, zh
+├── i18n/dictionaries/     # de, en, es, fr, ja, ko, pl, zh
 ├── i18n/variants/         # large-projects, cdmo, apac, japan, korea, poland
 ├── lib/variant.ts         # Geo-Routing & Edition-Metadaten
 ├── components/            # Sections, Layout, Demo, Legal

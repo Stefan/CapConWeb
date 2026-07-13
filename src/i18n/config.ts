@@ -1,4 +1,4 @@
-export const locales = ["de", "en", "fr", "ja", "ko", "pl", "zh"] as const;
+export const locales = ["de", "en", "es", "fr", "ja", "ko", "pl", "zh"] as const;
 export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
@@ -24,6 +24,35 @@ export const frenchCountryCodes = [
   "MF",
 ] as const;
 
+/**
+ * Spanish-primary countries (Spain + Latin America).
+ * US/CA Spanish speakers are handled via Accept-Language in detect-locale.
+ */
+export const spanishCountryCodes = [
+  "ES",
+  "MX",
+  "AR",
+  "CO",
+  "CL",
+  "PE",
+  "VE",
+  "EC",
+  "BO",
+  "PY",
+  "UY",
+  "CR",
+  "PA",
+  "GT",
+  "HN",
+  "SV",
+  "NI",
+  "DO",
+  "CU",
+  "PR",
+  "GQ",
+  "AD",
+] as const;
+
 /** Japanese market — locale `ja`. */
 export const japanCountryCodes = ["JP"] as const;
 
@@ -47,6 +76,7 @@ export function isLocale(value: string): value is Locale {
 export const openGraphLocaleBySiteLocale: Record<Locale, string> = {
   de: "de_DE",
   en: "en_US",
+  es: "es_ES",
   fr: "fr_FR",
   ja: "ja_JP",
   ko: "ko_KR",

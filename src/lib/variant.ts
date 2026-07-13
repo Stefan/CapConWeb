@@ -111,18 +111,19 @@ export const variantEditionMeta: Record<
   { label: Localized; region: Localized }
 > = {
   "large-projects": {
-    label: { de: "Large Projects", en: "Large Projects", fr: "Large Projects" },
-    region: { de: "Nordamerika", en: "North America", fr: "Amérique du Nord" },
+    label: { de: "Large Projects", en: "Large Projects", es: "Large Projects", fr: "Large Projects" },
+    region: { de: "Nordamerika", en: "North America", es: "Norteamérica", fr: "Amérique du Nord" },
   },
   "standard-capex": {
-    label: { de: "Standard CapEx", en: "Standard CapEx", fr: "Standard CapEx" },
-    region: { de: "International", en: "International", fr: "International" },
+    label: { de: "Standard CapEx", en: "Standard CapEx", es: "Standard CapEx", fr: "Standard CapEx" },
+    region: { de: "International", en: "International", es: "Internacional", fr: "International" },
   },
   cdmo: {
-    label: { de: "GMP Manufacturing", en: "GMP manufacturing", fr: "Manufacturing GMP" },
+    label: { de: "GMP Manufacturing", en: "GMP manufacturing", es: "Manufacturing GMP", fr: "Manufacturing GMP" },
     region: {
       de: "Europa & Schweiz",
       en: "Europe & Switzerland",
+      es: "Europa y Suiza",
       fr: "Europe & Suisse",
     },
   },
@@ -130,11 +131,13 @@ export const variantEditionMeta: Record<
     label: {
       de: "Pharma & Diagnostics",
       en: "Pharma & diagnostics",
+      es: "Pharma y diagnósticos",
       fr: "Pharma & diagnostics",
     },
     region: {
       de: "Portfolio-Konsolidierung",
       en: "Portfolio consolidation",
+      es: "Consolidación de portafolio",
       fr: "Consolidation portefeuille",
     },
   },
@@ -142,11 +145,13 @@ export const variantEditionMeta: Record<
     label: {
       de: "Global Manufacturing",
       en: "Global manufacturing",
+      es: "Manufacturing global",
       fr: "Manufacturing global",
     },
     region: {
       de: "Multi-Site-Programme",
       en: "Multi-site programmes",
+      es: "Programas multi-sede",
       fr: "Programmes multi-sites",
     },
   },

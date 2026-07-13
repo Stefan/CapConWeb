@@ -17,6 +17,21 @@ describe("detectLocale", () => {
     assert.equal(detectLocale({ countryCode: "PL" }), "pl");
   });
 
+  it("routes Spain and LATAM to Spanish", () => {
+    assert.equal(detectLocale({ countryCode: "ES" }), "es");
+    assert.equal(detectLocale({ countryCode: "MX" }), "es");
+    assert.equal(detectLocale({ countryCode: "AR" }), "es");
+    assert.equal(detectLocale({ countryCode: "CO" }), "es");
+    assert.equal(detectLocale({ countryCode: "CL" }), "es");
+  });
+
+  it("routes Canada to Spanish when browser prefers es", () => {
+    assert.equal(
+      detectLocale({ countryCode: "CA", acceptLanguage: "es-MX,en;q=0.8" }),
+      "es",
+    );
+  });
+
   it("routes Australia to English", () => {
     assert.equal(detectLocale({ countryCode: "AU" }), "en");
   });
@@ -35,10 +50,11 @@ describe("detectLocale", () => {
     );
   });
 
-  it("falls back to ja/ko/pl from Accept-Language", () => {
+  it("falls back to ja/ko/pl/es from Accept-Language", () => {
     assert.equal(detectLocale({ acceptLanguage: "ja-JP,en;q=0.8" }), "ja");
     assert.equal(detectLocale({ acceptLanguage: "ko-KR,en;q=0.8" }), "ko");
     assert.equal(detectLocale({ acceptLanguage: "pl-PL,en;q=0.8" }), "pl");
+    assert.equal(detectLocale({ acceptLanguage: "es-ES,en;q=0.8" }), "es");
   });
 });
 

@@ -52,6 +52,7 @@ export function isSeoEditionVariant(
 export const hreflangByLocale: Record<Locale, string> = {
   de: "de-DE",
   en: "en-US",
+  es: "es",
   fr: "fr-FR",
   ja: "ja-JP",
   ko: "ko-KR",

@@ -7,7 +7,7 @@ Checklist for indexing the CapCon marketing site at **https://capconhq.com**.
 | Check | Status |
 | ----- | ------ |
 | `robots.txt` allows crawling | ✅ Live (`Allow: /`, sitemap linked) |
-| `sitemap.xml` with BCP47 hreflang | ✅ 7 locales × core routes + **56 edition landings** |
+| `sitemap.xml` with BCP47 hreflang | ✅ 8 locales × core routes + edition landings |
 | Edition landing pages (`/de/editions/sap-rollup`, …) | ✅ Indexable segment SEO |
 | JSON-LD (Organization, WebSite, SoftwareApplication) | ✅ Variant-aware on home + editions |
 | Query `?variant=` → edition redirect | ✅ Consolidates duplicate URLs |

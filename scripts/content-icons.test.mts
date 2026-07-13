@@ -6,7 +6,7 @@ import { getDictionary } from "../src/i18n/get-dictionary.ts";
 import type { Locale } from "../src/i18n/config.ts";
 import { siteVariants } from "../src/lib/variant.ts";
 
-const locales: Locale[] = ["en", "de", "fr", "ja", "ko", "pl", "zh"];
+const locales: Locale[] = ["en", "de", "es", "fr", "ja", "ko", "pl", "zh"];
 
 test("every feature and pain-point id has an icon", () => {
   const missingFeatures: string[] = [];

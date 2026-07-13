@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { XIcon } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
@@ -95,12 +96,14 @@ export function ScreenshotLightbox({
                 {title}
               </figcaption>
             ) : null}
-            <div className="flex min-h-0 flex-1 items-center justify-center bg-slate-50 p-2 sm:p-3">
-              <img
+            <div className="relative min-h-[min(82vh,50rem)] flex-1 bg-slate-50 p-2 sm:p-3">
+              <Image
                 src={src}
                 alt={alt}
-                className="max-h-[min(82vh,50rem)] w-full object-contain"
-                decoding="async"
+                fill
+                quality={90}
+                sizes="92vw"
+                className="object-contain"
               />
             </div>
           </motion.figure>

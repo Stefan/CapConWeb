@@ -1,3 +1,8 @@
+import { createHash } from "node:crypto";
+
+import { getGaMeasurementId, getGoogleAdsId } from "@/lib/analytics";
+import { buildGtagInitScript } from "@/lib/gtag-consent";
+
 export type CspOptions = {
   isDev?: boolean;
   enableAnalytics?: boolean;
@@ -30,24 +35,36 @@ const VERCEL_LIVE_SRC = ["https://vercel.live"];
 /** Vercel dashboard assets loaded by the Live toolbar (e.g. collaborator avatars). */
 const VERCEL_TOOLBAR_IMG_SRC = ["https://vercel.com"];
 
-export function buildContentSecurityPolicy(
-  nonce: string,
-  options: CspOptions = {},
-): string {
+function sha256Source(script: string): string {
+  return `'sha256-${createHash("sha256").update(script).digest("base64")}'`;
+}
+
+function analyticsScriptHashes(enableAnalytics: boolean): string[] {
+  if (!enableAnalytics) return [];
+
+  const measurementId = getGaMeasurementId();
+  const googleAdsId = getGoogleAdsId();
+  if (!measurementId && !googleAdsId) return [];
+
+  return [sha256Source(buildGtagInitScript(measurementId, googleAdsId))];
+}
+
+export function buildContentSecurityPolicy(options: CspOptions = {}): string {
   const isDev = options.isDev ?? process.env.NODE_ENV === "development";
   const enableAnalytics = options.enableAnalytics ?? false;
+  const scriptHashes = analyticsScriptHashes(enableAnalytics);
   const scriptSrcElem = [
     "'self'",
-    `'nonce-${nonce}'`,
     ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
     ...VERCEL_LIVE_SRC,
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
 
-  // strict-dynamic ignores host allowlists — external <script src> hosts belong on script-src-elem.
+  // strict-dynamic trusts the hashed inline gtag bootstrap without making the
+  // route dynamic for per-request nonces.
   const scriptSrc = [
     "'self'",
-    `'nonce-${nonce}'`,
+    ...scriptHashes,
     "'strict-dynamic'",
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
@@ -84,8 +101,4 @@ export function buildContentSecurityPolicy(
     "frame-ancestors 'self'",
     ...(isDev ? [] : ["upgrade-insecure-requests"]),
   ].join("; ");
-}
-
-export function createCspNonce(): string {
-  return Buffer.from(crypto.randomUUID()).toString("base64");
 }

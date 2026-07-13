@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useId, useState } from "react";
 
 import type { ScreenshotCrop } from "@/lib/product-screenshots";
@@ -62,17 +63,19 @@ export function AppScreenshotFrame({
             : undefined
         }
       >
-        <img
+        <Image
           src={src}
           alt={alt}
+          fill={!isHero}
           width={isHero ? frame.width : undefined}
           height={isHero ? frame.height : undefined}
-          decoding="async"
-          fetchPriority={isHero ? "high" : "auto"}
+          priority={isHero}
+          quality={82}
+          sizes={isHero ? "(min-width: 1024px) 36rem, 100vw" : "(min-width: 640px) 50vw, 100vw"}
           className={
             isHero
               ? "block h-full w-full"
-              : "block h-full w-full object-cover object-left-top"
+              : "object-cover object-left-top"
           }
           style={{
             objectPosition: crop?.objectPosition ?? "left top",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { MarketingHome } from "@/components/marketing/marketing-home";
+import { SiteProvider } from "@/components/providers/site-provider";
 import { HomeStructuredData } from "@/components/seo/home-structured-data";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -51,10 +52,18 @@ export default async function EditionPage({ params }: EditionPageProps) {
   const locale = rawLocale as Locale;
   const variant = rawVariant as SeoEditionVariant;
 
+  const dict = getDictionary(locale, variant as SiteVariant);
+
   return (
-    <>
+    <SiteProvider
+      locale={locale}
+      variant={variant as SiteVariant}
+      dict={dict}
+      basePath={`/${locale}/editions/${variant}`}
+      showEditionBadge
+    >
       <HomeStructuredData locale={locale} variant={variant} />
       <MarketingHome />
-    </>
+    </SiteProvider>
   );
 }

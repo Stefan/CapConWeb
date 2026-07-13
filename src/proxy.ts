@@ -7,7 +7,7 @@ import {
   allowsPersistentVariantCookie,
   parseConsentLevel,
 } from "@/lib/consent";
-import { buildContentSecurityPolicy, createCspNonce } from "@/lib/csp";
+import { buildContentSecurityPolicy } from "@/lib/csp";
 import { isGoogleAnalyticsEnabled } from "@/lib/analytics";
 import { queryVariantToEditionPath, parseEditionVariantFromPathname } from "@/lib/seo";
 import {
@@ -66,18 +66,11 @@ function applyVariantCookie(request: NextRequest, response: NextResponse): NextR
 }
 
 function nextWithCsp(request: NextRequest): NextResponse {
-  const nonce = createCspNonce();
-  const csp = buildContentSecurityPolicy(nonce, {
+  const csp = buildContentSecurityPolicy({
     enableAnalytics: isGoogleAnalyticsEnabled(),
   });
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
-  requestHeaders.set("Content-Security-Policy", csp);
 
-  const response = NextResponse.next({
-    request: { headers: requestHeaders },
-  });
+  const response = NextResponse.next();
   response.headers.set("Content-Security-Policy", csp);
   return applyVariantCookie(request, response);
 }

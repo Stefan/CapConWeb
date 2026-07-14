@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { connection } from "next/server";
-import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { GoogleConsentSync } from "@/components/analytics/google-consent-sync";
@@ -11,8 +9,7 @@ import { SiteProvider } from "@/components/providers/site-provider";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { PRODUCT_NAME } from "@/lib/brand";
-import { parseEditionVariantFromPathname } from "@/lib/seo";
-import { defaultVariant, isSiteVariant, type SiteVariant } from "@/lib/variant";
+import { defaultVariant } from "@/lib/variant";
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -31,14 +28,7 @@ export async function generateMetadata({
     return { title: PRODUCT_NAME };
   }
 
-  const headerList = await headers();
-  const pathname = headerList.get("x-pathname") ?? "";
-  const editionFromPath = parseEditionVariantFromPathname(pathname);
-  const dict =
-    editionFromPath && isSiteVariant(editionFromPath)
-      ? getDictionary(rawLocale, editionFromPath)
-      : getDictionary(rawLocale, defaultVariant);
-
+  const dict = getDictionary(rawLocale, defaultVariant);
   return {
     title: {
       default: dict.meta.title,
@@ -51,22 +41,13 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  await connection();
   const { locale: rawLocale } = await params;
   if (!isLocale(rawLocale)) {
     notFound();
   }
 
   const locale = rawLocale as Locale;
-  const headerList = await headers();
-  const pathname = headerList.get("x-pathname") ?? "";
-  const editionFromPath = parseEditionVariantFromPathname(pathname);
-  const isEditionPage = Boolean(editionFromPath && isSiteVariant(editionFromPath));
-  const variant: SiteVariant = isEditionPage ? (editionFromPath as SiteVariant) : defaultVariant;
-  const dict = getDictionary(locale, variant);
-  const basePath = isEditionPage
-    ? `/${locale}/editions/${editionFromPath}`
-    : `/${locale}`;
+  const dict = getDictionary(locale, defaultVariant);
 
   return (
     <>
@@ -79,10 +60,10 @@ export default async function LocaleLayout({
       </a>
       <SiteProvider
         locale={locale}
-        variant={variant}
+        variant={defaultVariant}
         dict={dict}
-        basePath={basePath}
-        showEditionBadge={isEditionPage}
+        basePath={`/${locale}`}
+        showEditionBadge={false}
       >
         {children}
         <CookieConsentBanner />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { connection } from "next/server";
 import { headers } from "next/headers";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { GoogleTagsHead } from "@/components/analytics/google-tags-head";
 import { PRODUCT_NAME } from "@/lib/brand";
@@ -58,6 +59,7 @@ export default async function RootLayout({
         className="min-h-screen font-sans antialiased"
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

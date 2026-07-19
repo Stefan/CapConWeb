@@ -4,11 +4,16 @@ import { describe, it } from "node:test";
 import {
   DEFAULT_GA_MEASUREMENT_ID,
   DEFAULT_GOOGLE_ADS_ID,
+  DEFAULT_LINKEDIN_PARTNER_ID,
   getGaMeasurementId,
   getGoogleAdsId,
+  getLinkedInPartnerId,
   isGoogleAnalyticsEnabled,
+  isLinkedInInsightEnabled,
+  isMarketingAnalyticsEnabled,
   isValidGaMeasurementId,
   isValidGoogleAdsId,
+  isValidLinkedInPartnerId,
 } from "../src/lib/analytics.ts";
 import { allowsAnalytics } from "../src/lib/consent.ts";
 
@@ -57,6 +62,22 @@ describe("analytics", () => {
     assert.equal(isGoogleAnalyticsEnabled(), true);
     if (previous === undefined) delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     else process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = previous;
+  });
+
+  it("validates LinkedIn partner IDs", () => {
+    assert.equal(isValidLinkedInPartnerId("9391730"), true);
+    assert.equal(isValidLinkedInPartnerId("abc"), false);
+    assert.equal(isValidLinkedInPartnerId(""), false);
+  });
+
+  it("falls back to the production LinkedIn partner ID when env is unset", () => {
+    const previous = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+    delete process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+    assert.equal(getLinkedInPartnerId(), DEFAULT_LINKEDIN_PARTNER_ID);
+    assert.equal(isLinkedInInsightEnabled(), true);
+    assert.equal(isMarketingAnalyticsEnabled(), true);
+    if (previous === undefined) delete process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+    else process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID = previous;
   });
 });
 

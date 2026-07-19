@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { GoogleConsentSync } from "@/components/analytics/google-consent-sync";
+import { LinkedInInsight } from "@/components/analytics/linkedin-insight";
 
 import { SetHtmlLang } from "@/components/i18n/set-html-lang";
 import { CookieConsentBanner } from "@/components/legal/cookie-consent-banner";
@@ -87,6 +88,7 @@ export default async function LocaleLayout({
         {children}
         <CookieConsentBanner />
         <GoogleConsentSync />
+        <LinkedInInsight />
       </SiteProvider>
     </>
   );

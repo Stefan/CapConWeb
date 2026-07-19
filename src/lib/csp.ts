@@ -24,6 +24,15 @@ const GOOGLE_ADS_CONNECT_SRC = [
 
 const GOOGLE_ADS_IMG_SRC = ["https://pagead2.googlesyndication.com"];
 
+/** LinkedIn Insight Tag (loads after full cookie consent). */
+const LINKEDIN_SCRIPT_SRC = ["https://snap.licdn.com"];
+const LINKEDIN_CONNECT_SRC = [
+  "https://snap.licdn.com",
+  "https://px.ads.linkedin.com",
+  "https://www.linkedin.com",
+];
+const LINKEDIN_IMG_SRC = ["https://px.ads.linkedin.com", "https://www.linkedin.com"];
+
 /** Vercel Live / Preview toolbar (feedback overlay on deployments). */
 const VERCEL_LIVE_SRC = ["https://vercel.live"];
 
@@ -39,7 +48,9 @@ export function buildContentSecurityPolicy(
   const scriptSrcElem = [
     "'self'",
     `'nonce-${nonce}'`,
-    ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
+    ...(enableAnalytics
+      ? ["https://www.googletagmanager.com", ...LINKEDIN_SCRIPT_SRC]
+      : []),
     ...VERCEL_LIVE_SRC,
     ...(isDev ? ["'unsafe-eval'"] : []),
   ].join(" ");
@@ -54,14 +65,18 @@ export function buildContentSecurityPolicy(
 
   const connectSrc = [
     "'self'",
-    ...(enableAnalytics ? [...GA_CONNECT_SRC, ...GOOGLE_ADS_CONNECT_SRC] : []),
+    ...(enableAnalytics
+      ? [...GA_CONNECT_SRC, ...GOOGLE_ADS_CONNECT_SRC, ...LINKEDIN_CONNECT_SRC]
+      : []),
     ...VERCEL_LIVE_SRC,
   ].join(" ");
   const imgSrc = [
     "'self'",
     "data:",
     "blob:",
-    ...(enableAnalytics ? [...GA_IMG_SRC, ...GOOGLE_ADS_IMG_SRC] : []),
+    ...(enableAnalytics
+      ? [...GA_IMG_SRC, ...GOOGLE_ADS_IMG_SRC, ...LINKEDIN_IMG_SRC]
+      : []),
     ...VERCEL_TOOLBAR_IMG_SRC,
   ].join(" ");
 

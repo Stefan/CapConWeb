@@ -34,7 +34,7 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /object-src 'none'/);
   });
 
-  it("allows Google and Ads endpoints when analytics is enabled", () => {
+  it("allows Google, Ads, and LinkedIn endpoints when analytics is enabled", () => {
     const csp = buildContentSecurityPolicy("x", {
       isDev: false,
       enableAnalytics: true,
@@ -43,6 +43,9 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /google-analytics\.com/);
     assert.match(csp, /pagead2\.googlesyndication\.com/);
     assert.match(csp, /googleadservices\.com/);
+    assert.match(csp, /script-src-elem[^;]*https:\/\/snap\.licdn\.com/);
+    assert.match(csp, /connect-src[^;]*https:\/\/px\.ads\.linkedin\.com/);
+    assert.match(csp, /img-src[^;]*https:\/\/px\.ads\.linkedin\.com/);
   });
 
   it("allows Vercel Live toolbar hosts on script-src-elem", () => {

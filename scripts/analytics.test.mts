@@ -16,6 +16,11 @@ import {
   isValidLinkedInPartnerId,
 } from "../src/lib/analytics.ts";
 import { allowsAnalytics } from "../src/lib/consent.ts";
+import {
+  LINKEDIN_INSIGHT_SCRIPT_SRC,
+  buildLinkedInInsightInitScript,
+  linkedInCollectPixelUrl,
+} from "../src/lib/linkedin-insight.ts";
 
 describe("analytics", () => {
   it("validates GA4 measurement IDs", () => {
@@ -78,6 +83,17 @@ describe("analytics", () => {
     assert.equal(isMarketingAnalyticsEnabled(), true);
     if (previous === undefined) delete process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
     else process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID = previous;
+  });
+
+  it("builds an SSR Insight Tag bootstrap with partner markers and consent gate", () => {
+    const script = buildLinkedInInsightInitScript("9391730");
+    assert.match(script, /_linkedin_partner_id="9391730"/);
+    assert.match(script, new RegExp(LINKEDIN_INSIGHT_SCRIPT_SRC.replace(/\./g, "\\.")));
+    assert.match(script, /capcon-cookie-consent=all/);
+    assert.equal(
+      linkedInCollectPixelUrl("9391730"),
+      "https://px.ads.linkedin.com/collect/?pid=9391730&fmt=gif",
+    );
   });
 });
 

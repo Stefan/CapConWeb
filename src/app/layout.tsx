@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { Inter } from "next/font/google";
 
 import { GoogleTagsHead } from "@/components/analytics/google-tags-head";
+import { LinkedInInsightHead } from "@/components/analytics/linkedin-insight-head";
 import { PRODUCT_NAME } from "@/lib/brand";
 
 import "./globals.css";
@@ -52,6 +53,7 @@ export default async function RootLayout({
     >
       <head>
         <GoogleTagsHead nonce={nonce} />
+        <LinkedInInsightHead nonce={nonce} />
       </head>
       <body
         suppressHydrationWarning

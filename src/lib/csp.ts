@@ -80,7 +80,11 @@ export function buildContentSecurityPolicy(
     ...VERCEL_TOOLBAR_IMG_SRC,
   ].join(" ");
 
-  const frameSrc = `frame-src 'self' ${VERCEL_LIVE_SRC.join(" ")}`;
+  const frameSrc = [
+    "frame-src 'self'",
+    ...VERCEL_LIVE_SRC,
+    ...(enableAnalytics ? ["https://www.googletagmanager.com"] : []),
+  ].join(" ");
 
   return [
     "default-src 'self'",

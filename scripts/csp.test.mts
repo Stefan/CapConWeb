@@ -54,16 +54,22 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /script-src-elem[^;]*https:\/\/www\.googletagmanager\.com/);
     assert.doesNotMatch(csp, /script-src 'self'[^;]*https:\/\/vercel\.live/);
     assert.match(csp, /connect-src[^;]*https:\/\/vercel\.live/);
-    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
+    assert.match(
+      csp,
+      /frame-src 'self' https:\/\/vercel\.live https:\/\/www\.googletagmanager\.com/,
+    );
     assert.match(csp, /font-src 'self' data: https:\/\/vercel\.live/);
     assert.match(csp, /img-src[^;]*https:\/\/vercel\.com/);
   });
 
-  it("allows frame-src for Vercel preview toolbar", () => {
+  it("allows frame-src for Vercel preview toolbar and GTM noscript", () => {
     const csp = buildContentSecurityPolicy("x", {
       isDev: false,
       enableAnalytics: true,
     });
-    assert.match(csp, /frame-src 'self' https:\/\/vercel\.live/);
+    assert.match(
+      csp,
+      /frame-src 'self' https:\/\/vercel\.live https:\/\/www\.googletagmanager\.com/,
+    );
   });
 });

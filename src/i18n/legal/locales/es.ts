@@ -66,9 +66,9 @@ const privacy: LegalSection[] = [
     ],
   },
   {
-    heading: "5. Analítica web (Google Analytics 4 y LinkedIn Insight)",
+    heading: "5. Analítica web (Google Tag Manager, GA4 y LinkedIn Insight)",
     paragraphs: [
-      "Si acepta todas las cookies, usamos Google Analytics 4 (Google Ireland Ltd.) para medir visitas agregadas y orígenes de referencia. Las direcciones IP se anonimizan. También cargamos el LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) para medición de campañas y conversiones. Base jurídica (UE/EEE): art. 6(1)(a) RGPD — consentimiento. Puede retirar el consentimiento en la configuración de cookies.",
+      "Si acepta todas las cookies, cargamos Google Tag Manager (Google Ireland Ltd.) para gestionar etiquetas de marketing y usamos Google Analytics 4 para medir visitas agregadas y orígenes de referencia. Las direcciones IP se anonimizan. También cargamos el LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) para medición de campañas y conversiones. Base jurídica (UE/EEE): art. 6(1)(a) RGPD — consentimiento. Puede retirar el consentimiento en la configuración de cookies.",
     ],
   },
   {
@@ -113,6 +113,7 @@ const cookies: LegalSection[] = [
     paragraphs: [
       "capcon-cookie-consent — guarda su elección de consentimiento (essential / all). Duración: 12 meses. Finalidad: cumplimiento legal.",
       "capcon-site-variant — guarda su edición de marketing regional (p. ej. APAC, Japón). Duración: 90 días solo si acepta todas las cookies; en caso contrario, solo sesión. Finalidad: contenido regional coherente.",
+      "Google Tag Manager (solo si acepta todas las cookies): carga y gestiona etiquetas de marketing (incluido Google Analytics). Proveedor: Google Ireland Ltd. Privacidad: https://policies.google.com/privacy",
       "Google Analytics (solo si acepta todas las cookies): _ga, _ga_* — estadísticas agregadas de visitas vía Google Analytics 4. Duración: hasta 24 meses. Proveedor: Google Ireland Ltd. Privacidad: https://policies.google.com/privacy",
       "LinkedIn Insight Tag (solo si acepta todas las cookies): li_sugr y cookies/píxeles relacionados de LinkedIn — medición de campañas y conversiones. Proveedor: LinkedIn Ireland Unlimited Company. Privacidad: https://www.linkedin.com/legal/privacy-policy",
     ],

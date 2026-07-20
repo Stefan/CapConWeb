@@ -31,13 +31,13 @@ const sharedPrivacyCore: LegalSection[] = [
   {
     heading: "4. Cookies",
     paragraphs: [
-      "We use a consent cookie and, with your consent, a regional edition cookie, Google Analytics 4, and the LinkedIn Insight Tag for aggregate traffic and campaign measurement. Details are listed in our Cookie Policy at /[locale]/cookies.",
+      "We use a consent cookie and, with your consent, a regional edition cookie, Google Tag Manager, Google Analytics 4, and the LinkedIn Insight Tag for aggregate traffic and campaign measurement. Details are listed in our Cookie Policy at /[locale]/cookies.",
     ],
   },
   {
-    heading: "5. Web analytics (Google Analytics 4 & LinkedIn Insight)",
+    heading: "5. Web analytics (Google Tag Manager, GA4 & LinkedIn Insight)",
     paragraphs: [
-      "If you accept all cookies, we use Google Analytics 4 (Google Ireland Ltd.) to understand aggregate page views and referral sources. IP addresses are anonymized. We also load the LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) for campaign measurement and conversion insights. Legal basis (EU/EEA): Art. 6(1)(a) GDPR — consent. You can withdraw consent via cookie settings.",
+      "If you accept all cookies, we load Google Tag Manager (Google Ireland Ltd.) to manage marketing tags, and use Google Analytics 4 to understand aggregate page views and referral sources. IP addresses are anonymized. We also load the LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) for campaign measurement and conversion insights. Legal basis (EU/EEA): Art. 6(1)(a) GDPR — consent. You can withdraw consent via cookie settings.",
     ],
   },
   {
@@ -82,6 +82,7 @@ const cookieSectionsEn: LegalSection[] = [
     paragraphs: [
       "capcon-cookie-consent — stores your consent choice (essential / all). Duration: 12 months. Purpose: legal compliance.",
       "capcon-site-variant — stores your regional marketing edition (e.g. APAC, Japan). Duration: 90 days only if you accept all cookies; otherwise session-only. Purpose: consistent regional content.",
+      "Google Tag Manager (only if you accept all cookies): loads and manages marketing tags (including Google Analytics). Provider: Google Ireland Ltd. Privacy: https://policies.google.com/privacy",
       "Google Analytics (only if you accept all cookies): _ga, _ga_* — aggregate visit statistics via Google Analytics 4. Duration: up to 24 months. Provider: Google Ireland Ltd. Privacy: https://policies.google.com/privacy",
       "LinkedIn Insight Tag (only if you accept all cookies): li_sugr and related LinkedIn cookies/pixels — campaign and conversion measurement. Provider: LinkedIn Ireland Unlimited Company. Privacy: https://www.linkedin.com/legal/privacy-policy",
     ],
@@ -276,13 +277,13 @@ function privacyDe(): LegalSection[] {
     {
       heading: "4. Cookies",
       paragraphs: [
-        "Wir setzen ein Consent-Cookie und — mit Einwilligung — Editions-Cookie, Google Analytics 4 sowie das LinkedIn Insight Tag. Details unter /de/cookies.",
+        "Wir setzen ein Consent-Cookie und — mit Einwilligung — Editions-Cookie, Google Tag Manager, Google Analytics 4 sowie das LinkedIn Insight Tag. Details unter /de/cookies.",
       ],
     },
     {
-      heading: "5. Webanalyse (Google Analytics 4 & LinkedIn Insight)",
+      heading: "5. Webanalyse (Google Tag Manager, GA4 & LinkedIn Insight)",
       paragraphs: [
-        "Bei „Alle akzeptieren“ nutzen wir Google Analytics 4 (Google Ireland Ltd.) für aggregierte Seitenaufrufe und Referrer. IP-Anonymisierung ist aktiv. Zusätzlich laden wir das LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) für Kampagnen- und Conversion-Messung. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Widerruf über Cookie-Einstellungen.",
+        "Bei „Alle akzeptieren“ laden wir Google Tag Manager (Google Ireland Ltd.) zur Verwaltung von Marketing-Tags und nutzen Google Analytics 4 für aggregierte Seitenaufrufe und Referrer. IP-Anonymisierung ist aktiv. Zusätzlich laden wir das LinkedIn Insight Tag (LinkedIn Ireland Unlimited Company) für Kampagnen- und Conversion-Messung. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Widerruf über Cookie-Einstellungen.",
       ],
     },
     {
@@ -331,6 +332,7 @@ const cookieSectionsDe: LegalSection[] = [
     paragraphs: [
       "capcon-cookie-consent — speichert Ihre Einwilligung (essential / all). Dauer: 12 Monate.",
       "capcon-site-variant — regionale Marketing-Edition. Dauer: 90 Tage nur bei „Alle akzeptieren“, sonst Sitzung.",
+      "Google Tag Manager (nur bei „Alle akzeptieren“): lädt und verwaltet Marketing-Tags (inkl. Google Analytics). Anbieter: Google Ireland Ltd. Datenschutz: https://policies.google.com/privacy",
       "Google Analytics (nur bei „Alle akzeptieren“): _ga, _ga_* — aggregierte Besuchsstatistik via Google Analytics 4. Dauer: bis zu 24 Monate. Anbieter: Google Ireland Ltd. Datenschutz: https://policies.google.com/privacy",
       "LinkedIn Insight Tag (nur bei „Alle akzeptieren“): li_sugr und verwandte LinkedIn-Cookies/Pixel — Kampagnen- und Conversion-Messung. Anbieter: LinkedIn Ireland Unlimited Company. Datenschutz: https://www.linkedin.com/legal/privacy-policy",
     ],
@@ -510,7 +512,7 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     settingsDetailEssential:
       "„Nur notwendige“: Consent-Cookie + Sitzungs-Edition.",
     settingsDetailAll:
-      "„Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie, Google Analytics und LinkedIn Insight Tag (aggregierte Statistik / Kampagnenmessung).",
+      "„Alle akzeptieren“: zusätzlich 90-Tage-Edition-Cookie, Google Tag Manager, Google Analytics und LinkedIn Insight Tag (aggregierte Statistik / Kampagnenmessung).",
   },
   en: {
     title: "Cookies & privacy",
@@ -522,7 +524,7 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     privacyLink: "Privacy policy",
     settingsDetailEssential: "Essential only: consent + session edition cookie.",
     settingsDetailAll:
-      "Accept all: also 90-day regional edition cookie, Google Analytics, and LinkedIn Insight Tag (aggregate / campaign measurement).",
+      "Accept all: also 90-day regional edition cookie, Google Tag Manager, Google Analytics, and LinkedIn Insight Tag (aggregate / campaign measurement).",
   },
   es: {
     title: "Cookies y privacidad",
@@ -534,7 +536,7 @@ export const cookieBannerCopy: Record<Locale, CookieBannerCopy> = {
     privacyLink: "Política de privacidad",
     settingsDetailEssential: "Solo necesarias: cookie de consentimiento + edición de sesión.",
     settingsDetailAll:
-      "Aceptar todas: también cookie de edición regional de 90 días, Google Analytics y LinkedIn Insight Tag (estadísticas / medición de campañas).",
+      "Aceptar todas: también cookie de edición regional de 90 días, Google Tag Manager, Google Analytics y LinkedIn Insight Tag (estadísticas / medición de campañas).",
   },
   fr: {
     title: "Cookies & confidentialité",

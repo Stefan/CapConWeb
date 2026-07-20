@@ -3,6 +3,8 @@ import { connection } from "next/server";
 import { headers } from "next/headers";
 import { Inter } from "next/font/google";
 
+import { GoogleTagManagerBody } from "@/components/analytics/google-tag-manager-body";
+import { GoogleTagManagerHead } from "@/components/analytics/google-tag-manager-head";
 import { GoogleTagsHead } from "@/components/analytics/google-tags-head";
 import { LinkedInInsightHead } from "@/components/analytics/linkedin-insight-head";
 import { PRODUCT_NAME } from "@/lib/brand";
@@ -52,6 +54,7 @@ export default async function RootLayout({
       className={`${inter.variable} scroll-smooth`}
     >
       <head>
+        <GoogleTagManagerHead nonce={nonce} />
         <GoogleTagsHead nonce={nonce} />
         <LinkedInInsightHead nonce={nonce} />
       </head>
@@ -59,6 +62,7 @@ export default async function RootLayout({
         suppressHydrationWarning
         className="min-h-screen font-sans antialiased"
       >
+        <GoogleTagManagerBody />
         {children}
       </body>
     </html>

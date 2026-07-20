@@ -4,18 +4,23 @@ import { describe, it } from "node:test";
 import {
   DEFAULT_GA_MEASUREMENT_ID,
   DEFAULT_GOOGLE_ADS_ID,
+  DEFAULT_GTM_CONTAINER_ID,
   DEFAULT_LINKEDIN_PARTNER_ID,
   getGaMeasurementId,
   getGoogleAdsId,
+  getGtmContainerId,
   getLinkedInPartnerId,
   isGoogleAnalyticsEnabled,
+  isGoogleTagManagerEnabled,
   isLinkedInInsightEnabled,
   isMarketingAnalyticsEnabled,
   isValidGaMeasurementId,
   isValidGoogleAdsId,
+  isValidGtmContainerId,
   isValidLinkedInPartnerId,
 } from "../src/lib/analytics.ts";
 import { allowsAnalytics } from "../src/lib/consent.ts";
+import { buildGtmInitScript, gtmNoscriptUrl } from "../src/lib/gtm.ts";
 import {
   LINKEDIN_INSIGHT_SCRIPT_SRC,
   buildLinkedInInsightInitScript,
@@ -67,6 +72,32 @@ describe("analytics", () => {
     assert.equal(isGoogleAnalyticsEnabled(), true);
     if (previous === undefined) delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     else process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = previous;
+  });
+
+  it("validates GTM container IDs", () => {
+    assert.equal(isValidGtmContainerId("GTM-KW5T7S7Q"), true);
+    assert.equal(isValidGtmContainerId("G-BYVNSRDQRC"), false);
+    assert.equal(isValidGtmContainerId(""), false);
+  });
+
+  it("falls back to the production GTM container ID when env is unset", () => {
+    const previous = process.env.NEXT_PUBLIC_GTM_CONTAINER_ID;
+    delete process.env.NEXT_PUBLIC_GTM_CONTAINER_ID;
+    assert.equal(getGtmContainerId(), DEFAULT_GTM_CONTAINER_ID);
+    assert.equal(isGoogleTagManagerEnabled(), true);
+    if (previous === undefined) delete process.env.NEXT_PUBLIC_GTM_CONTAINER_ID;
+    else process.env.NEXT_PUBLIC_GTM_CONTAINER_ID = previous;
+  });
+
+  it("builds an SSR GTM bootstrap with Consent Mode and container id", () => {
+    const script = buildGtmInitScript("GTM-KW5T7S7Q");
+    assert.match(script, /consent','default'/);
+    assert.match(script, /GTM-KW5T7S7Q/);
+    assert.match(script, /googletagmanager\.com\/gtm\.js/);
+    assert.equal(
+      gtmNoscriptUrl("GTM-KW5T7S7Q"),
+      "https://www.googletagmanager.com/ns.html?id=GTM-KW5T7S7Q",
+    );
   });
 
   it("validates LinkedIn partner IDs", () => {

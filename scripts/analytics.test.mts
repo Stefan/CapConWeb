@@ -118,9 +118,12 @@ describe("analytics", () => {
 
   it("builds an SSR Insight Tag bootstrap with partner markers and consent gate", () => {
     const script = buildLinkedInInsightInitScript("9391730");
-    assert.match(script, /_linkedin_partner_id="9391730"/);
+    // Bare global like Campaign Manager (not window._linkedin_partner_id)
+    assert.match(script, /(?<![.\w])_linkedin_partner_id="9391730"/);
+    assert.match(script, /_linkedin_data_partner_ids\.push\(_linkedin_partner_id\)/);
     assert.match(script, new RegExp(LINKEDIN_INSIGHT_SCRIPT_SRC.replace(/\./g, "\\.")));
     assert.match(script, /capcon-cookie-consent=all/);
+    assert.match(script, /\(function\(l\)\{/);
     assert.equal(
       linkedInCollectPixelUrl("9391730"),
       "https://px.ads.linkedin.com/collect/?pid=9391730&fmt=gif",

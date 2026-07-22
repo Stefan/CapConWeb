@@ -45,6 +45,7 @@ describe("buildContentSecurityPolicy", () => {
     assert.match(csp, /googleadservices\.com/);
     assert.match(csp, /script-src-elem[^;]*https:\/\/snap\.licdn\.com/);
     assert.match(csp, /connect-src[^;]*https:\/\/px\.ads\.linkedin\.com/);
+    assert.match(csp, /connect-src[^;]*https:\/\/px4\.ads\.linkedin\.com/);
     assert.match(csp, /img-src[^;]*https:\/\/px\.ads\.linkedin\.com/);
   });
 

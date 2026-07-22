@@ -24,14 +24,30 @@ const GOOGLE_ADS_CONNECT_SRC = [
 
 const GOOGLE_ADS_IMG_SRC = ["https://pagead2.googlesyndication.com"];
 
-/** LinkedIn Insight Tag (loads after full cookie consent). */
-const LINKEDIN_SCRIPT_SRC = ["https://snap.licdn.com"];
+/**
+ * LinkedIn Insight Tag hosts (loads after full cookie consent).
+ * Includes Campaign Manager troubleshooting allowlist extras (px4, dc, oribi, bizographics).
+ */
+const LINKEDIN_SCRIPT_SRC = [
+  "https://snap.licdn.com",
+  "https://www.linkedin.com",
+  "https://sjs.bizographics.com",
+];
 const LINKEDIN_CONNECT_SRC = [
   "https://snap.licdn.com",
   "https://px.ads.linkedin.com",
+  "https://px4.ads.linkedin.com",
+  "https://dc.ads.linkedin.com",
   "https://www.linkedin.com",
+  "https://www.oribi.io",
+  "https://sjs.bizographics.com",
 ];
-const LINKEDIN_IMG_SRC = ["https://px.ads.linkedin.com", "https://www.linkedin.com"];
+const LINKEDIN_IMG_SRC = [
+  "https://px.ads.linkedin.com",
+  "https://px4.ads.linkedin.com",
+  "https://www.linkedin.com",
+  "https://www.oribi.io",
+];
 
 /** Vercel Live / Preview toolbar (feedback overlay on deployments). */
 const VERCEL_LIVE_SRC = ["https://vercel.live"];

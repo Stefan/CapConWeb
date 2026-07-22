@@ -9,8 +9,8 @@ type LinkedInInsightHeadProps = {
 };
 
 /**
- * SSR Insight Tag markers in <head> (partner ID + official loader URL in HTML).
- * Actual insight.min.js fetch remains consent-gated inside the inline script.
+ * SSR Insight Tag — mirrors Campaign Manager's two-script + noscript shape.
+ * insight.min.js still loads only after full cookie consent ("Accept all").
  */
 export function LinkedInInsightHead({ nonce }: LinkedInInsightHeadProps) {
   const partnerId = getLinkedInPartnerId();

@@ -17,7 +17,24 @@ declare global {
   }
 }
 
-function ensureLinkedInQueue(): void {
+/**
+ * Client fallback if the head bootstrap missed a late consent change.
+ * Uses the same official loader shape as Campaign Manager.
+ */
+function loadLinkedInInsight(partnerId: string): void {
+  if (!allowsAnalytics(readConsentFromDocument())) {
+    return;
+  }
+
+  // Match Campaign Manager globals (bare + array push).
+  window._linkedin_partner_id = partnerId;
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(partnerId);
+
+  if (document.getElementById(LINKEDIN_INSIGHT_SCRIPT_ID)) {
+    return;
+  }
+
   if (!window.lintrk) {
     window.lintrk = function lintrk(a: string, b?: unknown) {
       window.lintrk!.q = window.lintrk!.q || [];
@@ -25,38 +42,19 @@ function ensureLinkedInQueue(): void {
     };
     window.lintrk.q = [];
   }
-}
 
-/** Client fallback if the head bootstrap missed a late consent change. */
-function loadLinkedInInsight(partnerId: string): void {
-  if (!allowsAnalytics(readConsentFromDocument())) {
-    return;
-  }
-
-  window._linkedin_partner_id = partnerId;
-  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-  if (!window._linkedin_data_partner_ids.includes(partnerId)) {
-    window._linkedin_data_partner_ids.push(partnerId);
-  }
-
-  ensureLinkedInQueue();
-
-  if (document.getElementById(LINKEDIN_INSIGHT_SCRIPT_ID)) {
-    return;
-  }
-
-  const script = document.createElement("script");
-  script.id = LINKEDIN_INSIGHT_SCRIPT_ID;
-  script.type = "text/javascript";
-  script.async = true;
-  script.src = LINKEDIN_INSIGHT_SCRIPT_SRC;
-  const first = document.getElementsByTagName("script")[0];
-  first?.parentNode?.insertBefore(script, first);
+  const s = document.getElementsByTagName("script")[0];
+  const b = document.createElement("script");
+  b.type = "text/javascript";
+  b.async = true;
+  b.id = LINKEDIN_INSIGHT_SCRIPT_ID;
+  b.src = LINKEDIN_INSIGHT_SCRIPT_SRC;
+  s?.parentNode?.insertBefore(b, s);
 }
 
 /**
  * LinkedIn Insight Tag — client sync after consent changes.
- * SSR markers + consent-gated loader live in LinkedInInsightHead.
+ * SSR markers + consent-gated official loader live in LinkedInInsightHead.
  */
 export function LinkedInInsight() {
   const partnerId = getLinkedInPartnerId();

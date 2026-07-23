@@ -38,8 +38,12 @@ export type SiteDictionary = {
     eyebrow: string;
     headline: string;
     subheadline: string;
+    /** Short proof strip under the subheadline (optional). */
+    proofLine?: string;
     primaryCta: string;
     secondaryCta?: string;
+    /** Edition “not for us” boundary — shown on segment landing pages. */
+    boundaryNote?: string;
   };
   problem: {
     title: string;

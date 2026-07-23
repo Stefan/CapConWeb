@@ -46,9 +46,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Kontrola projektów i nadzór finansowy dla programów kapitałochłonnych",
-    subheadline: `${PRODUCT_NAME} łączy costbook, zarządzanie zmianami, harmonogram i nadzór portfelowy na jednej platformie — z weryfikowalnymi prognozami, spójnymi zatwierdzeniami i wiarygodnymi wskaźnikami dla złożonych programów CAPEX.`,
+    subheadline:
+      "Jeden costbook dla budżetu, prognozy, zmian i portfela — zwłaszcza tam, gdzie ERP jest źródłem prawdy finansowej.",
+    proofLine:
+      "Stosowany w wieloprojektowych programach CapEx life science i przemysłowych · Uzgodnienie SAP-ready · Audytowalne zatwierdzenia",
     primaryCta: "Poproś o demo",
-    secondaryCta: "Poznaj platformę",
+    secondaryCta: "Zobacz costbook + zmiany w 2 minuty",
   },
   problem: {
     title: "Projekty CAPEX są złożone. Ich kontrola nie musi taka być.",
@@ -63,9 +66,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "Nieprzejrzyste prognozy",
+        title: "Zmiana zatwierdzona, prognoza błędna",
         description:
-          "Różne wersje i założenia utrudniają podejmowanie wiarygodnych decyzji planistycznych.",
+          "Zmiana jest zatwierdzona — prognoza się nie aktualizuje. Wpływ nie trafia do costbooku.",
       },
       {
         id: "excel-processes",
@@ -80,10 +83,16 @@ const dictionary: SiteDictionary = {
           "Pojedyncze projekty są widoczne — wpływ na budżet inwestycyjny, limity i przepływy pieniężne już nie.",
       },
       {
-        id: "change-audit-trail",
-        title: "Zmiany bez dowodów",
+        id: "sap-shadow-ledger",
+        title: "ERP ≠ costbook projektu",
         description:
-          "Warianty i zmiany zakresu trudno uzasadnić względem pierwotnego planu i master planu.",
+          "Import z ERP nie pokrywa się z costbookiem projektu — kontrolerzy odbudowują prawdę w cieniu Excela.",
+      },
+      {
+        id: "change-audit-trail",
+        title: "SOV rozliczone, EAC niejasne",
+        description:
+          "SOV rozliczone, zatrzymanie (retainage) utrzymane, EAC niejasne — albo dowody zmian, których kontrolerzy nie mogą obronić.",
       },
     ],
   },

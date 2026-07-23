@@ -52,9 +52,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Controles de proyecto y gobernanza financiera para programas intensivos en capital",
-    subheadline: `${PRODUCT_NAME} unifica costbook, gestión de cambios, alineación cronograma-costos y gobernanza de portafolio en una plataforma — con previsiones defendibles, aprobaciones de extremo a extremo e indicadores fiables para programas CapEx complejos. Especialmente sólido donde el ERP concentra los datos financieros y los portafolios multi-sede necesitan una sola verdad de costbook.`,
+    subheadline:
+      "Un costbook para presupuesto, previsión, cambio y portafolio — especialmente donde el ERP es la fuente de verdad financiera.",
+    proofLine:
+      "En uso en programas CapEx multi-proyecto de life science e industrial · Conciliación lista para SAP · Aprobaciones auditables",
     primaryCta: "Solicitar una demo",
-    secondaryCta: "Explorar la plataforma",
+    secondaryCta: "Ver costbook + cambio en 2 minutos",
   },
   problem: {
     title: "Los proyectos CapEx son complejos. Controlarlos no debería serlo.",
@@ -69,9 +72,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "Previsiones opacas",
+        title: "Cambio aprobado, previsión incorrecta",
         description:
-          "Versiones e hipótesis distintas dificultan decisiones de planificación fiables.",
+          "El cambio está aprobado — la previsión no se actualiza. El impacto no llega al costbook.",
       },
       {
         id: "excel-processes",
@@ -87,15 +90,15 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "sap-shadow-ledger",
-        title: "Libros costbook paralelos",
+        title: "ERP ≠ costbook de proyecto",
         description:
-          "Los controllers mantienen costbooks Excel paralelos porque las importaciones del ERP no coinciden con el costbook de proyecto consolidado.",
+          "La importación del ERP no coincide con el costbook de proyecto — los controllers reconstruyen la verdad en Excel en sombra.",
       },
       {
         id: "change-audit-trail",
-        title: "Cambios sin evidencia",
+        title: "SOV facturado, EAC poco claro",
         description:
-          "Variaciones y cambios de alcance son difíciles de justificar frente al presupuesto aprobado y la baseline de previsión.",
+          "SOV facturado, retainage retenido, EAC poco claro — o evidencia de cambio que los controllers no pueden defender.",
       },
     ],
   },

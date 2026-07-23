@@ -27,7 +27,10 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · North America",
       headline: "Owner financial control for capital-intensive construction programs.",
-      subheadline: `${PRODUCT_NAME} unifies costbook, schedule of values, general-contractor billing, and change management in one audit-ready layer — with explainable forecasts, retainage control, and portfolio KPIs. Especially strong for regulated life-science and campus programs that require master plan compliance.`,
+      subheadline:
+        "Costbook, SOV billing, and change in one owner layer — with campus master-plan control where programs require it.",
+      boundaryNote:
+        "Not task PPM — CapCon is owner financial control with SOV and change.",
       primaryCta: "Request a demo",
     },
     solution: {
@@ -170,7 +173,10 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Nordamerika",
       headline: "Owner Financial Control für kapitalintensive Bauprogramme.",
-      subheadline: `${PRODUCT_NAME} verbindet Costbook, Schedule of Values, General-Contractor-Abrechnung und Change Management in einer auditierbaren Schicht — mit nachvollziehbaren Forecasts, Retainage-Steuerung und Portfolio-KPIs. Besonders stark für regulierte Life-Science- und Campus-Programme mit Master-Plan-Compliance.`,
+      subheadline:
+        "Costbook, SOV-Abrechnung und Change in einer Owner-Schicht — mit Campus-Master-Plan-Steuerung, wo Programme sie brauchen.",
+      boundaryNote:
+        "Kein Task-PPM — CapCon ist Owner Financial Control mit SOV und Change.",
       primaryCta: "Demo anfragen",
     },
     solution: {

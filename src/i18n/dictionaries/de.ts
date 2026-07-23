@@ -46,9 +46,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Projektsteuerung und Finanzcontrolling für kapitalintensive Programme",
-    subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Terminplanbezug und Portfolio-Steuerung auf einer Plattform — mit nachvollziehbaren Forecasts, durchgängigen Freigaben und belastbaren Kennzahlen für komplexe Capex-Programme. Besonders stark dort, wo ERP die Finanzdaten liefert und Multi-Site-Portfolios ein einheitliches Costbook brauchen.`,
+    subheadline:
+      "Ein Costbook für Budget, Forecast, Change und Portfolio — besonders dort, wo ERP die Finanzdaten liefert.",
+    proofLine:
+      "Im Einsatz bei Multi-Projekt-Life-Science- und Industrie-CapEx-Programmen · SAP-fähiger Abgleich · Auditierbare Freigaben",
     primaryCta: "Demo anfragen",
-    secondaryCta: "Plattform entdecken",
+    secondaryCta: "Costbook + Change in 2 Minuten",
   },
   problem: {
     title: "Capex-Projekte sind komplex. Die Kontrolle darüber sollte es nicht sein.",
@@ -63,9 +66,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "Intransparente Forecasts",
+        title: "Change freigegeben, Forecast falsch",
         description:
-          "Unterschiedliche Versionen und Annahmen erschweren verlässliche Planungsentscheidungen.",
+          "Nachtrag freigegeben — Forecast bleibt falsch. Die Wirkung landet nicht im Costbook.",
       },
       {
         id: "excel-processes",
@@ -81,15 +84,15 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "sap-shadow-ledger",
-        title: "Parallele Costbook-Arbeitsmappen",
+        title: "ERP ≠ Projekt-Costbook",
         description:
-          "Controller pflegen parallele Excel-Costbooks, weil ERP-Importe nicht mit dem einheitlichen Projekt-Costbook übereinstimmen.",
+          "ERP-Import ≠ Projekt-Costbook — Controller bauen die Wahrheit in Schatten-Excel neu.",
       },
       {
         id: "change-audit-trail",
-        title: "Änderungen ohne Nachweis",
+        title: "SOV abgerechnet, EAC unklar",
         description:
-          "Nachträge und Scope-Änderungen lassen sich schwer gegen genehmigtes Budget und Forecast-Baseline belegen.",
+          "SOV abgerechnet, Retainage einbehalten, EAC unklar — oder Nachweise, die Controller nicht verteidigen können.",
       },
     ],
   },

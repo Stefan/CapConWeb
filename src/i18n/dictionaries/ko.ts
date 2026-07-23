@@ -47,9 +47,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "자본집약형 프로그램을 위한 프로젝트 컨트롤 및 재무 거버넌스",
-    subheadline: `${PRODUCT_NAME}은(는) 코스트북, 변경 관리, 일정 정렬, 포트폴리오 거버넌스를 하나의 플랫폼에서 통합합니다 — 방어 가능한 예측, 전 구간 승인, 복잡한 Capex 프로그램을 위한 신뢰할 수 있는 지표를 제공합니다.`,
+    subheadline:
+      "예산·예측·변경·포트폴리오를 위한 하나의 코스트북 — 특히 ERP가 재무의 진실 소스인 경우에.",
+    proofLine:
+      "라이프사이언스·산업 CapEx 멀티 프로젝트 프로그램에서 사용 · SAP 대응 대사 · 감사 가능 승인",
     primaryCta: "데모 요청",
-    secondaryCta: "플랫폼 살펴보기",
+    secondaryCta: "코스트북 + 변경을 2분 만에",
   },
   problem: {
     title: "Capex 프로젝트는 복잡합니다. 통제는 그렇지 않아야 합니다.",
@@ -64,9 +67,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "불투명한 예측",
+        title: "변경은 승인됐는데 예측은 틀림",
         description:
-          "버전과 가정이 제각각이어서 신뢰할 수 있는 계획 의사결정이 어렵습니다.",
+          "변경은 승인됐지만 예측이 갱신되지 않습니다. 영향이 코스트북에 반영되지 않습니다.",
       },
       {
         id: "excel-processes",
@@ -81,10 +84,16 @@ const dictionary: SiteDictionary = {
           "개별 프로젝트는 보이지만 투자 예산, 상한, 현금 흐름에 미치는 영향은 보이지 않습니다.",
       },
       {
-        id: "change-audit-trail",
-        title: "근거 없는 변경",
+        id: "sap-shadow-ledger",
+        title: "ERP ≠ 프로젝트 코스트북",
         description:
-          "변경 및 범위 조정을 원래 계획 및 마스터 플랜에 대해 입증하기 어렵습니다.",
+          "ERP 가져오기가 프로젝트 코스트북과 맞지 않아 — 컨트롤러가 그림자 Excel로 진실을 다시 만듭니다.",
+      },
+      {
+        id: "change-audit-trail",
+        title: "SOV 청구됨, EAC 불명확",
+        description:
+          "SOV는 청구되고, retainage는 유보됐는데 EAC는 불명확 — 또는 컨트롤러가 방어할 수 없는 변경 근거.",
       },
     ],
   },

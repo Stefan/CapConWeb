@@ -26,7 +26,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     hero: {
       eyebrow: "CapEx & GMP · Europe",
       headline: "Owner capex control from construction through equipment qualification.",
-      subheadline: `${PRODUCT_NAME} links costbook, construction programs, equipment qualification, and GMP change control in one audit-ready layer — complementing your QMS and MES, not replacing them.`,
+      subheadline:
+        "Owner costbook from construction through equipment qualification — complementing QMS and MES, not replacing them.",
+      boundaryNote:
+        "Not a GMP QMS — CapCon is owner project controls with manufacturing context.",
       primaryCta: "Request a demo",
     },
     problem: {
@@ -266,7 +269,10 @@ export const cdmoVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     hero: {
       eyebrow: "CapEx & GMP · Europa",
       headline: "Owner-CapEx-Steuerung von der Baustelle bis zur Equipment-Qualifizierung.",
-      subheadline: `${PRODUCT_NAME} verbindet Costbook, Bauprojekte, Equipment-Qualifizierung und GMP Change Control in einer auditierbaren Schicht — als Ergänzung zu QMS und MES, nicht als Ersatz.`,
+      subheadline:
+        "Owner-Costbook von der Baustelle bis zur Equipment-Qualifizierung — Ergänzung zu QMS und MES, kein Ersatz.",
+      boundaryNote:
+        "Kein GMP-QMS — CapCon ist Owner Project Controls mit Manufacturing-Kontext.",
       primaryCta: "Demo anfragen",
     },
     problem: {

@@ -46,9 +46,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Pilotage projet et gouvernance financière pour programmes capital-intensifs",
-    subheadline: `${PRODUCT_NAME} unifie costbook, change management, alignement planning-coûts et gouvernance de portefeuille sur une plateforme — avec prévisions défendables, approbations de bout en bout et indicateurs fiables pour programmes capex complexes.`,
+    subheadline:
+      "Un costbook pour budget, prévision, change et portefeuille — surtout là où l'ERP est la source de vérité financière.",
+    proofLine:
+      "Utilisé sur des programmes CapEx multi-projets life science et industriels · Rapprochement SAP-ready · Approbations auditables",
     primaryCta: "Demander une démo",
-    secondaryCta: "Découvrir la plateforme",
+    secondaryCta: "Voir costbook + change en 2 minutes",
   },
   problem: {
     title: "Les projets capex sont complexes. Les piloter ne devrait pas l'être.",
@@ -63,9 +66,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "Prévisions opaques",
+        title: "Change approuvé, prévision fausse",
         description:
-          "Versions et hypothèses multiples rendent les décisions de planification peu fiables.",
+          "Le change est approuvé — la prévision ne suit pas. L'impact n'atteint pas le costbook.",
       },
       {
         id: "excel-processes",
@@ -80,10 +83,16 @@ const dictionary: SiteDictionary = {
           "Les projets individuels sont visibles — pas l'impact sur le budget d'investissement, les plafonds et la trésorerie.",
       },
       {
-        id: "change-audit-trail",
-        title: "Changements sans preuve",
+        id: "sap-shadow-ledger",
+        title: "ERP ≠ costbook projet",
         description:
-          "Variations et changements de périmètre difficiles à justifier face au plan initial et au master plan.",
+          "L'import ERP ne correspond pas au costbook projet — les controllers reconstruisent la vérité dans un Excel parallèle.",
+      },
+      {
+        id: "change-audit-trail",
+        title: "SOV facturé, EAC flou",
+        description:
+          "SOV facturé, retenues retenues, EAC flou — ou des preuves de change que les controllers ne peuvent pas défendre.",
       },
     ],
   },

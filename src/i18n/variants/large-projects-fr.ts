@@ -25,7 +25,10 @@ export const largeProjectsFrPatch: Partial<SiteDictionary> = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence · Amérique du Nord",
     headline: "Pilotage financier maître d'ouvrage pour programmes de construction capex intensifs.",
-    subheadline: `${PRODUCT_NAME} unifie costbook, schedule of values, facturation entreprise générale et change management dans une couche audit-ready — avec prévisions explicables, gouvernance retainage et KPI portefeuille. Particulièrement adapté aux programmes life science et campus réglementés nécessitant conformité master plan.`,
+    subheadline:
+      "Costbook, facturation SOV et change dans une couche maître d'ouvrage — avec pilotage master plan campus là où les programmes l'exigent.",
+    boundaryNote:
+      "Pas du PPM tâches — CapCon est le pilotage financier maître d'ouvrage avec SOV et change.",
     primaryCta: "Demander une démo",
   },
   solution: {

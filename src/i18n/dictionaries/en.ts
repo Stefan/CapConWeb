@@ -46,9 +46,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "Project controls and financial governance for capital-intensive programs",
-    subheadline: `${PRODUCT_NAME} unifies costbook, change management, schedule alignment, and portfolio governance on one platform — with defensible forecasts, end-to-end approvals, and dependable metrics for complex capex programs. Especially strong where ERP holds financial data and multi-site portfolios need one costbook truth.`,
+    subheadline:
+      "One costbook for budget, forecast, change, and portfolio — especially where ERP is the financial source of truth.",
+    proofLine:
+      "Used on multi-project life-science and industrial capex programs · SAP-ready reconciliation · Audit-ready approvals",
     primaryCta: "Request a demo",
-    secondaryCta: "Explore the platform",
+    secondaryCta: "See costbook + change in 2 minutes",
   },
   problem: {
     title: "Capex projects are complex. Controlling them shouldn't be.",
@@ -63,9 +66,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "Opaque forecasts",
+        title: "Change approved, forecast wrong",
         description:
-          "Different versions and assumptions make reliable planning decisions difficult.",
+          "A change is approved — the forecast still does not update. Impact never lands in the costbook.",
       },
       {
         id: "excel-processes",
@@ -81,15 +84,15 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "sap-shadow-ledger",
-        title: "Parallel costbook workbooks",
+        title: "ERP ≠ project costbook",
         description:
-          "Controllers maintain parallel Excel costbooks because ERP imports do not match the consolidated project costbook.",
+          "ERP import does not match the project costbook — controllers rebuild the truth in shadow Excel.",
       },
       {
         id: "change-audit-trail",
-        title: "Changes without evidence",
+        title: "SOV billed, EAC unclear",
         description:
-          "Variations and scope changes are hard to substantiate against approved budget and forecast baseline.",
+          "SOV billed, retainage held, EAC unclear — or change evidence controllers cannot defend.",
       },
     ],
   },

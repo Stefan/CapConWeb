@@ -25,7 +25,10 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Global manufacturing",
       headline: "Steer global plant capex with one consolidated costbook.",
-      subheadline: `${PRODUCT_NAME} unifies costbook, change control, vendor collaboration, and ERP reconciliation across regions — one portfolio view for capital excellence teams running multi-site manufacturing programmes.`,
+      subheadline:
+        "One consolidated costbook for global plant capex — with change control and ERP reconciliation across regions.",
+      boundaryNote:
+        "Not an ERP replacement — CapCon reconciles ERP actuals into the project costbook.",
       primaryCta: "Request a demo",
     },
     problem: {
@@ -35,9 +38,9 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "Parallel costbook workbooks",
+          title: "ERP ≠ project costbook",
           description:
-            "Regional controllers maintain separate workbooks because ERP consolidation does not match project costbook data.",
+            "ERP consolidation ≠ project costbook — regional controllers rebuild the truth in shadow Excel.",
         },
         {
           id: "multi-site-blind-spots",
@@ -47,9 +50,9 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         },
         {
           id: "change-audit-trail",
-          title: "Line changes without trace",
+          title: "SOV billed, EAC unclear",
           description:
-            "Packaging-line scope shifts and EPC variations are hard to tie back to approved budget and forecast baseline.",
+            "Line SOV billed, retainage held, EAC unclear — or change evidence controllers cannot defend.",
         },
         {
           id: "gc-collaboration",
@@ -207,7 +210,10 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Globales Manufacturing",
       headline: "Globales Werks-CapEx mit einem einheitlichen Costbook steuern.",
-      subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management, Vendor-Zusammenarbeit und ERP-Abgleich über Regionen — eine Portfolio-Sicht für CapEx-Excellence-Teams mit Multi-Site-Fertigungsprogrammen.`,
+      subheadline:
+        "Ein einheitliches Costbook für globales Werks-CapEx — mit Change Control und ERP-Abgleich über Regionen.",
+      boundaryNote:
+        "Kein ERP-Ersatz — CapCon gleicht ERP-Ist-Werte mit dem Projekt-Costbook ab.",
       primaryCta: "Demo anfragen",
     },
     audience: {
@@ -252,7 +258,10 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Manufacturing global",
       headline: "Piloter le capex usines multi-sites avec un costbook consolidé.",
-      subheadline: `${PRODUCT_NAME} unifie costbook, gestion des changements, collaboration fournisseurs/GC et rapprochement ERP sur les régions — une vue portefeuille pour les équipes capital excellence sur programmes manufacturing multi-sites.`,
+      subheadline:
+        "Un costbook consolidé pour le capex usines multi-sites — avec change control et rapprochement ERP entre régions.",
+      boundaryNote:
+        "Pas un remplacement ERP — CapCon rapproche les actuals ERP dans le costbook projet.",
       primaryCta: "Demander une démo",
     },
     problem: {
@@ -262,9 +271,9 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "Classeurs costbook parallèles",
+          title: "ERP ≠ costbook projet",
           description:
-            "Les contrôleurs régionaux maintiennent des classeurs séparés parce que la consolidation ERP ne correspond pas aux données costbook projet.",
+            "La consolidation ERP ≠ costbook projet — les controllers régionaux reconstruisent la vérité dans un Excel parallèle.",
         },
         {
           id: "multi-site-blind-spots",
@@ -274,9 +283,9 @@ export const fmcgSapVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = 
         },
         {
           id: "change-audit-trail",
-          title: "Changements de ligne sans trace",
+          title: "SOV facturé, EAC flou",
           description:
-            "Les variations de ligne packaging et scope EPC sont difficiles à relier au budget approuvé et baseline prévision.",
+            "SOV ligne facturé, retenues retenues, EAC flou — ou des preuves de change que les controllers ne peuvent pas défendre.",
         },
         {
           id: "gc-collaboration",

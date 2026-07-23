@@ -21,6 +21,8 @@ type SiteContextValue = {
   dict: SiteDictionary;
   brandLine: string;
   demoUrl: string;
+  /** Locale or edition base path for in-page anchors. */
+  marketingBase: string;
   appLoginUrl: string;
   appSignupUrl: string;
   contactEmail: string;
@@ -60,6 +62,7 @@ export function SiteProvider({
     dict,
     brandLine,
     demoUrl: `/${locale}/demo`,
+    marketingBase,
     appLoginUrl,
     appSignupUrl,
     contactEmail,

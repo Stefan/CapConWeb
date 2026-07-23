@@ -25,7 +25,10 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Australia & Singapore",
       headline: "Govern multi-site CapEx with numbers the board can trust.",
-      subheadline: `${PRODUCT_NAME} connects costbook, change approvals, and portfolio metrics for infrastructure, resources, and life-sciences programs across APAC — without month-end spreadsheet consolidation. Especially strong where ERP holds financial data and multi-site programmes need one consolidated costbook.`,
+      subheadline:
+        "One costbook for budget, forecast, change, and portfolio — across APAC programmes where ERP holds financial truth.",
+      boundaryNote:
+        "Not task PPM — CapCon is owner financial control with costbook and change.",
       primaryCta: "Request a demo",
     },
     problem: {
@@ -41,9 +44,9 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
         },
         {
           id: "opaque-forecasts",
-          title: "Forecast versions",
+          title: "Change approved, forecast wrong",
           description:
-            "Different assumptions across sites make a defensible estimate at completion hard to present.",
+            "A change is approved — the forecast still does not update. Impact never lands in the costbook.",
         },
         {
           id: "excel-processes",
@@ -59,15 +62,15 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
         },
         {
           id: "sap-shadow-ledger",
-          title: "ERP reconciliation gaps",
+          title: "ERP ≠ project costbook",
           description:
-            "Programme teams maintain parallel spreadsheets because ERP imports do not match costbook truth across sites.",
+            "ERP import ≠ project costbook — controllers rebuild the truth in shadow Excel across sites.",
         },
         {
           id: "change-audit-trail",
-          title: "Change evidence gaps",
+          title: "SOV billed, EAC unclear",
           description:
-            "Variations and scope shifts are hard to tie back to approved budgets and forecast baseline.",
+            "SOV billed, retainage held, EAC unclear — or change evidence controllers cannot defend.",
         },
       ],
     },
@@ -136,7 +139,10 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · 澳大利亚与新加坡",
       headline: "以可辩护的数据，管控多站点资本支出。",
-      subheadline: `${PRODUCT_NAME} 将成本账、变更审批与投资组合指标贯通——适用于亚太区基础设施、资源与生命科学项目，无需月末 Excel 汇总。`,
+      subheadline:
+        "一本成本账覆盖预算、预测、变更与组合 — 适用于亚太区 ERP 作为财务事实来源的项目。",
+      boundaryNote:
+        "不是任务型 PPM — CapCon 是带成本账与变更的业主财务管控。",
       primaryCta: "申请演示",
     },
     problem: {
@@ -156,13 +162,13 @@ export const apacVariant: Partial<Record<Locale, Partial<SiteDictionary>>> = {
         },
         {
           id: "sap-shadow-ledger",
-          title: "ERP 对账缺口",
-          description: "ERP 导入与各站点成本账不一致 — 并行 Excel 工作簿仍在使用。",
+          title: "ERP ≠ 项目成本账",
+          description: "ERP 导入 ≠ 项目成本账 — 控制器用影子 Excel 重建真相。",
         },
         {
           id: "change-audit-trail",
-          title: "变更证据缺口",
-          description: "变更与范围调整难以追溯至已批准预算与预测基线。",
+          title: "SOV 已开票，EAC 不清",
+          description: "SOV 已开票、保留金已扣、EAC 仍不清 — 或控制器无法辩护的变更依据。",
         },
       ],
     },

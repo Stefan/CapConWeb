@@ -46,9 +46,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "资本密集型项目的项目管控与财务治理",
-    subheadline: `${PRODUCT_NAME} 将成本账簿、变更管理、进度协同与投资组合治理整合于同一平台 — 为复杂 CAPEX 项目提供可辩护的预测、端到端审批与可靠指标。`,
+    subheadline:
+      "一本成本账覆盖预算、预测、变更与组合 — 尤其在 ERP 作为财务事实来源时。",
+    proofLine:
+      "用于生命科学与工业多项目 CapEx 项目 · SAP 就绪对账 · 可审计审批",
     primaryCta: "申请演示",
-    secondaryCta: "了解平台",
+    secondaryCta: "2 分钟看清成本账与变更",
   },
   problem: {
     title: "CAPEX 项目复杂，管控不必如此。",
@@ -63,9 +66,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "预测不透明",
+        title: "变更已批，预测仍错",
         description:
-          "不同版本与假设使可靠的规划决策难以做出。",
+          "变更已批准 — 预测却未更新。影响从未落入成本账。",
       },
       {
         id: "excel-processes",
@@ -80,10 +83,16 @@ const dictionary: SiteDictionary = {
           "单个项目可见 — 对投资预算、上限与现金流的影响却不可见。",
       },
       {
-        id: "change-audit-trail",
-        title: "变更缺乏依据",
+        id: "sap-shadow-ledger",
+        title: "ERP ≠ 项目成本账",
         description:
-          "变更与范围调整难以对照原始计划与 master plan 予以证明。",
+          "ERP 导入与项目成本账不一致 — 控制器用影子 Excel 重建真相。",
+      },
+      {
+        id: "change-audit-trail",
+        title: "SOV 已开票，EAC 不清",
+        description:
+          "SOV 已开票、保留金已扣、EAC 仍不清 — 或控制器无法辩护的变更依据。",
       },
     ],
   },

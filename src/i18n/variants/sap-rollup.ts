@@ -25,7 +25,10 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Pharma & diagnostics",
       headline: "Steer division capex with forecasts leadership can defend.",
-      subheadline: `${PRODUCT_NAME} unifies costbook, change management, and portfolio consolidation for multi-project divisions — with ERP reconciliation, audit-ready approvals, and traceability from project detail to management metrics. Built for diagnostics, pharma site investments, and division steering teams.`,
+      subheadline:
+        "Costbook, change, and division consolidation — with ERP reconciliation into the project costbook.",
+      boundaryNote:
+        "Not an ERP replacement — CapCon reconciles ERP actuals into the project costbook.",
       primaryCta: "Request a demo",
     },
     problem: {
@@ -35,9 +38,9 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "Parallel costbook workbooks",
+          title: "ERP ≠ project costbook",
           description:
-            "Project teams maintain Excel workbooks because ERP imports do not match the consolidated costbook across WBS and divisions.",
+            "ERP import ≠ project costbook — controllers rebuild the truth in shadow Excel across WBS and divisions.",
         },
         {
           id: "rollup-gaps",
@@ -47,15 +50,15 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
         },
         {
           id: "change-audit-trail",
-          title: "Changes without evidence",
+          title: "Change evidence controllers cannot defend",
           description:
-            "Approved changes are hard to tie back to costbook lines and ERP source references for audit and steering.",
+            "Approved changes lack costbook-line and ERP source evidence that controllers can defend in audit and steering.",
         },
         {
           id: "opaque-forecasts",
-          title: "Opaque forecasts",
+          title: "Change approved, forecast wrong",
           description:
-            "Version sprawl across sites makes a defensible estimate at completion difficult to present to finance leadership.",
+            "A change is approved — the forecast still does not update. Impact never lands in the consolidated costbook.",
         },
       ],
     },
@@ -208,7 +211,10 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Pharma & Diagnostics",
       headline: "CapEx auf Divisionsebene mit belastbaren Forecasts steuern.",
-      subheadline: `${PRODUCT_NAME} vereint Costbook, Change Management und Portfolio-Konsolidierung für Multi-Projekt-Divisionen — mit ERP-Abgleich, auditierbaren Freigaben und Nachverfolgbarkeit vom Projektdetail bis zur Management-Kennzahl. Für Diagnostics, Pharma-Standortinvestitionen und Divisions-Steuerung.`,
+      subheadline:
+        "Costbook, Change und Divisions-Konsolidierung — mit ERP-Abgleich ins Projekt-Costbook.",
+      boundaryNote:
+        "Kein ERP-Ersatz — CapCon gleicht ERP-Ist-Werte mit dem Projekt-Costbook ab.",
       primaryCta: "Demo anfragen",
     },
     problem: {
@@ -218,9 +224,9 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "Parallele Costbook-Listen",
+          title: "ERP ≠ Projekt-Costbook",
           description:
-            "Projektteams pflegen Excel-Listen, weil ERP-Importe nicht mit dem einheitlichen Costbook über WBS und Divisionen übereinstimmen.",
+            "ERP-Import ≠ Projekt-Costbook — Controller bauen die Wahrheit in Schatten-Excel über WBS und Divisionen neu.",
         },
         {
           id: "rollup-gaps",
@@ -303,7 +309,10 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Pharma & diagnostics",
       headline: "Piloter le capex divisionnel avec des prévisions défendables.",
-      subheadline: `${PRODUCT_NAME} unifie costbook, gestion des changements et consolidation portefeuille pour divisions multi-projets — avec rapprochement ERP, approbations auditables et traçabilité du détail projet aux indicateurs de direction. Conçu pour diagnostics, sites pharma et pilotage divisionnel.`,
+      subheadline:
+        "Costbook, change et consolidation divisionnelle — avec rapprochement ERP dans le costbook projet.",
+      boundaryNote:
+        "Pas un remplacement ERP — CapCon rapproche les actuals ERP dans le costbook projet.",
       primaryCta: "Demander une démo",
     },
     problem: {
@@ -313,9 +322,9 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
       items: [
         {
           id: "sap-shadow-ledger",
-          title: "Classeurs costbook parallèles",
+          title: "ERP ≠ costbook projet",
           description:
-            "Les équipes projet maintiennent des Excel parce que les imports ERP ne correspondent pas au costbook consolidé sur les WBS et divisions.",
+            "L'import ERP ≠ costbook projet — les controllers reconstruisent la vérité dans un Excel parallèle sur WBS et divisions.",
         },
         {
           id: "rollup-gaps",
@@ -325,15 +334,15 @@ export const sapRollupVariant: Partial<Record<Locale, Partial<SiteDictionary>>> 
         },
         {
           id: "change-audit-trail",
-          title: "Changements sans preuve",
+          title: "Preuves de change indéfendables",
           description:
-            "Les changements approuvés sont difficiles à relier aux lignes costbook et références ERP pour audit et pilotage.",
+            "Les changements approuvés manquent de preuves costbook/ERP que les controllers peuvent défendre en audit et pilotage.",
         },
         {
           id: "opaque-forecasts",
-          title: "Prévisions opaques",
+          title: "Change approuvé, prévision fausse",
           description:
-            "La prolifération de versions entre sites rend difficile la présentation d'un EAC défendable à la direction finance.",
+            "Le change est approuvé — la prévision ne suit pas. L'impact n'atteint pas le costbook consolidé.",
         },
       ],
     },

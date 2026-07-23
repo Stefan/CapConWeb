@@ -24,7 +24,10 @@ export const cdmoFrPatch: Partial<SiteDictionary> = {
   hero: {
     eyebrow: "CapEx & GMP · Europe",
     headline: "Pilotage capex maître d'ouvrage de la construction à la qualification équipement.",
-    subheadline: `${PRODUCT_NAME} relie costbook, programmes construction, qualification équipement et change control GMP dans une couche audit-ready — en complément de votre QMS et MES, sans les remplacer.`,
+    subheadline:
+      "Costbook maître d'ouvrage de la construction à la qualification équipement — en complément du QMS et MES, sans les remplacer.",
+    boundaryNote:
+      "Pas un QMS GMP — CapCon est le pilotage projet maître d'ouvrage avec contexte manufacturing.",
     primaryCta: "Demander une démo",
   },
   problem: {

@@ -23,7 +23,10 @@ export const koreaVariant: Partial<Record<"ko" | "en", Partial<SiteDictionary>>>
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · 대한민국",
       headline: "다수 사업장 CapEx를 신뢰할 수 있는 수치로 통제하세요.",
-      subheadline: `${PRODUCT_NAME}는 코스트북, 변경 승인, 포트폴리오 지표를 하나의 플랫폼에 통합합니다. 반도체·제조·인프라 대형 투자 프로그램을 월말 Excel 집계 없이 운영할 수 있습니다. ERP가 재무 데이터를 보유한 다수 사업장 프로그램에 특히 강력합니다.`,
+      subheadline:
+        "예산·예측·변경·포트폴리오를 위한 하나의 코스트북 — 특히 ERP가 재무 데이터를 보유한 다수 사업장 프로그램에서.",
+      boundaryNote:
+        "작업형 PPM이 아닙니다 — CapCon은 코스트북과 변경을 갖춘 오너 재무 통제입니다.",
       primaryCta: "데모 신청",
     },
     problem: {
@@ -45,9 +48,9 @@ export const koreaVariant: Partial<Record<"ko" | "en", Partial<SiteDictionary>>>
         },
         {
           id: "sap-shadow-ledger",
-          title: "ERP 불일치",
+          title: "ERP ≠ 프로젝트 코스트북",
           description:
-            "ERP 가져오기가 사업장 간 코스트북과 맞지 않아 병행 Excel 관리가 지속됩니다.",
+            "ERP 가져오기 ≠ 프로젝트 코스트북 — 컨트롤러가 그림자 Excel로 진실을 다시 만듭니다.",
         },
       ],
     },

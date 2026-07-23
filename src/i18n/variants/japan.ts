@@ -23,7 +23,10 @@ export const japanVariant: Partial<Record<"ja" | "en", Partial<SiteDictionary>>>
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · 日本",
       headline: "複数拠点の設備投資を、説明可能な数字で統制する。",
-      subheadline: `${PRODUCT_NAME}は、コストブック、変更承認、ポートフォリオ指標を一つのプラットフォームに統合。製造・ライフサイエンスの大規模設備投資に、月末の Excel 集計なしで対応します。ERP が財務データを保持する多拠点プログラムで特に強力です。`,
+      subheadline:
+        "予算・フォーキャスト・変更・ポートフォリオのための一つのコストブック — 特に ERP が財務の正である多拠点プログラムで。",
+      boundaryNote:
+        "タスク型 PPM ではありません — CapCon はコストブックと変更によるオーナー財務統制です。",
       primaryCta: "デモを申し込む",
     },
     problem: {
@@ -45,9 +48,9 @@ export const japanVariant: Partial<Record<"ja" | "en", Partial<SiteDictionary>>>
         },
         {
           id: "sap-shadow-ledger",
-          title: "ERP との乖離",
+          title: "ERP ≠ プロジェクトコストブック",
           description:
-            "ERP インポートが拠点横断のコストブックと一致しないため、並行した Excel 管理が続きます。",
+            "ERP インポート ≠ プロジェクトのコストブック — コントローラは影の Excel で真実を作り直します。",
         },
       ],
     },

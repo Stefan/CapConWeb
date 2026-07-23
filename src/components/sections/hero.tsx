@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from "next/link";
 
@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 
 export function HeroSection() {
-  const { dict, demoUrl, showEditionBadge, editionLabel, editionRegion } = useSite();
+  const { dict, demoUrl, marketingBase, showEditionBadge, editionLabel, editionRegion } =
+    useSite();
   const { hero } = dict;
+  const featuresHref = `${marketingBase}#features`;
 
   return (
     <section
@@ -46,8 +48,13 @@ export function HeroSection() {
           <p className="mt-6 text-lg leading-relaxed text-slate-600 sm:text-xl">
             {hero.subheadline}
           </p>
+          {hero.proofLine ? (
+            <p className="mt-4 text-sm font-medium leading-snug text-navy-800/80">
+              {hero.proofLine}
+            </p>
+          ) : null}
 
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button
               render={<Link href={demoUrl} />}
               size="lg"
@@ -55,7 +62,22 @@ export function HeroSection() {
             >
               {hero.primaryCta}
             </Button>
+            {hero.secondaryCta ? (
+              <Button
+                render={<Link href={featuresHref} />}
+                size="lg"
+                variant="outline"
+                className="h-12 border-slate-300 bg-white px-6 text-base text-navy-900 hover:bg-slate-50"
+              >
+                {hero.secondaryCta}
+              </Button>
+            ) : null}
           </div>
+          {hero.boundaryNote ? (
+            <p className="mt-5 max-w-lg text-xs leading-relaxed text-slate-500">
+              {hero.boundaryNote}
+            </p>
+          ) : null}
         </FadeIn>
 
         <DashboardPreview />

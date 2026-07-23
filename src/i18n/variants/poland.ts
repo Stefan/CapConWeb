@@ -23,7 +23,10 @@ export const polandVariant: Partial<Record<"pl" | "en" | "de", Partial<SiteDicti
     hero: {
       eyebrow: "CapEx & Portfolio Intelligence · Polska",
       headline: "Steruj programami CapEx liczbami, które można obronić przed zarządem.",
-      subheadline: `${PRODUCT_NAME} łączy costbook, zatwierdzanie zmian i metryki portfela w jednej platformie — dla wieloletnich inwestycji produkcyjnych i infrastrukturalnych w Polsce, bez miesięcznej konsolidacji w Excelu. Szczególnie skuteczny, gdy ERP przechowuje dane finansowe, a programy wielolokalizacyjne potrzebują jednego spójnego costbooku.`,
+      subheadline:
+        "Jeden costbook dla budżetu, prognozy, zmian i portfela — zwłaszcza tam, gdzie ERP jest źródłem prawdy finansowej.",
+      boundaryNote:
+        "To nie PPM zadań — CapCon to właścicielska kontrola finansowa z costbookiem i zmianami.",
       primaryCta: "Poproś o demo",
     },
     problem: {
@@ -45,9 +48,9 @@ export const polandVariant: Partial<Record<"pl" | "en" | "de", Partial<SiteDicti
         },
         {
           id: "sap-shadow-ledger",
-          title: "Rozbieżności z ERP",
+          title: "ERP ≠ costbook projektu",
           description:
-            "Import z ERP nie pokrywa się z costbookiem między lokalizacjami — równoległe skoroszyty Excel pozostają standardem.",
+            "Import z ERP ≠ costbook projektu — kontrolerzy odbudowują prawdę w cieniu Excela.",
         },
       ],
     },

@@ -48,9 +48,12 @@ const dictionary: SiteDictionary = {
   hero: {
     eyebrow: "CapEx & Portfolio Intelligence",
     headline: "設備投資プログラム向けプロジェクトコントロールと財務ガバナンス",
-    subheadline: `${PRODUCT_NAME}は、コストブック、変更管理、スケジュール連携、ポートフォリオガバナンスを一つのプラットフォームに統合します。根拠のあるフォーキャスト、エンドツーエンドの承認フロー、信頼性の高い指標により、複雑な設備投資プログラムを確実にコントロールできます。`,
+    subheadline:
+      "予算・フォーキャスト・変更・ポートフォリオのための一つのコストブック — 特に ERP が財務の正である場合に。",
+    proofLine:
+      "ライフサイエンスおよび産業向けマルチプロジェクト設備投資で採用 · SAP対応の突合 · 監査対応の承認",
     primaryCta: "デモを申し込む",
-    secondaryCta: "プラットフォームを見る",
+    secondaryCta: "コストブックと変更を2分で見る",
   },
   problem: {
     title: "設備投資プロジェクトは複雑です。コントロールは、そうあるべきではありません。",
@@ -65,9 +68,9 @@ const dictionary: SiteDictionary = {
       },
       {
         id: "opaque-forecasts",
-        title: "不透明なフォーキャスト",
+        title: "変更は承認済み、フォーキャストは誤り",
         description:
-          "バージョンや前提条件がバラバラのため、信頼できる計画判断が困難になります。",
+          "変更は承認されたのに、フォーキャストが更新されない。影響がコストブックに反映されない。",
       },
       {
         id: "excel-processes",
@@ -82,10 +85,16 @@ const dictionary: SiteDictionary = {
           "個別プロジェクトは見えていても、投資予算・上限・キャッシュフローへの影響が把握できません。",
       },
       {
-        id: "change-audit-trail",
-        title: "根拠のない変更",
+        id: "sap-shadow-ledger",
+        title: "ERP ≠ プロジェクトコストブック",
         description:
-          "設計変更やスコープ変更を、当初計画やマスタープランに対して立証することが困難です。",
+          "ERP インポートがプロジェクトのコストブックと一致しないため、コントローラは影の Excel で真実を作り直します。",
+      },
+      {
+        id: "change-audit-trail",
+        title: "SOV 請求済み、EAC 不明",
+        description:
+          "SOV は請求済み、リテイネージは保留、EAC は不明 — あるいはコントローラが弁護できない変更根拠。",
       },
     ],
   },

@@ -29,9 +29,12 @@ export const largeProjectsVariant: Partial<Record<Locale, Partial<SiteDictionary
       headline: "Owner financial control for capital-intensive construction programs.",
       subheadline:
         "Costbook, SOV billing, and change in one owner layer — with campus master-plan control where programs require it.",
+      proofLine:
+        "Used on multi-project life-science and industrial capex programs · SAP-ready reconciliation · Audit-ready approvals",
       boundaryNote:
         "Not task PPM — CapCon is owner financial control with SOV and change.",
       primaryCta: "Request a demo",
+      secondaryCta: "See costbook + change in 2 minutes",
     },
     solution: {
       eyebrow: "For project owners",
